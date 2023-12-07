@@ -19,6 +19,7 @@
   "dependencies": {
     "@nuxt/content": "^2.9.0",
     "@vueuse/core": "^10.6.1",
+    "axios": "^1.6.2",
     "fuse.js": "^7.0.0",
     "maska": "^2.1.10"
   }
