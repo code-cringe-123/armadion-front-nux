@@ -20,7 +20,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 
-// const products = ref([])
+const products = ref([])
 
 // загрузка данных из products.json
 const loadProducts = async () => {
