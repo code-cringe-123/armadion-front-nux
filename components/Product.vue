@@ -11,7 +11,7 @@
                 >
                     <img
                         class="product-img"
-                        :src="product.img"
+                        :src="product.image[0].url"
                         alt="Product Image"
                     />
                 </router-link>
@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="product-number">
-                {{ product.number }} <span class=""> (Армада)</span>
+                {{ product.article }} <span class=""> (Армада)</span>
             </div>
         </div>
     </router-link>
