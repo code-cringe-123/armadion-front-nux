@@ -25,8 +25,9 @@ import { ref, onMounted } from 'vue'
 // загрузка данных из products.json
 const loadProducts = async () => {
     try {
-        const response = await fetch('/products.json')
+        const response = await fetch('http://185.244.51.158/doors/popular/')
         const data = await response.json()
+        // console.log(data)
         products.value = data
     } catch (error) {
         console.error('Ошибка загрузки данных:', error)
