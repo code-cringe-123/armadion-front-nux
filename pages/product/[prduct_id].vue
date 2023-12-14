@@ -19,7 +19,7 @@
                             @click="changeMainImage($event)"
                         >
                             <img
-                                src="../../public/svg/doors/door_card.jpg"
+                                src="../../svg/doors/door_card.jpg"
                                 alt="door"
                             />
                         </div>
@@ -29,16 +29,20 @@
                             style="width: 120px; height: 120px"
                             @click="changeMainImage($event)"
                         >
-                            <img src="../../public/svg/doors/door_ch.svg" alt="door" />
+                            <img src="../../svg/doors/door_ch.svg" alt="door" />
                         </div>
                     </div>
                     <div class="page-body-left__img">
                         <img
                             id="pageImage"
-                            src="../../public/svg/doors/door_card.jpg"
+                            src="../../svg/doors/door_card.jpg"
                             alt=""
                         />
                     </div>
+                </div>
+                <div class="product-page-title product-page-title__media">
+                    {{ product && product.title }}
+                    {{ product && product.number }}
                 </div>
                 <div class="product-page-body-right">
                     <div class="product-page-body-price-wrapper">
@@ -94,10 +98,11 @@
                     </div>
                 </div>
             </div>
+
             <div class="product-page-characteristics-container">
-                <div class="product-page-characteristics-title">
+                <h3 class="product-page-characteristics-title">
                     Характеристики
-                </div>
+                </h3>
                 <div class="product-page-characteristics-wrapper">
                     <div class="product-page-characteristics-left">
                         <!-- {{ product && product.title.padEnd(86, '.')  }}{{ product && product.number}} -->
@@ -339,20 +344,39 @@
                         </div>
                     </div>
                 </div>
+                <h3 class="product-page-characteristics-title">
+                    Похожие Двери
+                </h3>
             </div>
-            <SimilarDoors />
+
+            <div class="doors__cont">
+                <SimilarDoors />
+            </div>
+            <div class="doors__slider">
+                <slider />
+            </div>
         </div>
     </div>
 </template>
 
 <script setup>
+// import SimilarDoors from '../components/SimilarDoors.vue'
+// import UIbtn from '../components/btns/UI-btn.vue'
 import { onMounted, ref } from 'vue'
+// import swiper from './slider.vue'
 
 const product = ref(null)
 
 const changeMainImage = (event) => {
     const pageImage = document.getElementById('pageImage')
-    const newSrc = event.currentTarget.querySelector('img').src
+
+    const allItems = document.querySelectorAll('.carousel__item')
+    allItems.forEach((item) => item.classList.remove('active__icon'))
+
+    const clickedItem = event.currentTarget
+    clickedItem.classList.add('active__icon')
+
+    const newSrc = clickedItem.querySelector('img').src
     pageImage.src = newSrc
 }
 
@@ -425,15 +449,16 @@ const slickOptions = {
     align-items: center;
     justify-content: center;
     border-radius: 8px;
+    cursor: pointer;
 }
+
 .carousel__item img {
     position: block;
     width: 82px;
     height: 112px;
 }
 
-#c_i_1:hover,
-#c_i_2:hover {
+.active__icon {
     border: 2px solid #38bdf8;
 }
 
@@ -494,7 +519,7 @@ h4 {
 .product-page-characteristics-right {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
     width: 580px;
     height: 400px;
 }
@@ -502,7 +527,7 @@ h4 {
 .product-page-characteristics-left {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
     width: 580px;
     height: 400px;
 }
@@ -615,5 +640,101 @@ h4 {
 
 .wrapper-product-page {
     width: 1180px;
+}
+
+.product-page-title__media {
+    display: none;
+}
+
+.doors__slider {
+    display: none;
+}
+
+@media screen and (max-width: 1200px) {
+    .container {
+        overflow-x: hidden;
+    }
+
+    .product-page-title {
+        display: none;
+    }
+
+    .container-product-page {
+        margin-top: 115px;
+    }
+
+    .product-page-title__media {
+        display: block;
+        color: #374151;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 105%;
+
+        margin: 0 auto;
+        max-width: 400px;
+    }
+
+    .product-page-body-price-wrapper {
+        display: none;
+    }
+
+    .product-page-body {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0 10px;
+    }
+    .product-page-body-left {
+        margin: 0 auto;
+    }
+
+    .carousel {
+        display: none;
+    }
+
+    .product-page-body-right {
+        margin: 0 auto;
+        max-width: 400px;
+    }
+
+    .product-page-characteristics-container {
+        text-align: left;
+        margin-top: 40px;
+        gap: 30px;
+    }
+
+    /* доделать к левому краю */
+    .product-page-characteristics-title {
+        margin: 0 auto;
+    }
+
+    .product-page-characteristics-wrapper {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .product-page-characteristics-left,
+    .product-page-characteristics-right {
+        width: auto;
+        height: auto;
+    }
+
+    .SimilarDoors-wrapper {
+        display: flex;
+        flex-direction: row-reverse;
+        margin: 0 auto;
+    }
+    .product {
+        overflow: hidden;
+    }
+
+    .doors__slider {
+        display: block;
+    }
+    .doors__cont {
+        display: none;
+    }
 }
 </style>

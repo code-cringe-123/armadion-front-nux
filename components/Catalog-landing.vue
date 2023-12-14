@@ -22,12 +22,12 @@ import { ref, onMounted } from 'vue'
 
 const products = ref([])
 
-// загрузка данных из products.json
+
 const loadProducts = async () => {
     try {
-        const response = await fetch('http://185.244.51.158/doors/popular/')
+        const response = await fetch('http://185.244.51.158/doors/popular/?format=json')
         const data = await response.json()
-        // console.log(data)
+        console.log(data)
         products.value = data
     } catch (error) {
         console.error('Ошибка загрузки данных:', error)
@@ -37,7 +37,7 @@ const loadProducts = async () => {
 onMounted(() => {
     loadProducts()
 })
-// const { data: products } = await useFetch('/public/products.json')
+// const { data: products } = await useFetch('http://185.244.51.158/doors/popular/')
 </script>
 
 <style lang="scss">

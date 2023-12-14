@@ -28,7 +28,7 @@ onMounted(() => {
     loadProducts()
 })
 </script>
-
+ 
 <style lang="scss">
 .catalog-wrapper {
     display: flex;
@@ -38,10 +38,10 @@ onMounted(() => {
     max-width: 1180px;
 
     @media screen and (max-width: 1024px) {
-        width: 100vw;
+        width: 70%;
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 920px) {
         width: 355px;
     }
 }
@@ -51,22 +51,22 @@ onMounted(() => {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 
-    @media screen and (max-width: 1200px) {
-        width: 100vw;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 15px;
-    }
+    // @media screen and (max-width: 1200px) {
+    //     width: 100%;
+    //     display: grid;
+    //     grid-template-columns: repeat(2, 1fr);
+    //     gap: 15px;
+    // }
 
-    @media screen and (max-width: 960px) {
-        width: 100vw;
+    @media screen and (max-width: 1200px) {
+        width: 100%;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 15px 10px;
+        gap: 15px;
     }
-
-    @media screen and (max-width: 768px) {
-        width: 100vw;
+    
+    @media screen and (max-width: 920px) {
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;

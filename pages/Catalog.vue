@@ -15,8 +15,10 @@
     flex-direction: row;
     /* align-items: center; */
     justify-content: center;
-
-    @media screen and (max-width: 425px) {
+    @media screen and (max-width: 1024px) {
+        padding: 0 20px;
+    }
+    @media screen and (max-width: 666px) {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -24,6 +26,6 @@
 }
 
 // .catalog-page-container-menu {
-//   margin-right: 20px;
+    
 // }
 </style>

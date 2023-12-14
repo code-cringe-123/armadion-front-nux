@@ -1,12 +1,12 @@
 <template>
     <router-link
-        :to="{ name: 'Product', params: { id: product.id } }"
+        :to="`/product/${product.id}`"
         class="product-link"
     >
         <div class="product">
             <div class="product-wrapper">
                 <router-link
-                    :to="{ name: 'Product', params: { id: product.id } }"
+                    :to="`/product/${product.id}`"
                     class="img-product-wrapper"
                 >
                     <img
@@ -17,7 +17,7 @@
                 </router-link>
                 <div class="card-body">
                     <router-link
-                        :to="{ name: 'Product', params: { id: product.id } }"
+                        :to="`/product/${product.id}`"
                         class="product-name"
                         >{{ product.title }}</router-link
                     >

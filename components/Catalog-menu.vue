@@ -269,6 +269,27 @@ watchEffect(() => {
 })
 </script>
 <style lang="scss">
+
+.price-range {
+    width: 100%;
+    accent-color: #38BDF8;
+}
+.price-range::-webkit-slider-runnable-track {
+    height: 2px;
+    background-color: #bae6fd;
+}
+.price-range::-webkit-slider-thumb {
+    position: relative;
+    /* width: 20px;
+    height: 20px; */
+    top: -7px;
+    border: 2px solid inherit;
+}
+
+
+
+
+// 
 .active-count-filters {
     font-family: Sansation;
     font-size: 10px;
@@ -507,7 +528,7 @@ watchEffect(() => {
     margin-bottom: 12px;
     display: none;
 
-    @media screen and (max-width: 425px) {
+    @media screen and (max-width: 666px) {
         display: flex;
     }
 }
@@ -635,7 +656,7 @@ watchEffect(() => {
     display: block;
     width: 16px;
     height: 16px;
-    background-image: url('../public/svg/checkbox.svg');
+    background-image: url('../../svg/checkbox.svg');
     background-size: contain;
     background-repeat: no-repeat;
     position: relative;
@@ -656,7 +677,7 @@ watchEffect(() => {
     display: flex;
     margin-right: 20px;
 
-    @media screen and (max-width: 425px) {
+    @media screen and (max-width: 666px) {
         display: none;
     }
 }
