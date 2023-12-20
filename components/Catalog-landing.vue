@@ -8,7 +8,7 @@
                     v-for="product in products"
                     :key="product.id"
                 >
-                    <Product :product="product" />
+                    <PopularProduct :product="product" />
 
                 </div>
             </div>
@@ -18,27 +18,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-
-const products = ref([])
-
-
-const loadProducts = async () => {
-    try {
-        const response = await fetch('http://185.244.51.158/doors/popular/?format=json')
-        const data = await response.json()
-        console.log(data)
-        products.value = data
-    } catch (error) {
-        console.error('Ошибка загрузки данных:', error)
-    }
-}
-
-onMounted(() => {
-    loadProducts()
-})
-// const { data: products } = await useFetch('http://185.244.51.158/doors/popular/')
+const props = defineProps(['products'])
 </script>
+
 
 <style lang="scss">
 .catalog-container {

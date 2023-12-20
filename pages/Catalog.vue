@@ -1,11 +1,19 @@
 <template>
     <div class="catalog-page-container">
         <Catalog-menu class="catalog-page-container-menu" />
-        <Catalog />
+        <Catalog :products="products"/>
     </div>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+
+const products = ref([])
+const filters = ref([])
+const { data } = await useFetch(`http://185.244.51.158/doors/filter`)
+console.log(data)
+products.value = data.value.doors
+filters.value = data.value.filters
 </script>
 
 <style lang="scss">

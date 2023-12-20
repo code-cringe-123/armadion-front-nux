@@ -9,24 +9,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-
-const products = ref([])
-
-// загрузка данных из products.json
-const loadProducts = async () => {
-    try {
-        const response = await fetch('/products.json')
-        const data = await response.json()
-        products.value = data
-    } catch (error) {
-        console.error('Ошибка загрузки данных:', error)
-    }
-}
-// const { data: products } = await useFetch('/public/products.json')
-onMounted(() => {
-    loadProducts()
-})
+const props = defineProps(['products'])
 </script>
  
 <style lang="scss">

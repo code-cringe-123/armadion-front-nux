@@ -11,7 +11,7 @@
                 >
                     <img
                         class="product-img"
-                        :src="product.images[0].url"
+                        :src="product.image[0].url"
                         alt="Product Image"
                     />
                 </router-link>

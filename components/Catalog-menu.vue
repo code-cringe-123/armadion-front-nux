@@ -159,13 +159,13 @@
             <!-- Настройки габаритных размеров -->
             <div class="dimension-settings">
                 <div class="catalog-menu-title">Габаритные размеры</div>
-                <!-- {{ sizes.length }} -->
+
                 <div class="dimension-item" v-for="size in sizes" :key="size">
                     <label class="label-checkbex">
                         <input class="catalog-checkbox" type="checkbox" />
                         {{ size }}
                     </label>
-                    <!-- <div class="catalog-menu-size">{{ size }}</div> -->
+                    
                 </div>
             </div>
 
