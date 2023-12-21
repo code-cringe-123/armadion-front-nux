@@ -1,8 +1,8 @@
 <template>
     <div class="SimilarDoors-title">Похожие Двери</div>
     <swiper class="mySwiper" :slidesPerView="3" loop loopAddBlankSlides>
-        <swiper-slide v-for="product in products" :key="product.id">
-            <Product :product="product" />
+        <swiper-slide v-for="door in similarDoors" :key="door.id">
+            <Product :product="door" />
         </swiper-slide>
     </swiper>
 </template>
@@ -10,6 +10,7 @@
 <script setup>
 import { ref } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
+const props = defineProps(['similarDoors'])
 // import Product from '../components/Product.vue'
 
 // const products = ref([])
@@ -38,7 +39,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 // onMounted(() => {
 //     loadProducts()
 // })
-const props = defineProps(['products'])
+
 </script>
 
 <style>

@@ -2,7 +2,7 @@
   <div class="container-product-page">
       <div class="wrapper-product-page">
           <div class="product-page-title">
-              {{ data && data.title }} {{ data && data.number }}
+              {{ data && data.title }}
           </div>
           <div class="product-page-body">
               <div class="product-page-body-left">
@@ -20,7 +20,7 @@
                           @click="changeMainImage($event)"
                       >
                           <img
-                              src="../../svg/doors/door_card.jpg"
+                              src="../../svg/doors/door_ch.svg"
                               alt="door"
                           />
                       </div>
@@ -354,7 +354,7 @@
               <SimilarDoors />
           </div> -->
           <div class="doors__slider">
-              <slider />
+              <slider :similarDoors="similarDoors"/>
           </div>
       </div>
   </div>
@@ -366,7 +366,8 @@ import { ref } from 'vue'
 // import swiper from './slider.vue'
 // import TopSwiper from './slider-pag.vue'
 
-const product = ref(null)
+
+const similarDoors = ref([])
 
 const changeMainImage = (event) => {
   const pageImage = document.getElementById('pageImage')
@@ -386,6 +387,8 @@ const route = useRoute();
 const { data } = await useFetch(
   `http://185.244.51.158/doors/${route.params.prduct_id}/`
 );
+similarDoors.value = data.value.similar_doors
+console.log(similarDoors)
 
 // const products = ref([])
 // const { data } = await useFetch(`http://185.244.51.158/doors/popular/`)
