@@ -1,6 +1,6 @@
 <template>
     <div class="catalog-page-container">
-        <Catalog-menu class="catalog-page-container-menu" />
+        <Catalog-menu class="catalog-page-container-menu" :filters="filters"/>
         <Catalog :products="products"/>
     </div>
 </template>

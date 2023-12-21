@@ -1,45 +1,35 @@
 <template>
     <div class="SimilarDoors-title">Похожие Двери</div>
-    <swiper class="mySwiper" :slidesPerView="3" loop loopAddBlankSlides>
-        <swiper-slide v-for="door in similarDoors" :key="door.id">
-            <Product :product="door" />
+    <swiper v-if="isWideScreen" class="mySwiper" :slidesPerView="4" loop loopAddBlankSlides>
+        <swiper-slide v-for="door in similardoors" :key="door.id">
+        <PopularProduct :product="door" />
+        </swiper-slide>
+    </swiper>
+    <swiper v-else class="mySwiper" :slidesPerView="3" loop loopAddBlankSlides>
+        <swiper-slide v-for="door in similardoors" :key="door.id">
+        <PopularProduct :product="door" />
         </swiper-slide>
     </swiper>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue'
-const props = defineProps(['similarDoors'])
-// import Product from '../components/Product.vue'
+const props = defineProps(['similardoors'])
 
-// const products = ref([])
+const isWideScreen = ref(window.innerWidth >= 1024);
 
-// // Загрузка данных из SimilarDoors.json
-// const loadProducts = async () => {
-//     try {
-//         const response = await fetch('/SimilarDoors.json')
-//         const data = await response.json()
-//         products.value = data
-//     } catch (error) {
-//         console.error('Ошибка загрузки данных:', error)
-//     }
-// }
-// const products = ref([])
-// const loadProducts = async () => {
-//     try {
-//         const response = await fetch('http://185.244.51.158/doors/popular/')
-//         const data = await response.json()
-//         products.value = data
-//     } catch (error) {
-//         console.error('Ошибка загрузки данных:', error)
-//     }
-// }
+onMounted(() => {
+  window.addEventListener('resize', handleResize);
+});
 
-// onMounted(() => {
-//     loadProducts()
-// })
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', handleResize);
+});
 
+function handleResize() {
+  isWideScreen.value = window.innerWidth >= 1024;
+}
 </script>
 
 <style>

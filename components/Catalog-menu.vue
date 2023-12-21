@@ -205,6 +205,7 @@
 import { ref, watchEffect, computed } from 'vue'
 import Fuse from 'fuse.js'
 import { vMaska } from "maska";
+const props = defineProps(['filters'])
 //
 
 const sizeActive = ref([])
