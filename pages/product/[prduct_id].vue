@@ -34,7 +34,7 @@
             <img id="pageImage" :src="data && data?.images?.[0]?.url" alt="" />
           </div>
           <div class="top__swiper">
-            <slider-pag :images="images"/>
+            <slider-pag :images="images" />
           </div>
         </div>
         <div class="product-page-title product-page-title__media">
@@ -338,7 +338,7 @@
                 <SimilarDoors />
             </div> -->
       <div class="doors__slider">
-        <slider :similardoors="similardoors"/>
+        <slider :similardoors="similardoors" />
       </div>
     </div>
   </div>
@@ -366,13 +366,13 @@ const changeMainImage = (event) => {
 const route = useRoute();
 
 const { data } = await useFetch(
-  `http://185.244.51.158/doors/${route.params.prduct_id}/`
+  `http://185.244.51.158/doors/${route.params.prduct_id}/`,
 );
 
-const images = ref([])
-images.value = data.value.images
-const similardoors = ref([])
-similardoors.value = data.value.similar_doors
+const images = ref([]);
+images.value = data.value.images;
+const similardoors = ref([]);
+similardoors.value = data.value.similar_doors;
 
 // uncomment
 // import VueSlickCarousel from "vue-slick-carousel";

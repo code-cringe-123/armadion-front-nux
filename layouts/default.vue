@@ -1,13 +1,12 @@
 <template>
-    <div class="container">
-        <div class="content">
-          <Theheader/>
-          <slot></slot>
-        </div>
-        <Thefooter/>
-  
+  <div class="container">
+    <div class="content">
+      <Theheader />
+      <slot></slot>
     </div>
-  </template>
+    <Thefooter />
+  </div>
+</template>
 
 <style>
 .container {

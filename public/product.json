@@ -49,95 +49,90 @@
 //     "glazed_window": "противопожарный"
 // }
 
-
-
-
-
 {
-    "id": "84a1091c-a7b2-4e86-b6c4-916987032ecc",
-    "title": "дверь",
-    "price": "10000.00",
-    "images": [
-      {
-        "id": "cc056919-800a-498b-9583-abdf2fc6dff1",
-        "date_added": "2023-12-15T15:45:13.751339+03:00",
-        "url": "http://185.244.51.158/media/mediafiles/doors/dver-vhodnaya-ekstra-280x560.jpg",
-        "mimetype": "image/jpeg"
-      }
-    ],
-    "description": "",
-    "delivery": "",
-    "payment": "",
-    "safeguards": "",
-    "feature_categories": [
-      {
-        "name": "Характеристики",
-        "slug": "harakteristiki",
-        "features": [
-          {
-            "name": "Габаритные размеры (В*Ш*Г), мм",
-            "value": "2 вариант габаритных размеров",
-            "name_slug": "gabaritnye-razmery-vshg-mm",
-            "value_slug": "2-variant-gabaritnyh-razmerov"
-          }
-        ]
-      },
-      {
-        "name": "Внешняя отделка",
-        "slug": "vneshnyaya-otdelka",
-        "features": [
-          {
-            "name": "Модель внешней отделки",
-            "value": "1 модель внешней отделки",
-            "name_slug": "model-vneshnej-otdelki",
-            "value_slug": "1-model-vneshnej-otdelki"
-          }
-        ]
-      }
-    ],
-    "similar_doors": [
-      {
-        "id": "8abadf61-0b96-4d7c-ba65-d59b00864f3b",
-        "image": [
-          {
-            "id": "fd57219f-7c58-4900-916a-ff8bd164ca2c",
-            "date_added": "2023-12-15T15:45:59.221589+03:00",
-            "url": "http://185.244.51.158/media/mediafiles/doors/dver-vels-vneshnyaya-280x560.jpg",
-            "mimetype": "image/jpeg"
-          }
-        ],
-        "title": "дверь3",
-        "price": "45000.00",
-        "article": null
-      },
-      {
-        "id": "b200e3ac-443b-425b-92d4-282ac8aa2dae",
-        "image": [
-          {
-            "id": "10d16f99-d42b-4bef-81ae-f332ad1a7cdb",
-            "date_added": "2023-12-15T15:45:37.171848+03:00",
-            "url": "http://185.244.51.158/media/mediafiles/doors/dver-bastion-p-280x560.jpg",
-            "mimetype": "image/jpeg"
-          }
-        ],
-        "title": "дверь2",
-        "price": "15000.00",
-        "article": null
-      },
-      {
-        "id": "ea116416-4289-4201-9c01-18d56e8a50bd",
-        "image": [
-          {
-            "id": "c649eef3-7f71-44d7-8ff5-57f852c77fd6",
-            "date_added": "2023-12-15T15:58:44.420813+03:00",
-            "url": "http://185.244.51.158/media/mediafiles/doors/dver-loft-beton-temnyj-dub-mokko-1-280x560.jpg",
-            "mimetype": "image/jpeg"
-          }
-        ],
-        "title": "дверь4",
-        "price": "33000.00",
-        "article": null
-      }
-    ]
-  }
-
+  "id": "84a1091c-a7b2-4e86-b6c4-916987032ecc",
+  "title": "дверь",
+  "price": "10000.00",
+  "images": [
+    {
+      "id": "cc056919-800a-498b-9583-abdf2fc6dff1",
+      "date_added": "2023-12-15T15:45:13.751339+03:00",
+      "url": "http://185.244.51.158/media/mediafiles/doors/dver-vhodnaya-ekstra-280x560.jpg",
+      "mimetype": "image/jpeg"
+    }
+  ],
+  "description": "",
+  "delivery": "",
+  "payment": "",
+  "safeguards": "",
+  "feature_categories": [
+    {
+      "name": "Характеристики",
+      "slug": "harakteristiki",
+      "features": [
+        {
+          "name": "Габаритные размеры (В*Ш*Г), мм",
+          "value": "2 вариант габаритных размеров",
+          "name_slug": "gabaritnye-razmery-vshg-mm",
+          "value_slug": "2-variant-gabaritnyh-razmerov"
+        }
+      ]
+    },
+    {
+      "name": "Внешняя отделка",
+      "slug": "vneshnyaya-otdelka",
+      "features": [
+        {
+          "name": "Модель внешней отделки",
+          "value": "1 модель внешней отделки",
+          "name_slug": "model-vneshnej-otdelki",
+          "value_slug": "1-model-vneshnej-otdelki"
+        }
+      ]
+    }
+  ],
+  "similar_doors": [
+    {
+      "id": "8abadf61-0b96-4d7c-ba65-d59b00864f3b",
+      "image": [
+        {
+          "id": "fd57219f-7c58-4900-916a-ff8bd164ca2c",
+          "date_added": "2023-12-15T15:45:59.221589+03:00",
+          "url": "http://185.244.51.158/media/mediafiles/doors/dver-vels-vneshnyaya-280x560.jpg",
+          "mimetype": "image/jpeg"
+        }
+      ],
+      "title": "дверь3",
+      "price": "45000.00",
+      "article": null
+    },
+    {
+      "id": "b200e3ac-443b-425b-92d4-282ac8aa2dae",
+      "image": [
+        {
+          "id": "10d16f99-d42b-4bef-81ae-f332ad1a7cdb",
+          "date_added": "2023-12-15T15:45:37.171848+03:00",
+          "url": "http://185.244.51.158/media/mediafiles/doors/dver-bastion-p-280x560.jpg",
+          "mimetype": "image/jpeg"
+        }
+      ],
+      "title": "дверь2",
+      "price": "15000.00",
+      "article": null
+    },
+    {
+      "id": "ea116416-4289-4201-9c01-18d56e8a50bd",
+      "image": [
+        {
+          "id": "c649eef3-7f71-44d7-8ff5-57f852c77fd6",
+          "date_added": "2023-12-15T15:58:44.420813+03:00",
+          "url": "http://185.244.51.158/media/mediafiles/doors/dver-loft-beton-temnyj-dub-mokko-1-280x560.jpg",
+          "mimetype": "image/jpeg"
+        }
+      ],
+      "title": "дверь4",
+      "price": "33000.00",
+      "article": null
+    }
+  ]
+}

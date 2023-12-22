@@ -46,7 +46,6 @@
 </template>
 <!-- pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" -->
 <style lang="scss">
-
 .form {
   // max-width: 580px;
   height: 369px;
