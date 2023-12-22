@@ -9,6 +9,7 @@
 </template>
 
 <script setup>
+// получить значение с input и выше проверять входит ли product.price в этот диапазон
 const props = defineProps(["products"]);
 </script>
 

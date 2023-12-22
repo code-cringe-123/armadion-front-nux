@@ -87,14 +87,14 @@
               placeholder="От 900р"
               v-maska
               data-maska="От ###р"
-              v-model="price"
+              v-model="priceRange[0]"
             />
             <input
               class="price-box-mobile-2 price-box"
               placeholder="До"
               v-maska
               data-maska="До #####р"
-              v-model="price"
+              v-model="priceRange[1]"
             />
           </div>
           <div class="catalog-mobile-price-container-buttom">
@@ -197,6 +197,8 @@ const props = defineProps(["filters"]);
 //
 
 const sizeActive = ref([]);
+
+let priceRange = ref([0, 1000000]);
 
 const checkingSizeAvailability = (size) => {
   if (sizeActiveCheck(size)) {
