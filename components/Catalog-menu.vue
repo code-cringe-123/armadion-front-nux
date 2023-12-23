@@ -84,16 +84,16 @@
           <div class="price-range-mobile">
             <input
               class="price-box-mobile-1 price-box"
-              placeholder="От 900р"
+              placeholder="От 900₽"
               v-maska
-              data-maska="От ###р"
+              data-maska="От ###₽"
               v-model="priceRange[0]"
             />
             <input
               class="price-box-mobile-2 price-box"
               placeholder="До"
               v-maska
-              data-maska="До #####р"
+              data-maska="До ####₽"
               v-model="priceRange[1]"
             />
           </div>
@@ -134,16 +134,16 @@
         <div class="price-range">
           <input
             class="price-box-1 price-box"
-            placeholder="От 900р"
+            placeholder="От 900₽"
             v-maska
-            data-maska="От ###р"
+            data-maska="От ###₽"
             v-model="price"
           />
           <input
             class="price-box-2 price-box"
             placeholder="До"
             v-maska
-            data-maska="До #####р"
+            data-maska="До #####₽"
             v-model="price"
           />
         </div>
