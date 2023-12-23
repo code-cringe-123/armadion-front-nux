@@ -425,7 +425,7 @@ const slickOptions = {
 }
 .page-body-left__img > img {
   width: 280px;
-  height: 415px;
+  height: 413px;
 }
 .carousel {
   margin: 0 0 auto;
@@ -443,7 +443,7 @@ const slickOptions = {
 
 .carousel__item img {
   position: block;
-  width: 82px;
+  width: 76px;
   height: 112px;
 }
 
@@ -454,6 +454,7 @@ const slickOptions = {
 h4 {
   margin: 0;
   padding-bottom: 12px;
+  color: var(--gray-700, #374151);
 }
 .stats > p {
   margin: 0;

@@ -27,6 +27,7 @@ const modules = [Pagination];
 
 .slider-image {
   height: 95%;
+  width: 45%;
   padding-bottom: 20px;
 }
 
