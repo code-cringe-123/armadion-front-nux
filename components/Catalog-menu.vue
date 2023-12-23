@@ -87,7 +87,7 @@
               placeholder="От 900₽"
               v-maska
               data-maska="От ###₽"
-              v-model="price"
+              v-model="priceRange[0]"
             />
             <input
               class="price-box-mobile-2 price-box"
@@ -137,14 +137,14 @@
             placeholder="От 900₽"
             v-maska
             data-maska="От ###₽"
-            v-model="price"
+            v-model="priceRange[0]"
           />
           <input
             class="price-box-2 price-box"
             placeholder="До"
             v-maska
             data-maska="До #####₽"
-            v-model="price"
+            v-model="priceRange[1]"
           />
         </div>
       </div>
@@ -194,8 +194,18 @@ import { ref, watchEffect, computed } from "vue";
 import Fuse from "fuse.js";
 import { vMaska } from "maska";
 const props = defineProps(["filters"]);
-//
+import { defineEmits } from "vue";
 
+const changePriceRange = (newValue) => {
+  priceRange.value = newValue;
+};
+
+const updatePriceRange = () => {
+  // Отправляем измененный диапазон цен в родительский компонент
+  defineEmits().emit("updatePriceRange", priceRange.value);
+};
+
+//
 const sizeActive = ref([]);
 
 let priceRange = ref([0, 1000000]);

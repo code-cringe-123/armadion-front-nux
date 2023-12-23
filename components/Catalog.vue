@@ -1,7 +1,10 @@
 <template>
   <div class="catalog-wrapper">
     <div class="products-wrapper">
-      <div class="products" v-for="product in products" :key="product.id">
+      <!-- <div class="products" v-for="product in products" :key="product.id">
+          <Product :product="product" />
+        </div> -->
+      <div class="products" v-for="product in FilteredItems" :key="product.id">
         <Product :product="product" />
       </div>
     </div>
@@ -9,8 +12,39 @@
 </template>
 
 <script setup>
-// получить значение с input и выше проверять входит ли product.price в этот диапазон
-const props = defineProps(["products"]);
+const { products, select_left__range, select_right__range } = defineProps([
+  "products",
+  "select_left__range",
+  "select_right__range",
+]);
+const FilteredItems = ref([]);
+
+const applyFilters = () => {
+  FilteredItems.value = products.filter((product) => {
+    return (
+      product.price >= select_left__range &&
+      product.price <= select_right__range
+    );
+  });
+};
+watch([select_left__range, select_right__range], () => {
+  applyFilters();
+});
+
+const unwatchProducts = watch(
+  () => products,
+  () => {
+    applyFilters();
+  },
+);
+
+onMounted(() => {
+  applyFilters();
+});
+
+onBeforeUnmount(() => {
+  unwatchProducts();
+});
 </script>
 
 <style lang="scss">
@@ -34,6 +68,7 @@ const props = defineProps(["products"]);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+
   // @media screen and (max-width: 1200px) {
   //     width: 100%;
   //     display: grid;
