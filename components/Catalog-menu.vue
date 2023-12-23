@@ -87,7 +87,7 @@
               placeholder="От 900₽"
               v-maska
               data-maska="От ###₽"
-              v-model="priceRange[0]"
+              v-model="price"
             />
             <input
               class="price-box-mobile-2 price-box"
