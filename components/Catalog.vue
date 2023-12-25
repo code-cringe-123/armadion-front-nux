@@ -1,12 +1,12 @@
 <template>
   <div class="catalog-wrapper">
     <div class="products-wrapper">
-      <!-- <div class="products" v-for="product in products" :key="product.id">
+      <div class="products" v-for="product in products" :key="product.id">
           <Product :product="product" />
-        </div> -->
-      <div class="products" v-for="product in FilteredItems" :key="product.id">
+        </div>
+      <!-- <div class="products" v-for="product in FilteredItems" :key="product.id">
         <Product :product="product" />
-      </div>
+      </div> -->
     </div>
   </div>
 </template>

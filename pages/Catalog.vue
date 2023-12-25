@@ -207,8 +207,8 @@ import { ref, watchEffect, computed, watch } from "vue";
 import Fuse from "fuse.js";
 import { vMaska } from "maska";
 //
-// let select_left__range = ref(0);
-// let select_right__range = ref(100000);
+let select_left__range = ref(0);
+let select_right__range = ref(100000);
 //
 const props = defineProps(["filters"]);
 const products = ref([]);
@@ -220,19 +220,19 @@ filters.value = data.value.filters;
 console.log(filters);
 
 
-// const handleInputChange = () => {
-//   const leftRangeValue = Number(select_left__range.value.replace(/[^\d]/g, ""));
-//   const rightRangeValue = Number(
-//     select_right__range.value.replace(/[^\d]/g, ""),
-//   );
-// };
-// watch(select_left__range, () => {
-//   handleInputChange();
-// });
+const handleInputChange = () => {
+  const leftRangeValue = Number(select_left__range.value.replace(/[^\d]/g, ""));
+  const rightRangeValue = Number(
+    select_right__range.value.replace(/[^\d]/g, ""),
+  );
+};
+watch(select_left__range, () => {
+  handleInputChange();
+});
 
-// watch(select_right__range, () => {
-//   handleInputChange();
-// });
+watch(select_right__range, () => {
+  handleInputChange();
+});
 
 const sizeActive = ref([]);
 const checkingSizeAvailability = (size) => {
