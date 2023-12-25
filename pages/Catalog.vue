@@ -207,8 +207,8 @@ import { ref, watchEffect, computed, watch } from "vue";
 import Fuse from "fuse.js";
 import { vMaska } from "maska";
 //
-let select_left__range = ref(24999);
-let select_right__range = ref(100000);
+// let select_left__range = ref(0);
+// let select_right__range = ref(100000);
 //
 const props = defineProps(["filters"]);
 const products = ref([]);
@@ -217,22 +217,24 @@ const { data } = await useFetch(`http://185.244.51.158/doors/filter`);
 // console.log(data);
 products.value = data.value.doors;
 filters.value = data.value.filters;
+console.log(filters);
+
+
+// const handleInputChange = () => {
+//   const leftRangeValue = Number(select_left__range.value.replace(/[^\d]/g, ""));
+//   const rightRangeValue = Number(
+//     select_right__range.value.replace(/[^\d]/g, ""),
+//   );
+// };
+// watch(select_left__range, () => {
+//   handleInputChange();
+// });
+
+// watch(select_right__range, () => {
+//   handleInputChange();
+// });
 
 const sizeActive = ref([]);
-const handleInputChange = () => {
-  const leftRangeValue = Number(select_left__range.value.replace(/[^\d]/g, ""));
-  const rightRangeValue = Number(
-    select_right__range.value.replace(/[^\d]/g, ""),
-  );
-};
-watch(select_left__range, () => {
-  handleInputChange();
-});
-
-watch(select_right__range, () => {
-  handleInputChange();
-});
-
 const checkingSizeAvailability = (size) => {
   if (sizeActiveCheck(size)) {
     sizeActive.value = sizeActive.value.filter((item) => item !== size);
