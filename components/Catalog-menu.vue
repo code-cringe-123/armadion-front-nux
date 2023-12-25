@@ -72,7 +72,7 @@
         <div class="close-filters-img-container">
           <img
             class="close-filters-img"
-            src="../svg/close-img-2.svg"
+            src="../public/svg//close-img-2.svg"
             alt=""
             @click="closeSlideFilters"
           />
@@ -652,7 +652,7 @@ watchEffect(() => {
   display: block;
   width: 16px;
   height: 16px;
-  background-image: url("../../svg/checkbox.svg");
+  background-image: url("../public/svg/checkbox.svg");
   background-size: contain;
   background-repeat: no-repeat;
   position: relative;

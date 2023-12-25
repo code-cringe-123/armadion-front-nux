@@ -13,7 +13,7 @@
           </NuxtLink>
           <img
             class="HeaderCatalog-arrow"
-            src="../svg/headerCatalogArrow.svg"
+            src="../public/svg/headerCatalogArrow.svg"
             alt="headerCatalogArrow"
           />
         </li>

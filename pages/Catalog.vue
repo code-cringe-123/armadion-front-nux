@@ -54,7 +54,7 @@
               dy="4"
               fill="#fff"
               class="active-count-filters"
-            ></text>
+            >7</text>
           </svg>
           <div @click="toggleSlideFilters" class="catalog-filters-name">
             Фильтры
@@ -71,7 +71,7 @@
             <div class="close-filters-img-container">
               <img
                 class="close-filters-img"
-                src="../svg/close-img-2.svg"
+                src="../public/svg/close-img-2.svg"
                 alt=""
                 @click="closeSlideFilters"
               />
@@ -97,10 +97,12 @@
                 />
               </div>
               <div class="catalog-mobile-price-container-buttom">
-                <div class="catalog-mobile-price-title">Габаритные размеры</div>
+                <div class="catalog-mobile-price-title">
+                  {{ data?.filters?.[3]?.features[0].name }}
+                </div>
                 <div class="sizes-BTN-mobile-wrapper">
                   <div
-                    v-for="size in sizes"
+                    v-for="size in data?.filters?.[3]?.features"
                     :key="size"
                     class="catalog-menu-mobile-item"
                     @click="handleTableClick(size)"
@@ -108,9 +110,11 @@
                       'size-btn-active': sizeActiveCheck(size),
                       'size-btn': !sizeActiveCheck(size),
                     }"
+                    @change="handleChange"
                   >
+                    <!-- Добавить стили на кнопку -->
                     <button class="size-btn">
-                      <span class="size-btn-slot">{{ size }}</span>
+                      <span class="size-btn-slot">{{ size.value }}</span>
                     </button>
                   </div>
                 </div>
@@ -153,41 +157,50 @@
 
           <!-- Настройки габаритных размеров -->
           <div class="dimension-settings">
-            <div class="catalog-menu-title">Габаритные размеры</div>
+            <div class="catalog-menu-title">
+              {{ data?.filters?.[3]?.features[0].name }}
+            </div>
 
-            <div class="dimension-item" v-for="size in sizes" :key="size">
+            <div
+              class="dimension-item"
+              v-for="size in data?.filters?.[3]?.features"
+              :key="size"
+            >
               <label class="label-checkbex">
-                <input class="catalog-checkbox" type="checkbox" />
-                {{ size }}
+                <input class="catalog-checkbox" type="checkbox" @change="() => handleChange(true, size.value)"/>
+                {{ size.value }}
               </label>
             </div>
           </div>
 
           <!-- Настройки модели внутренней отделки -->
           <div class="interior-settings">
-            <div class="catalog-menu-title">Модель внутренней отделки</div>
+            <div class="catalog-menu-title">
+              {{ data?.filters?.[5]?.features[0].name }}
+            </div>
             <input
               class="catalog-menu-search"
               v-model="searchQuery"
               @input="performSearch"
               placeholder="Найти"
             />
+            {{ searchQuery }}
+            <!-- <div
+                class="interior-item"
+                v-for="result in searchResults"
+                :key="result.item"
+              >
+                <input class="catalog-checkbox" type="checkbox" />
+                {{ result.item }}
+              </div> -->
             <div
               class="interior-item"
-              v-for="result in searchResults"
-              :key="result.item"
-            >
-              <input class="catalog-checkbox" type="checkbox" />
-              {{ result.item }}
-            </div>
-            <div
-              class="interior-item"
-              v-for="model in interiorModels"
+              v-for="model in data?.filters?.[5]?.features"
               :key="model"
             >
               <label class="label-checkbex">
                 <input class="catalog-checkbox" type="checkbox" />
-                {{ model }}
+                {{ model.value }}
               </label>
             </div>
           </div>
@@ -206,20 +219,35 @@
 import { ref, watchEffect, computed, watch } from "vue";
 import Fuse from "fuse.js";
 import { vMaska } from "maska";
-//
 let select_left__range = ref(0);
 let select_right__range = ref(100000);
-//
+
 const props = defineProps(["filters"]);
 const products = ref([]);
+const products1 = ref([]);
 const filters = ref([]);
+
+
+const handleChange = async (isChecked, sizeValue) => {
+  if (isChecked) {
+    try {
+      const { data } = await useFetch(`http://185.244.51.158/doors/filter?gabaritnye-razmery-vshg-mm=${sizeValue}`);
+      // Обработка данных, если необходимо
+      console.log('Успешный запрос:');
+      products1.value = data.value;
+      console.log(products1)
+    } catch (error) {
+      console.error('Ошибка при выполнении запроса:', error);
+    }
+  }
+};
+
 const { data } = await useFetch(`http://185.244.51.158/doors/filter`);
-// console.log(data);
 products.value = data.value.doors;
 filters.value = data.value.filters;
-console.log(filters);
+console.log(products)
 
-
+const sizeActive = ref([]);
 const handleInputChange = () => {
   const leftRangeValue = Number(select_left__range.value.replace(/[^\d]/g, ""));
   const rightRangeValue = Number(
@@ -234,7 +262,6 @@ watch(select_right__range, () => {
   handleInputChange();
 });
 
-const sizeActive = ref([]);
 const checkingSizeAvailability = (size) => {
   if (sizeActiveCheck(size)) {
     sizeActive.value = sizeActive.value.filter((item) => item !== size);
@@ -261,38 +288,39 @@ const closeSlideFilters = () => {
   isSlideOutVisibleFilters.value = false;
 };
 
-const sizes = ref([
-  "2100*1000*24",
-  "2100*1010*14",
-  "2100*1300*34",
-  "2000*900*48",
-  "2100*100*24",
-  "2100*1010*4",
-  "210*1300*34",
-]);
+// тест
+// const query_name = "gabaritnye-razmery-vshg-mm";
+// const query_value = "2100-1000-70";
+// const loadData = async () => {
+//   if (sizeActive.value.length === 0) {
+//     const { data: responseData } = await useFetch(`http://185.244.51.158/doors/filter`);
+//     data.value = responseData.value;
+//     products.value = responseData.value.doors;
+//   } else {
+//     const query_name = "gabaritnye-razmery-vshg-mm";
+//     const query_value = "2100-1000-70";
+//     const { data: responseData } = await useFetch(`http://185.244.51.158/doors/filter?${query_name}=${query_value}`);
+//     data.value = responseData.value;
+//     products.value = responseData.value.doors;
+//   }
+// };
 
-const interiorModels = ref([
-  "10(6)мм Гладкая 1",
-  "10(6)мм Гладкая 2",
-  "10(6)мм Гладкая 2",
-  "10(6)мм Гладкая 2",
-  "10(6)мм Гладкая 2",
-  "10(6)мм Гладкая 2",
-  "10(6)мм Гладкая 2",
-  "10(6)мм Гладкая 2",
-]);
+// loadData();
+// http://185.244.51.158/doors/filter?gabaritnye-razmery-vshg-mm=2100-1000-70
+
+
 
 const searchQuery = ref("");
 const searchResults = ref([]);
 
-const performSearch = () => {
-  const fuse = new Fuse([...interiorModels.value]);
-  searchResults.value = fuse.search(searchQuery.value);
-};
+// const performSearch = () => {
+//   const fuse = new Fuse([...interiorModels.value]);
+//   searchResults.value = fuse.search(searchQuery.value);
+// };
 
-watchEffect(() => {
-  performSearch();
-});
+// watchEffect(() => {
+//   performSearch();
+// });
 </script>
 
 <style lang="scss">
@@ -405,7 +433,7 @@ watchEffect(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 110px;
+  width: 120px;
   height: 24px;
   padding: 4px 8px;
   border-radius: 8px;
@@ -418,7 +446,7 @@ watchEffect(() => {
 .size-btn-active > button {
   border: none;
   border-radius: 8px;
-  width: 110px;
+  width: 120px;
   height: 24px;
   background: rgba(rgb(56, 189, 248), 0.7);
   transition: background-color 0.3s;
@@ -693,7 +721,7 @@ watchEffect(() => {
   display: block;
   width: 16px;
   height: 16px;
-  background-image: url("../../svg/checkbox.svg");
+  background-image: url("../public/svg/checkbox.svg");
   background-size: contain;
   background-repeat: no-repeat;
   position: relative;
