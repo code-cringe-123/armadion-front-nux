@@ -12,7 +12,7 @@
         <!-- <ScrollToBottom class="scroll-btn" /> -->
       </div>
       <div class="img-wrapper">
-        <img class="hero-img" src="../svg/hero/hero-img.svg" alt="" />
+        <img class="hero-img" src="../public/svg/hero/hero-img.svg" alt="" />
         <div class="img-text">New mebel collection</div>
       </div>
     </div>

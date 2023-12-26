@@ -2,7 +2,7 @@
   <div class="form-container">
     <div class="form-wrapper">
       <Feedback />
-      <img class="form-img" src="../svg/Form-img.svg" alt="picture" />
+      <img class="form-img" src="../public/svg/Form-img.svg" alt="picture" />
     </div>
   </div>
 </template>

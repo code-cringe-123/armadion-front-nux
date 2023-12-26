@@ -2,7 +2,7 @@
   <div class="scroll-btn-wrapper">
     <img
       class="scroll-btn-img"
-      src="../../../svg/scroll_to_bottom.svg"
+      src="../../../public/svg/scroll_to_bottom.svg"
       alt="scroll to bottom"
     />
     <div class="btn-name">scroll to bottom</div>

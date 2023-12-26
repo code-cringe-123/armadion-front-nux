@@ -22,12 +22,12 @@
       <div class="measurements-right-side">
         <img
           class="measurements-img-1"
-          src="../svg/measurements-img-1.svg"
+          src="../public/svg/measurements-img-1.svg"
           alt="measurements-img"
         />
         <img
           class="measurements-img-2"
-          src="../svg/measurements-img-2.svg"
+          src="../public/svg/measurements-img-2.svg"
           alt="measurements-img"
         />
       </div>

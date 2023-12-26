@@ -4,7 +4,7 @@
       <div class="left-side">
         <!-- мобилка -->
         <button @click="toggleSlide" class="menu-icon-btn">
-          <img class="menu-icon" src="../svg/menu-icon.svg" alt="menu" />
+          <img class="menu-icon" src="../public/svg/menu-icon.svg" alt="menu" />
         </button>
         <div :class="['slide-out-block', { show: isSlideOutVisible }]">
           <div class="nav-mobile">
@@ -15,7 +15,7 @@
                 <div class="menu-icon-wrapper" @click="toggleCatalogLinksBlock">
                   <img
                     class="menu-icon-active"
-                    src="../svg/menu-icon-active.svg"
+                    src="../public/svg/menu-icon-active.svg"
                     alt="menu-active"
                   />
                 </div>
@@ -29,7 +29,7 @@
                     <div class="toggle-label">Каталог</div>
                     <img
                       class="HeaderCatalog-close"
-                      src="../svg/close.svg"
+                      src="../public/svg/close.svg"
                       alt="menu-active"
                       @click="hideCatalogLinksBlock"
                     />
@@ -45,7 +45,7 @@
                         >{{ category.label }}
                         <img
                           class="HeaderCatalog-mobile-arrow"
-                          src="../svg/headerCatalogArrow.svg"
+                          src="../public/svg/headerCatalogArrow.svg"
                           alt="headerCatalogArrow"
                       /></NuxtLink>
                     </li>
@@ -71,7 +71,7 @@
           <div class="header-catalog-logo-wrapper">
             <img
               class="header-catalog-logo"
-              src="../svg/Catalog-icon.svg"
+              src="../public/svg/Catalog-icon.svg"
               alt="catalog"
             />
           </div>
