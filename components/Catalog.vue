@@ -1,6 +1,9 @@
 <template>
   <div class="catalog-wrapper">
     <div class="products-wrapper">
+      <!-- <div class="products" v-for="product in products" :key="product.id">
+          <Product :product="product" />
+        </div> -->
       <div class="products" v-for="product in products" :key="product.id">
         <Product :product="product" />
       </div>
@@ -9,8 +12,27 @@
 </template>
 
 <script setup>
-// получить значение с input и выше проверять входит ли product.price в этот диапазон
-const props = defineProps(["products"]);
+const { products, select_left__range, select_right__range, searchQuery } =
+  defineProps(["products", "select_left__range", "select_right__range"]);
+// const FilteredItems = ref([]);
+// отслеживание каждого нажатия на клавишу в js`е и передача этих данных
+// console.log(products[0].title);
+const filteredCards = () => {
+  var self = this;
+  const filtered = this.products.filter(function (product) {
+    return product.title;
+  });
+
+  return filtered;
+};
+// const applyFilters = () => {
+//   FilteredItems.value = products.filter(product => {
+//     return (
+//       product.price >= select_left__range &&
+//       product.price <= select_right__range
+//     );
+//   });
+// };
 </script>
 
 <style lang="scss">
@@ -34,6 +56,7 @@ const props = defineProps(["products"]);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+
   // @media screen and (max-width: 1200px) {
   //     width: 100%;
   //     display: grid;

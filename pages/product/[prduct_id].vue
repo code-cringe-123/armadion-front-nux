@@ -14,20 +14,14 @@
 
           <div class="carousel">
             <div
-              class="carousel__item active__icon"
-              id="c_i_1"
-              style="width: 120px; height: 120px"
-              @click="changeMainImage($event)"
-            >
-              <img :src="data && data?.images?.[0]?.url" alt="door" />
-            </div>
-            <div
+              v-for="(image, index) in data?.images"
+              :key="index"
               class="carousel__item"
-              id="c_i_2"
+              :id="'ci' + (index + 1)"
               style="width: 120px; height: 120px"
-              @click="changeMainImage($event)"
+              @click="changeMainImage($event, index)"
             >
-              <img :src="data && data?.images?.[1]?.url" alt="door" />
+              <img :src="data && data?.images?.[index]?.url" alt="door" />
             </div>
           </div>
           <div class="page-body-left__img">
@@ -425,7 +419,7 @@ const slickOptions = {
 }
 .page-body-left__img > img {
   width: 280px;
-  height: 415px;
+  height: 413px;
 }
 .carousel {
   margin: 0 0 auto;
@@ -443,7 +437,7 @@ const slickOptions = {
 
 .carousel__item img {
   position: block;
-  width: 82px;
+  width: 76px;
   height: 112px;
 }
 
@@ -454,6 +448,7 @@ const slickOptions = {
 h4 {
   margin: 0;
   padding-bottom: 12px;
+  color: var(--gray-700, #374151);
 }
 .stats > p {
   margin: 0;

@@ -84,16 +84,16 @@
           <div class="price-range-mobile">
             <input
               class="price-box-mobile-1 price-box"
-              placeholder="От 900р"
+              placeholder="От 900₽"
               v-maska
-              data-maska="От ###р"
+              data-maska="От ###₽"
               v-model="priceRange[0]"
             />
             <input
               class="price-box-mobile-2 price-box"
               placeholder="До"
               v-maska
-              data-maska="До #####р"
+              data-maska="До ####₽"
               v-model="priceRange[1]"
             />
           </div>
@@ -134,17 +134,17 @@
         <div class="price-range">
           <input
             class="price-box-1 price-box"
-            placeholder="От 900р"
+            placeholder="От 900₽"
             v-maska
-            data-maska="От ###р"
-            v-model="price"
+            data-maska="От ###₽"
+            v-model="priceRange[0]"
           />
           <input
             class="price-box-2 price-box"
             placeholder="До"
             v-maska
-            data-maska="До #####р"
-            v-model="price"
+            data-maska="До #####₽"
+            v-model="priceRange[1]"
           />
         </div>
       </div>
@@ -194,8 +194,18 @@ import { ref, watchEffect, computed } from "vue";
 import Fuse from "fuse.js";
 import { vMaska } from "maska";
 const props = defineProps(["filters"]);
-//
+import { defineEmits } from "vue";
 
+const changePriceRange = (newValue) => {
+  priceRange.value = newValue;
+};
+
+const updatePriceRange = () => {
+  // Отправляем измененный диапазон цен в родительский компонент
+  defineEmits().emit("updatePriceRange", priceRange.value);
+};
+
+//
 const sizeActive = ref([]);
 
 let priceRange = ref([0, 1000000]);
@@ -642,7 +652,7 @@ watchEffect(() => {
   display: block;
   width: 16px;
   height: 16px;
-  background-image: url("../../public/svg/checkbox.svg");
+  background-image: url("../public/svg/checkbox.svg");
   background-size: contain;
   background-repeat: no-repeat;
   position: relative;
