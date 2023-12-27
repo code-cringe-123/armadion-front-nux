@@ -12,6 +12,6 @@
 import { ref } from "vue";
 
 const products = ref([]);
-const { data } = await useFetch(`http://185.244.51.158/doors/popular/`);
+const { data } = await useFetch(`https://185.244.51.158/doors/popular/`);
 products.value = data.value;
 </script>

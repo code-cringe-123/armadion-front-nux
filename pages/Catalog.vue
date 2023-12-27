@@ -9,7 +9,7 @@
             height="30"
             viewBox="0 0 30 30"
             fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+            xmlns="httpss://www.w3.org/2000/svg"
             @click="toggleSlideFilters"
           >
             <path
@@ -231,7 +231,7 @@ const filters = ref([]);
 const handleChange = async (isChecked, sizeValue) => {
   if (isChecked) {
     try {
-      const { data } = await useFetch(`http://185.244.51.158/doors/filter?gabaritnye-razmery-vshg-mm=${sizeValue}`);
+      const { data } = await useFetch(`https://185.244.51.158/doors/filter?gabaritnye-razmery-vshg-mm=${sizeValue}`);
       // Обработка данных, если необходимо
       console.log('Успешный запрос:');
       products1.value = data.value;
@@ -242,7 +242,7 @@ const handleChange = async (isChecked, sizeValue) => {
   }
 };
 
-const { data } = await useFetch(`http://185.244.51.158/doors/filter`);
+const { data } = await useFetch(`https://185.244.51.158/doors/filter`);
 products.value = data.value.doors;
 filters.value = data.value.filters;
 console.log(products)
@@ -293,20 +293,20 @@ const closeSlideFilters = () => {
 // const query_value = "2100-1000-70";
 // const loadData = async () => {
 //   if (sizeActive.value.length === 0) {
-//     const { data: responseData } = await useFetch(`http://185.244.51.158/doors/filter`);
+//     const { data: responseData } = await useFetch(`https://185.244.51.158/doors/filter`);
 //     data.value = responseData.value;
 //     products.value = responseData.value.doors;
 //   } else {
 //     const query_name = "gabaritnye-razmery-vshg-mm";
 //     const query_value = "2100-1000-70";
-//     const { data: responseData } = await useFetch(`http://185.244.51.158/doors/filter?${query_name}=${query_value}`);
+//     const { data: responseData } = await useFetch(`https://185.244.51.158/doors/filter?${query_name}=${query_value}`);
 //     data.value = responseData.value;
 //     products.value = responseData.value.doors;
 //   }
 // };
 
 // loadData();
-// http://185.244.51.158/doors/filter?gabaritnye-razmery-vshg-mm=2100-1000-70
+// https://185.244.51.158/doors/filter?gabaritnye-razmery-vshg-mm=2100-1000-70
 
 
 
