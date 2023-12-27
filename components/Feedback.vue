@@ -263,7 +263,7 @@ const sendPostRequest = async () => {
     // Отправьте POST-запрос
     const response = await axios({
       method: "post",
-      url: "https://185.244.51.158/contact-form/",
+      url: "https://api-armadion.ru/contact-form/",
       data: {
         user_name: name.value,
         phone_number: phone.value,

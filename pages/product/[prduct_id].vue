@@ -360,7 +360,7 @@ const changeMainImage = (event) => {
 const route = useRoute();
 
 const { data } = await useFetch(
-  `http://185.244.51.158/doors/${route.params.prduct_id}/`,
+  `https://api-armadion.ru/doors/${route.params.prduct_id}/`,
 );
 
 const images = ref([]);

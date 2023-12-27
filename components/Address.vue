@@ -7,17 +7,17 @@
       </div>
       <div class="contact-map-wrapper">
         <a
-          href="https://yandex.ru/maps/41/yoshkar-ola/?utm_medium=mapframe&utm_source=maps"
+          href="http://yandex.ru/maps/41/yoshkar-ola/?utm_medium=mapframe&utm_source=maps"
           style="color: #eee; font-size: 12px; position: absolute; top: 0px"
           >Йошкар‑Ола</a
         ><a
-          href="https://yandex.ru/maps/41/yoshkar-ola/house/ulitsa_mira_30/YE4YfwJgSEwFQFtsfXpyd39kZg==/?ll=47.951263%2C56.635983&source=serp_navig&utm_medium=mapframe&utm_source=maps&z=17.64"
+          href="http://yandex.ru/maps/41/yoshkar-ola/house/ulitsa_mira_30/YE4YfwJgSEwFQFtsfXpyd39kZg==/?ll=47.951263%2C56.635983&source=serp_navig&utm_medium=mapframe&utm_source=maps&z=17.64"
           style="color: #eee; font-size: 12px; position: absolute; top: 14px"
           >Яндекс Карты — транспорт, навигация, поиск мест</a
         >
         <iframe
           class="contact-map"
-          src="https://yandex.ru/map-widget/v1/?ll=47.951263%2C56.635983&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgo1Mjg1NzIyNzI2EmDQoNC-0YHRgdC40Y8sINCg0LXRgdC_0YPQsdC70LjQutCwINCc0LDRgNC40Lkg0K3Quywg0JnQvtGI0LrQsNGALdCe0LvQsCwg0YPQu9C40YbQsCDQnNC40YDQsCwgMzAiCg0AzT9CFaWLYkI%2C&source=serp_navig&z=17.64"
+          src="http://yandex.ru/map-widget/v1/?ll=47.951263%2C56.635983&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgo1Mjg1NzIyNzI2EmDQoNC-0YHRgdC40Y8sINCg0LXRgdC_0YPQsdC70LjQutCwINCc0LDRgNC40Lkg0K3Quywg0JnQvtGI0LrQsNGALdCe0LvQsCwg0YPQu9C40YbQsCDQnNC40YDQsCwgMzAiCg0AzT9CFaWLYkI%2C&source=serp_navig&z=17.64"
           frameborder="0"
           allowfullscreen="true"
           style="position: relative"
