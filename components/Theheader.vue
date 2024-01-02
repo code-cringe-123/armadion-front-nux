@@ -147,7 +147,7 @@ const menu = [
   },
   {
     name: "Двери оптом",
-    path: "/doors_wholesale",
+    path: "/Configurator",
   },
 ];
 
