@@ -236,7 +236,7 @@ const handleChange = async (isChecked, sizeValue) => {
       products_filtered.value.push(...data.value.doors);
     } catch (error) {
       console.error('Ошибка при выполнении запроса:', error);
-    }
+    } 
   }
 };
 
