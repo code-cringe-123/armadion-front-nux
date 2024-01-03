@@ -67,9 +67,11 @@
         <div class="Company-name">
           <NuxtLink to="/">Армада.</NuxtLink>
         </div>
-        <div class="header-catalog-wrapper"
-            ref="block"
-            @click="toggleSlideCatalogBlock">
+        <div
+          class="header-catalog-wrapper"
+          ref="block"
+          @click="toggleSlideCatalogBlock"
+        >
           <div class="header-catalog-logo-wrapper">
             <img
               class="header-catalog-logo"
@@ -77,9 +79,7 @@
               alt="catalog"
             />
           </div>
-          <div class="header-catalog-name">
-            Каталог
-          </div>
+          <div class="header-catalog-name">Каталог</div>
         </div>
         <div
           :class="[

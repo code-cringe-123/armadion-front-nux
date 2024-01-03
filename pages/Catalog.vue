@@ -167,7 +167,7 @@
               :key="size"
             >
               <label class="label-checkbex">
-                <input class="catalog-checkbox" type="checkbox" @change="() => handleChange(true, size.value)"/>
+                <input class="catalog-checkbox" type="checkbox" @change="(event) => handleChange(event, size.value)"/>
                 {{ size.value }}
               </label>
             </div>
@@ -228,17 +228,24 @@ const products = ref([]);
 const products_filtered = ref([]);
 const filters = ref([]);
 
-const handleChange = async (isChecked, sizeValue) => {
+const handleChange = async (event, sizeValue) => {
+  const isChecked = event.target.checked;
   if (isChecked) {
     try {
-
       const { data } = await useFetch(`https://api-armadion.ru/doors/filter?gabaritnye-razmery-vshg-mm=${sizeValue}`);
       products_filtered.value.push(...data.value.doors);
     } catch (error) {
       console.error('Ошибка при выполнении запроса:', error);
     } 
+  } else {
+    const indexToRemove = products_filtered.value.findIndex(product => product.size === sizeValue);
+    if (indexToRemove !== -1) {
+      products_filtered.value.splice(indexToRemove, 1);
+    }
   }
 };
+
+
 
 const { data } = await useFetch(`https://api-armadion.ru/doors/filter`);
 products.value = data.value.doors;

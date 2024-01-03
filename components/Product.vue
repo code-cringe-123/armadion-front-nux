@@ -21,12 +21,13 @@
       </div>
     </div>
   </router-link>
-  
 </template>
 
 <script setup>
-const {props, products_filtered} = defineProps(["product", "products_filtered"]);
-
+const { props, products_filtered } = defineProps([
+  "product",
+  "products_filtered",
+]);
 </script>
 
 <style lang="scss">
