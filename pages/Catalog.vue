@@ -230,11 +230,22 @@ const filters = ref([]);
 
 
 const handleChange = async (isChecked, sizeValue) => {
-  if (isChecked) {
+  if (isChecked == false) {
+    try {
+      const { data } = await useFetch(`https://api-armadion.ru/doors/filter`);
+      products.value = data.value.doors;
+      filters.value = data.value.filters;
+    } catch (error) {
+      console.error('Ошибка при выполнении запроса:', error);
+    }
+  }else{
     try {
       
       const { data } = await useFetch(`https://api-armadion.ru/doors/filter?gabaritnye-razmery-vshg-mm=${sizeValue}`);
-      products_filtered.value = data.value.doors;
+      // Обработка данных, если необходимо
+      console.log('Успешный запрос:');
+      products1.value = data.value;
+      console.log(products1)
     } catch (error) {
       console.error('Ошибка при выполнении запроса:', error);
     }

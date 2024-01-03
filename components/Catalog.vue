@@ -53,6 +53,7 @@ console.log(products_filtered)
 }
 
 .products-wrapper {
+  width: 880px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
