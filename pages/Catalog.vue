@@ -232,6 +232,7 @@ const filters = ref([]);
 const handleChange = async (isChecked, sizeValue) => {
   if (isChecked) {
     try {
+      
       const { data } = await useFetch(`https://api-armadion.ru/doors/filter?gabaritnye-razmery-vshg-mm=${sizeValue}`);
       products_filtered.value = data.value.doors;
     } catch (error) {

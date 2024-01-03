@@ -7,7 +7,7 @@
       <div v-if="products_filtered.length === 0" class="products" v-for="product in products" :key="product.id">
         <Product :product="product" />
       </div>
-      <div v-else="products_filtered.length > 0" class="products" v-for="product in products_filtered" :key="product.id">
+      <div v-else class="products" v-for="product in products_filtered" :key="product.id">
         <Product :product="product" />
       </div>
     </div>
@@ -19,7 +19,7 @@ const { products, products_filtered, select_left__range, select_right__range, se
 defineProps(["products", "products_filtered", "select_left__range", "select_right__range"]);
 
 console.log(products)
-console.log("aa")
+console.log("aa1")
 console.log(products_filtered)
 // const FilteredItems = ref([]);
 // отслеживание каждого нажатия на клавишу в js`е и передача этих данных
