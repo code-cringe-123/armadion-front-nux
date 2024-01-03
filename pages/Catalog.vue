@@ -233,7 +233,7 @@ const handleChange = async (isChecked, sizeValue) => {
     try {
 
       const { data } = await useFetch(`https://api-armadion.ru/doors/filter?gabaritnye-razmery-vshg-mm=${sizeValue}`);
-      products_filtered.value = data.value.doors;
+      products_filtered.value.push(...data.value.doors);
     } catch (error) {
       console.error('Ошибка при выполнении запроса:', error);
     }
