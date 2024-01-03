@@ -238,10 +238,8 @@ const handleChange = async (event, sizeValue) => {
       console.error('Ошибка при выполнении запроса:', error);
     } 
   } else {
-    const indexToRemove = products_filtered.value.findIndex(product => product.size === sizeValue);
-    if (indexToRemove !== -1) {
-      products_filtered.value.splice(indexToRemove, 1);
-    }
+    // разобраться как удалять из этого списка
+    products_filtered.value.pop()
   }
 };
 
