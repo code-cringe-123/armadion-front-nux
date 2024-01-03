@@ -211,6 +211,7 @@
       :select_left__range="select_left__range"
       :select_right__range="select_right__range"
       :products="products"
+      :products_filtered="products_filtered"
     />
   </div>
 </template>
@@ -224,7 +225,7 @@ let select_right__range = ref(100000);
 
 const props = defineProps(["filters"]);
 const products = ref([]);
-const products1 = ref([]);
+const products_filtered = ref([]);
 const filters = ref([]);
 
 
@@ -243,8 +244,7 @@ const handleChange = async (isChecked, sizeValue) => {
       // Обработка данных, если необходимо
       console.log('Успешный запрос:');
       products1.value = data.value;
-      console.log(products1._rawValue.doors)
-      products.value = products1._rawValue.doors.value
+      console.log(products1)
     } catch (error) {
       console.error('Ошибка при выполнении запроса:', error);
     }
@@ -255,7 +255,6 @@ const { data } = await useFetch(`https://api-armadion.ru/doors/filter`);
 products.value = data.value.doors;
 filters.value = data.value.filters;
 console.log(products)
-
 const sizeActive = ref([]);
 const handleInputChange = () => {
   const leftRangeValue = Number(select_left__range.value.replace(/[^\d]/g, ""));
