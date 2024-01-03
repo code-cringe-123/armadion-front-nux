@@ -4,7 +4,10 @@
       <!-- <div class="products" v-for="product in products" :key="product.id">
           <Product :product="product" />
         </div> -->
-      <div class="products" v-for="product in products" :key="product.id">
+      <div v-if="products_filtered.length === 0" class="products" v-for="product in products" :key="product.id">
+        <Product :product="product" />
+      </div>
+      <div v-else="products_filtered.length > 0" class="products" v-for="product in products_filtered" :key="product.id">
         <Product :product="product" />
       </div>
     </div>
@@ -12,19 +15,16 @@
 </template>
 
 <script setup>
-const { products, select_left__range, select_right__range, searchQuery } =
-  defineProps(["products", "select_left__range", "select_right__range"]);
+const { products, products_filtered, select_left__range, select_right__range, searchQuery } =
+defineProps(["products", "products_filtered", "select_left__range", "select_right__range"]);
+
+console.log(products)
+console.log("aa")
+console.log(products_filtered)
 // const FilteredItems = ref([]);
 // отслеживание каждого нажатия на клавишу в js`е и передача этих данных
 // console.log(products[0].title);
-const filteredCards = () => {
-  var self = this;
-  const filtered = this.products.filter(function (product) {
-    return product.title;
-  });
 
-  return filtered;
-};
 // const applyFilters = () => {
 //   FilteredItems.value = products.filter(product => {
 //     return (
