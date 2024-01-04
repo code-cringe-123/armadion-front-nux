@@ -165,16 +165,16 @@
 
             <div
               class="dimension-item"
-              v-for="size in data?.filters?.[3]?.features"
+              v-for="size in new_sizes"
               :key="size"
             >
               <label class="label-checkbex">
                 <input
                   class="catalog-checkbox"
                   type="checkbox"
-                  @change="(event) => handleChange(event, size.value)"
+                  @change="(event) => handleChange(event, size)"
                 />
-                {{ size.value }}
+                {{ size }}
               </label>
             </div>
           </div>
@@ -250,8 +250,6 @@ const handleChange = async (event, sizeValue) => {
       (door) =>
         door["feature_categories"][0]["features"][0]["value"] !== sizeValue,
     );
-    console.log("check");
-    console.log(products_filtered.value);
 
     // для бастиона
     for (let i = 0; i < products_filtered.value.length; i += 1) {
@@ -344,6 +342,21 @@ const searchResults = ref([]);
 // watchEffect(() => {
 //   performSearch();
 // });
+
+
+// 123123
+
+
+const new_sizes = [];
+for (let i = 0; i < data._rawValue.filters[3].features.length; i++) {
+  if (!new_sizes.includes(data._rawValue.filters[3].features[i].value)) {
+    new_sizes.push(data._rawValue.filters[3].features[i].value);
+  }
+}
+// let uniqueFeaturesSet = new Set(features);
+
+// let uniqueFeaturesArray = Array.from(uniqueFeaturesSet);
+
 </script>
 
 <style lang="scss">
