@@ -248,13 +248,12 @@ const handleChange = async (event, sizeValue) => {
   } else {
     // разобраться как удалять из этого списка
     // for (let i = 0; i < products_filtered.value)
-    // value door - products_filtered._rawValue[0]["feature_categories"][0]["features"][0]["value"]
-    console.log(products_filtered._rawValue)
-    for (let i = 0; i < products_filtered._rawValue.length; i += 1){
-      if (products_filtered._rawValue[i]["feature_categories"][0]["features"][0]["value"] === sizeValue){
-        products_filtered.value.splice(i, 1);
-      }
-    }
+    // value door - products_filtered._rawValue[0]["feature_categories"][0]["features"][0]["value"]]
+    
+    products_filtered.value = products_filtered.value.filter(
+            door => door["feature_categories"][0]["features"][0]["value"] !== sizeValue
+        );
+    
   }
 };
 
