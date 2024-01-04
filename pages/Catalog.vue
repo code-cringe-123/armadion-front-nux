@@ -54,7 +54,9 @@
               dy="4"
               fill="#fff"
               class="active-count-filters"
-            >7</text>
+            >
+              7
+            </text>
           </svg>
           <div @click="toggleSlideFilters" class="catalog-filters-name">
             Фильтры
@@ -167,7 +169,11 @@
               :key="size"
             >
               <label class="label-checkbex">
-                <input class="catalog-checkbox" type="checkbox" @change="(event) => handleChange(event, size.value)"/>
+                <input
+                  class="catalog-checkbox"
+                  type="checkbox"
+                  @change="(event) => handleChange(event, size.value)"
+                />
                 {{ size.value }}
               </label>
             </div>
@@ -232,23 +238,30 @@ const handleChange = async (event, sizeValue) => {
   const isChecked = event.target.checked;
   if (isChecked) {
     try {
-      const { data } = await useFetch(`https://api-armadion.ru/doors/filter?gabaritnye-razmery-vshg-mm=${sizeValue}`);
+      const { data } = await useFetch(
+        `https://api-armadion.ru/doors/filter?gabaritnye-razmery-vshg-mm=${sizeValue}`,
+      );
       products_filtered.value.push(...data.value.doors);
     } catch (error) {
-      console.error('Ошибка при выполнении запроса:', error);
-    } 
+      console.error("Ошибка при выполнении запроса:", error);
+    }
   } else {
     // разобраться как удалять из этого списка
-    products_filtered.value.pop()
+    // for (let i = 0; i < products_filtered.value)
+    // value door - products_filtered._rawValue[0]["feature_categories"][0]["features"][0]["value"]
+    console.log(products_filtered._rawValue)
+    for (let i = 0; i < products_filtered._rawValue.length; i += 1){
+      if (products_filtered._rawValue[i]["feature_categories"][0]["features"][0]["value"] === sizeValue){
+        products_filtered.value.splice(i, 1);
+      }
+    }
   }
 };
-
-
 
 const { data } = await useFetch(`https://api-armadion.ru/doors/filter`);
 products.value = data.value.doors;
 filters.value = data.value.filters;
-console.log(products)
+console.log(products);
 const sizeActive = ref([]);
 const handleInputChange = () => {
   const leftRangeValue = Number(select_left__range.value.replace(/[^\d]/g, ""));
@@ -309,8 +322,6 @@ const closeSlideFilters = () => {
 
 // loadData();
 // https://185.244.51.158/doors/filter?gabaritnye-razmery-vshg-mm=2100-1000-70
-
-
 
 const searchQuery = ref("");
 const searchResults = ref([]);
