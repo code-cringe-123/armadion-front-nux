@@ -250,12 +250,17 @@ const handleChange = async (event, sizeValue) => {
       (door) =>
         door["feature_categories"][0]["features"][0]["value"] !== sizeValue,
     );
-
-    console.log("here");
+    console.log("check");
+    console.log(products_filtered.value);
 
     // для бастиона
     for (let i = 0; i < products_filtered.value.length; i += 1) {
-      if (products_filtered.value[i]["feature_categories"].length >= 17) {
+      if (
+        products_filtered.value[i]["feature_categories"].length >= 17 &&
+        products_filtered.value[i]["feature_categories"][17]["features"][0][
+          "value"
+        ] === sizeValue
+      ) {
         products_filtered.value.splice(i, 1);
         break;
       }
