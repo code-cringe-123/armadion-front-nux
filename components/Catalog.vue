@@ -38,9 +38,6 @@ const {
   "select_right__range",
 ]);
 
-console.log(products);
-console.log("aa1");
-console.log(products_filtered);
 // const FilteredItems = ref([]);
 // отслеживание каждого нажатия на клавишу в js`е и передача этих данных
 // console.log(products[0].title);

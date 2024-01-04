@@ -246,14 +246,20 @@ const handleChange = async (event, sizeValue) => {
       console.error("Ошибка при выполнении запроса:", error);
     }
   } else {
-    // разобраться как удалять из этого списка
-    // for (let i = 0; i < products_filtered.value)
-    // value door - products_filtered._rawValue[0]["feature_categories"][0]["features"][0]["value"]]
-    
     products_filtered.value = products_filtered.value.filter(
-            door => door["feature_categories"][0]["features"][0]["value"] !== sizeValue
-        );
-    
+      (door) =>
+        door["feature_categories"][0]["features"][0]["value"] !== sizeValue,
+    );
+
+    console.log("here");
+
+    // для бастиона
+    for (let i = 0; i < products_filtered.value.length; i += 1) {
+      if (products_filtered.value[i]["feature_categories"].length >= 17) {
+        products_filtered.value.splice(i, 1);
+        break;
+      }
+    }
   }
 };
 
