@@ -353,6 +353,7 @@ for (let i = 0; i < data._rawValue.filters[0].features.length; i++) {
     new_sizes.push(data._rawValue.filters[0].features[i].value);
   }
 }
+new_sizes.sort()
 // let uniqueFeaturesSet = new Set(features);
 
 // let uniqueFeaturesArray = Array.from(uniqueFeaturesSet);
