@@ -84,30 +84,18 @@
       </div>
 
       <div class="product-page-characteristics-container">
-        <h3 class="product-page-characteristics-title">Характеристики</h3>
+        <h3 class="product-page-characteristics-title">
+          {{ data?.feature_categories?.[1]?.name }}
+        </h3>
         <div class="product-page-characteristics-wrapper">
           <div class="product-page-characteristics-left">
             <!-- {{ product && product.title.padEnd(86, '.')  }}{{ product && product.number}} -->
             <div class="size-fire">
-              <div class="stats">
-                <p>
-                  <span>{{
-                    data?.feature_categories?.[0]?.features?.[0]?.name
-                  }}</span>
+              <div class="stats" v-for="(category, categoryIndex) in data?.feature_categories" :key="categoryIndex">
+                <p v-for="(feature, featureIndex) in category.features" :key="featureIndex">
+                  <span>{{ feature.name }}</span>
                   <span class="dotted__line"></span>
-                  <span class="size">{{
-                    data?.feature_categories?.[0]?.features?.[0]?.value
-                  }}</span>
-                </p>
-
-                <p>
-                  <span>{{
-                    data?.feature_categories?.[0]?.features?.[1]?.name
-                  }}</span>
-                  <span class="dotted__line"></span>
-                  <span class="size">{{
-                    data?.feature_categories?.[0]?.features?.[1]?.value
-                  }}</span>
+                  <span class="size">{{ feature.value }}</span>
                 </p>
               </div>
             </div>
@@ -386,6 +374,11 @@ const slickOptions = {
   initialSlide: 0,
   arrows: false,
 };
+console.log("2123")
+console.log(data.value.feature_categories) // общие характеристики 
+console.log(data.value.feature_categories[1].name) // характеристики
+console.log(data.value.feature_categories[1].features[0].name) // характеристики -> name покраска
+console.log(data.value.feature_categories[1].features[0].value) // характеристики -> value покраска
 </script>
 
 <style>
