@@ -353,7 +353,6 @@ for (let i = 0; i < data._rawValue.filters[0].features.length; i++) {
     new_sizes.push(data._rawValue.filters[0].features[i].value);
   }
 }
-new_sizes.sort()
 // let uniqueFeaturesSet = new Set(features);
 
 // let uniqueFeaturesArray = Array.from(uniqueFeaturesSet);
@@ -403,9 +402,9 @@ new_sizes.sort()
 }
 .circle-count-filters {
   position: fixed;
-  top: 5px; /* или другое значение, чтобы задать отступ сверху */
-  right: 5px; /* или другое значение, чтобы задать отступ справа */
-  z-index: 10; /* или любое другое высокое значение */
+  top: 5px; 
+  right: 5px; 
+  z-index: 10; 
 }
 
 // .catalog-filters-img {
