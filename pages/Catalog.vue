@@ -9,7 +9,7 @@
             height="30"
             viewBox="0 0 30 30"
             fill="none"
-            xmlns="httpss://www.w3.org/2000/svg"
+            xmlns="https://www.w3.org/2000/svg"
             @click="toggleSlideFilters"
           >
             <path
@@ -348,11 +348,12 @@ const searchResults = ref([]);
 
 
 const new_sizes = [];
-for (let i = 0; i < data._rawValue.filters[3].features.length; i++) {
-  if (!new_sizes.includes(data._rawValue.filters[3].features[i].value)) {
-    new_sizes.push(data._rawValue.filters[3].features[i].value);
+for (let i = 0; i < data._rawValue.filters[0].features.length; i++) {
+  if (!new_sizes.includes(data._rawValue.filters[0].features[i].value)) {
+    new_sizes.push(data._rawValue.filters[0].features[i].value);
   }
 }
+new_sizes.sort()
 // let uniqueFeaturesSet = new Set(features);
 
 // let uniqueFeaturesArray = Array.from(uniqueFeaturesSet);

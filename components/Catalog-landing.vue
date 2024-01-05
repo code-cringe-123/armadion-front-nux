@@ -1,6 +1,6 @@
 <template>
   <div class="catalog-container">
-    <div class="catalog-wrapper">
+    <div class="catalog-landing-wrapper">
       <div class="catalog-title">Готовые конфигурации</div>
       <div class="products-wrapper-landing">
         <div class="products" v-for="product in products" :key="product.id">
@@ -29,7 +29,7 @@ const props = defineProps(["products"]);
   }
 }
 
-.catalog-wrapper {
+.catalog-landing-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
