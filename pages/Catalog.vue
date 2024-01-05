@@ -100,7 +100,7 @@
               </div>
               <div class="catalog-mobile-price-container-buttom">
                 <div class="catalog-mobile-price-title">
-                  {{ data?.filters?.[3]?.features[0].name }}
+                  <!-- {{ data?.filters?.[3]?.features[0].name }} -->
                 </div>
                 <div class="sizes-BTN-mobile-wrapper">
                   <div
@@ -160,14 +160,10 @@
           <!-- Настройки габаритных размеров -->
           <div class="dimension-settings">
             <div class="catalog-menu-title">
-              {{ data?.filters?.[3]?.features[0].name }}
+              <!-- {{ data?.filters?.[3]?.features[0].name }} -->
             </div>
 
-            <div
-              class="dimension-item"
-              v-for="size in new_sizes"
-              :key="size"
-            >
+            <div class="dimension-item" v-for="size in new_sizes" :key="size">
               <label class="label-checkbex">
                 <input
                   class="catalog-checkbox"
@@ -191,14 +187,14 @@
               placeholder="Найти"
             />
             {{ searchQuery }}
-            <!-- <div
-                class="interior-item"
-                v-for="result in searchResults"
-                :key="result.item"
-              >
-                <input class="catalog-checkbox" type="checkbox" />
-                {{ result.item }}
-              </div> -->
+            <div
+              class="interior-item"
+              v-for="result in searchResults"
+              :key="result.item"
+            >
+              <input class="catalog-checkbox" type="checkbox" />
+              {{ result.item }}
+            </div>
             <div
               class="interior-item"
               v-for="model in data?.filters?.[5]?.features"
@@ -246,23 +242,24 @@ const handleChange = async (event, sizeValue) => {
       console.error("Ошибка при выполнении запроса:", error);
     }
   } else {
+    console.log("МАнхеттен - чмо");
     products_filtered.value = products_filtered.value.filter(
       (door) =>
         door["feature_categories"][0]["features"][0]["value"] !== sizeValue,
     );
 
     // для бастиона
-    for (let i = 0; i < products_filtered.value.length; i += 1) {
-      if (
-        products_filtered.value[i]["feature_categories"].length >= 17 &&
-        products_filtered.value[i]["feature_categories"][17]["features"][0][
-          "value"
-        ] === sizeValue
-      ) {
-        products_filtered.value.splice(i, 1);
-        break;
-      }
-    }
+    // for (let i = 0; i < products_filtered.value.length; i += 1) {
+    //   if (
+    //     products_filtered.value[i]["feature_categories"].length >= 17 &&
+    //     products_filtered.value[i]["feature_categories"][17]["features"][0][
+    //       "value"
+    //     ] === sizeValue
+    //   ) {
+    //     products_filtered.value.splice(i, 1);
+    //     break;
+    //   }
+    // }
   }
 };
 
@@ -343,21 +340,21 @@ const searchResults = ref([]);
 //   performSearch();
 // });
 
-
 // 123123
 
-
 const new_sizes = [];
-for (let i = 0; i < data._rawValue.filters[0].features.length; i++) {
-  if (!new_sizes.includes(data._rawValue.filters[0].features[i].value)) {
-    new_sizes.push(data._rawValue.filters[0].features[i].value);
+console.log(data.value.filters)
+for (let i = 0; i < data.value.filters[3].features.length; i++) {
+  if (!new_sizes.includes(data.value.filters[3].features[i].value)) {
+    new_sizes.push(data.value.filters[3].features[i].value);
   }
 }
-new_sizes.sort()
 // let uniqueFeaturesSet = new Set(features);
-
+console.log(data.value.filters);
 // let uniqueFeaturesArray = Array.from(uniqueFeaturesSet);
-
+console.log("1123123123213");
+console.log(data.value.filters[1].features);
+console.log(data.value.doors);
 </script>
 
 <style lang="scss">
@@ -403,9 +400,9 @@ new_sizes.sort()
 }
 .circle-count-filters {
   position: fixed;
-  top: 5px; 
-  right: 5px; 
-  z-index: 10; 
+  top: 5px;
+  right: 5px;
+  z-index: 10;
 }
 
 // .catalog-filters-img {

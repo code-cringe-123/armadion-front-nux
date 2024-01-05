@@ -84,234 +84,16 @@
       </div>
 
       <div class="product-page-characteristics-container">
-        <h3 class="product-page-characteristics-title">
-          {{ data?.feature_categories?.[1]?.name }}
-        </h3>
         <div class="product-page-characteristics-wrapper">
-          <div class="product-page-characteristics-left">
             <!-- {{ product && product.title.padEnd(86, '.')  }}{{ product && product.number}} -->
-            <div class="size-fire">
-              <div class="stats" v-for="(category, categoryIndex) in data?.feature_categories" :key="categoryIndex">
-                <p v-for="(feature, featureIndex) in category.features" :key="featureIndex">
-                  <span>{{ feature.name }}</span>
-                  <span class="dotted__line"></span>
-                  <span class="size">{{ feature.value }}</span>
-                </p>
-              </div>
-            </div>
-
-            <div class="stats-outside">
-              <h4>Внешняя отделка</h4>
-              <div class="stats">
-                <p>
-                  <span>{{
-                    data?.feature_categories?.[1]?.features?.[0]?.name
-                  }}</span>
-                  <span class="dotted__line"></span>
-                  <span class="size">{{
-                    data?.feature_categories?.[1]?.features?.[0]?.value
-                  }}</span>
-                </p>
-              </div>
-
-              <div class="stats">
-                <p>
-                  <span>{{
-                    data?.feature_categories?.[1]?.features?.[1]?.name
-                  }}</span>
-                  <span class="dotted__line"></span>
-                  <span class="color-img"></span>
-                  <span class="size">{{
-                    data?.feature_categories?.[1]?.features?.[1]?.value
-                  }}</span>
-                </p>
-              </div>
-            </div>
-
-            <div class="stats-inside">
-              <h4>Внутренняя отделка</h4>
-              <div class="stats">
-                <p>
-                  <span>{{
-                    data?.feature_categories?.[2]?.features?.[0]?.name
-                  }}</span>
-                  <span class="dotted__line"></span>
-                  <span class="size">{{
-                    data?.feature_categories?.[2]?.features?.[0]?.value
-                  }}</span>
-                </p>
-              </div>
-
-              <div class="stats">
-                <p>
-                  <span>{{
-                    data?.feature_categories?.[2]?.features?.[1]?.name
-                  }}</span>
-                  <span class="dotted__line"></span>
-                  <span class="color-img"></span>
-                  <span class="size">{{
-                    data?.feature_categories?.[2]?.features?.[1]?.value
-                  }}</span>
-                </p>
-              </div>
-            </div>
-
-            <div class="stats-inside">
-              <h4>Фурнитура</h4>
-              <div class="stats">
-                <p>
-                  <span>{{
-                    data?.feature_categories?.[5]?.features?.[0]?.name
-                  }}</span>
-                  <span class="dotted__line"></span>
-                  <span class="size">{{
-                    data?.feature_categories?.[5]?.features?.[0]?.value
-                  }}</span>
-                </p>
-              </div>
-
-              <div class="stats">
-                <p>
-                  <span>{{
-                    data?.feature_categories?.[5]?.features?.[1]?.name
-                  }}</span>
-                  <span class="dotted__line"></span>
-                  <span class="size">{{
-                    data?.feature_categories?.[5]?.features?.[1]?.value
-                  }}</span>
-                </p>
-              </div>
-
-              <div class="stats">
-                <p>
-                  <span>{{
-                    data?.feature_categories?.[5]?.features?.[2]?.name
-                  }}</span>
-                  <span class="dotted__line"></span>
-                  <span class="size">{{
-                    data?.feature_categories?.[5]?.features?.[2]?.value
-                  }}</span>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="product-page-characteristics-right">
-            <div class="stats-inside">
-              <h4>Дверное полотно</h4>
-              <div class="stats">
-                <p>
-                  <span>{{
-                    data?.feature_categories?.[3]?.features?.[0]?.name
-                  }}</span>
-                  <span class="dotted__line"></span>
-                  <span class="size">{{
-                    data?.feature_categories?.[3]?.features?.[0]?.value
-                  }}</span>
-                </p>
-              </div>
-
-              <div class="stats">
-                <p>
-                  <span>{{
-                    data?.feature_categories?.[3]?.features?.[1]?.name
-                  }}</span>
-                  <span class="dotted__line"></span>
-                  <span class="size">{{
-                    data?.feature_categories?.[3]?.features?.[1]?.value
-                  }}</span>
-                </p>
-              </div>
-
-              <div class="stats">
-                <p>
-                  <span>{{
-                    data?.feature_categories?.[3]?.features?.[2]?.name
-                  }}</span>
-                  <span class="dotted__line"></span>
-                  <span class="color-img"></span>
-                  <span class="size">{{
-                    data?.feature_categories?.[3]?.features?.[2]?.value
-                  }}</span>
-                </p>
-              </div>
-
-              <div class="stats">
-                <p>
-                  <span>{{
-                    data?.feature_categories?.[3]?.features?.[3]?.name
-                  }}</span>
-                  <span class="dotted__line"></span>
-                  <span class="size">{{
-                    data?.feature_categories?.[3]?.features?.[3]?.value
-                  }}</span>
-                </p>
-              </div>
-
-              <div class="stats">
-                <p>
-                  <span>{{
-                    data?.feature_categories?.[3]?.features?.[4]?.name
-                  }}</span>
-                  <span class="dotted__line"></span>
-                  <span class="size">{{
-                    data?.feature_categories?.[3]?.features?.[4]?.value
-                  }}</span>
-                </p>
-              </div>
-
-              <div class="stats">
-                <p>
-                  <span>{{
-                    data?.feature_categories?.[3]?.features?.[5]?.name
-                  }}</span>
-                  <span class="dotted__line"></span>
-                  <span class="size">{{
-                    data?.feature_categories?.[3]?.features?.[5]?.value
-                  }}</span>
-                </p>
-              </div>
-            </div>
-
-            <div class="stats-inside">
-              <h4>Дверная коробка</h4>
-              <div class="stats">
-                <p>
-                  <span>{{
-                    data?.feature_categories?.[4]?.features?.[0]?.name
-                  }}</span>
-                  <span class="dotted__line"></span>
-                  <span class="size">{{
-                    data?.feature_categories?.[4]?.features?.[0]?.value
-                  }}</span>
-                </p>
-              </div>
-
-              <div class="stats">
-                <p>
-                  <span>{{
-                    data?.feature_categories?.[4]?.features?.[1]?.name
-                  }}</span>
-                  <span class="dotted__line"></span>
-                  <span class="size">{{
-                    data?.feature_categories?.[4]?.features?.[1]?.value
-                  }}</span>
-                </p>
-              </div>
-
-              <div class="stats">
-                <p>
-                  <span>{{
-                    data?.feature_categories?.[4]?.features?.[2]?.name
-                  }}</span>
-                  <span class="dotted__line"></span>
-                  <span class="color-img"></span>
-                  <span class="size">{{
-                    data?.feature_categories?.[4]?.features?.[2]?.value
-                  }}</span>
-                </p>
-              </div>
-            </div>
+          <div class="stats__title">{{ new_names[0].name }}</div>
+          <div class="stats" v-for="category in new_names" :key="categoryIndex">
+            <h4>{{ category.name }}</h4>
+            <p v-for="(feature, featureIndex) in category.features" :key="featureIndex">
+              <span>{{ feature.name }}</span>
+              <span class="dotted__line"></span>
+              <span class="size">{{ feature.value }}</span>
+            </p>
           </div>
         </div>
       </div>
@@ -375,10 +157,17 @@ const slickOptions = {
   arrows: false,
 };
 console.log("2123")
-console.log(data.value.feature_categories) // общие характеристики 
-console.log(data.value.feature_categories[1].name) // характеристики
-console.log(data.value.feature_categories[1].features[0].name) // характеристики -> name покраска
-console.log(data.value.feature_categories[1].features[0].value) // характеристики -> value покраска
+console.log(data.value.feature_categories)
+
+// Характеристики для h4
+const new_names = []
+const errors_names = []
+for (let i = 0; i < data.value.feature_categories.length; i++) {
+  if ((!errors_names.includes(data.value.feature_categories[i].name) && (data.value.feature_categories[i].name.toLowerCase() !== 'Габаритные размеры (В*Ш*Г), мм'.toLowerCase()))) {
+    errors_names.push(data.value.feature_categories[i].name)
+    new_names.push(data.value.feature_categories[i]);
+  }
+}
 </script>
 
 <style>
@@ -447,6 +236,7 @@ h4 {
   margin: 0;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   color: #9ca3af;
   padding-bottom: 8px;
 }
@@ -461,6 +251,7 @@ h4 {
   display: block;
   color: #6b7280;
 }
+
 .color-img {
   display: block;
   width: 12px;
@@ -493,27 +284,20 @@ h4 {
   color: #6b7280;
 }
 
-.product-page-characteristics-right {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  width: 580px;
-  height: 400px;
-}
-
-.product-page-characteristics-left {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  width: 580px;
-  height: 400px;
-}
-
 .product-page-characteristics-wrapper {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, auto) repeat(2, auto);
   gap: 20px;
+ 
 }
+
+.product-page-characteristics-wrapper .stats:first-of-type h4 {
+  color: blue;
+}
+
+
+
 
 .product-page-characteristics-container {
   margin: 60px 0;
@@ -521,12 +305,12 @@ h4 {
   flex-direction: column;
   gap: 20px;
 }
-
-.product-page-characteristics-title {
+.stats__title{
   font-family: Sansation;
   font-size: 24px;
   font-weight: 400;
   line-height: 29px;
+  margin-bottom: 30px;
   letter-spacing: 0em;
   text-align: left;
   color: #374151;
@@ -694,7 +478,7 @@ h4 {
     gap: 30px;
   }
 
-  .product-page-characteristics-title {
+  .stats:first-child h4 {
     margin: 0 auto;
   }
 
