@@ -343,6 +343,7 @@ const searchResults = ref([]);
 // 123123
 
 const new_sizes = [];
+console.log(data.value.filters)
 for (let i = 0; i < data.value.filters[3].features.length; i++) {
   if (!new_sizes.includes(data.value.filters[3].features[i].value)) {
     new_sizes.push(data.value.filters[3].features[i].value);
