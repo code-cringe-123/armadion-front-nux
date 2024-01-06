@@ -165,8 +165,8 @@
                 <input
                   class="catalog-checkbox"
                   type="checkbox"
-                  @click="emit('updateSizes', size)"
-                  @change="(event) => handleChange(event, size)"
+                  @click="$emit('filterRequest', key_key, value_value_value)"
+                  @change="(event) => handleChange(event, value_value_value)"
                 />
                 <span class="filter__value">{{ value_value_value }}</span>
               </label>
@@ -217,7 +217,7 @@ import Fuse from "fuse.js";
 import { vMaska } from "maska";
 import { defineEmits } from "vue";
 
-const emit = defineEmits(["updateSizes"]);
+const emit = defineEmits(["filterRequest"]);
 const { filters } = defineProps(["filters"]);
 const sizeActive = ref([]);
 

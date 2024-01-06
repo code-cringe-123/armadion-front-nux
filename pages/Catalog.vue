@@ -1,6 +1,6 @@
 <template>
   <div class="catalog-page-container">
-    <Catalog-menu :filters="filters" @update-sizes="test" />
+    <Catalog-menu :filters="filters" @filterRequest="onFilterUpdate" />
     <Catalog :products="products" />
   </div>
 </template>
@@ -11,13 +11,19 @@ const products = ref([]);
 const filters = ref([]);
 
 const filterQuery = new URLSearchParams();
-function onFilterUpdate(name, value) {
-  filterQuery.set(name, value);
+
+function onFilterUpdate(key_key, value_value_value) {
+  filterQuery.set(key_key, value_value_value);
+  // console.log("HERE@@@");
+  // console.log(key_key, value_value_value);
+  // console.log(`https://api-armadion.ru/doors/filter${filterQuery.toString()}`);
   update();
 }
+
 const { data, update } = await useFetch(
   `https://api-armadion.ru/doors/filter${filterQuery.toString()}`,
 );
+
 products.value = data.value.doors;
 filters.value = data.value.filters;
 
