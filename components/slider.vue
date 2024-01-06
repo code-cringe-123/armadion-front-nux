@@ -3,7 +3,7 @@
   <swiper
     v-if="isWideScreen"
     class="mySwiper"
-    :slidesPerView="4"
+    :slidesPerView="2"
     loop
     loopAddBlankSlides
   >

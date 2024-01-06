@@ -26,10 +26,6 @@
 </template>
 
 <script setup>
-// компоненты
-// import Feedback from '../components/Feedback.vue'
-// import Contacts from '../components/Contacts.vue'
-// import Address from '../components/Address.vue'
 </script>
 
 <style lang="scss">

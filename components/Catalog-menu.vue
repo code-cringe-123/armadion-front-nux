@@ -85,16 +85,14 @@
             <input
               class="price-box-mobile-1 price-box"
               placeholder="От 900₽"
-              v-maska
+              v-maska="0"
               data-maska="От ###₽"
-              v-model="priceRange[0]"
             />
             <input
               class="price-box-mobile-2 price-box"
-              placeholder="До"
-              v-maska
+              placeholder="До 100000₽"
+              v-maska="1000"
               data-maska="До ####₽"
-              v-model="priceRange[1]"
             />
           </div>
           <div class="catalog-mobile-price-container-buttom">
@@ -125,7 +123,9 @@
       </div>
     </div>
   </div>
+
   <!-- ------- -->
+
   <div class="catalog-page-menu">
     <div class="menu" :style="{ maxWidth: '280px' }">
       <!-- Настройки цены -->
@@ -137,39 +137,57 @@
             placeholder="От 900₽"
             v-maska
             data-maska="От ###₽"
-            v-model="priceRange[0]"
           />
           <input
             class="price-box-2 price-box"
             placeholder="До"
             v-maska
             data-maska="До #####₽"
-            v-model="priceRange[1]"
           />
         </div>
       </div>
 
       <!-- Настройки габаритных размеров -->
       <div class="dimension-settings">
-        <div class="catalog-menu-title">Габаритные размеры</div>
-
-        <div class="dimension-item" v-for="size in sizes" :key="size">
-          <label class="label-checkbex">
-            <input class="catalog-checkbox" type="checkbox" />
-            {{ size }}
-          </label>
+        <div
+          style="display: flex; flex-direction: column"
+          class="dimension-item"
+          v-for="[key, value] of unique_values"
+          :key="size"
+        >
+          <!-- Подзаголовок -->
+          <h2 class="filter__title">{{ key }}</h2>
+          <div class="full-filter" v-for="[key_key, value_value] of value">
+            <!-- второй подзаголовок -->
+            <h4 class="filter__subtitle">{{ key_key }}</h4>
+            <div class="list__filters" v-for="value_value_value of value_value">
+              <label class="checkbox__label">
+                <input
+                  class="catalog-checkbox"
+                  type="checkbox"
+                  @click="emit('updateSizes', size)"
+                  @change="(event) => handleChange(event, size)"
+                />
+                <span class="filter__value">{{ value_value_value }}</span>
+              </label>
+            </div>
+          </div>
+          <!-- @click="onFilterUpdate(size)"  сверху было-->
         </div>
       </div>
 
-      <!-- Настройки модели внутренней отделки -->
-      <div class="interior-settings">
-        <div class="catalog-menu-title">Модель внутренней отделки</div>
+      <!-- Настройки модели внутренней отделки 2 -->
+      <!-- <div class="interior-settings">
+        <div class="catalog-menu-title">
+          {{ data?.filters?.[5]?.features[0].name }}
+        </div>
         <input
           class="catalog-menu-search"
           v-model="searchQuery"
           @input="performSearch"
           placeholder="Найти"
         />
+        {{ searchQuery }}
         <div
           class="interior-item"
           v-for="result in searchResults"
@@ -178,13 +196,17 @@
           <input class="catalog-checkbox" type="checkbox" />
           {{ result.item }}
         </div>
-        <div class="interior-item" v-for="model in interiorModels" :key="model">
+        <div
+          class="interior-item"
+          v-for="model in data?.filters?.[5]?.features"
+          :key="model"
+        >
           <label class="label-checkbex">
             <input class="catalog-checkbox" type="checkbox" />
-            {{ model }}
+            {{ model.value }}
           </label>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -193,22 +215,11 @@
 import { ref, watchEffect, computed } from "vue";
 import Fuse from "fuse.js";
 import { vMaska } from "maska";
-const props = defineProps(["filters"]);
 import { defineEmits } from "vue";
 
-const changePriceRange = (newValue) => {
-  priceRange.value = newValue;
-};
-
-const updatePriceRange = () => {
-  // Отправляем измененный диапазон цен в родительский компонент
-  defineEmits().emit("updatePriceRange", priceRange.value);
-};
-
-//
+const emit = defineEmits(["updateSizes"]);
+const { filters } = defineProps(["filters"]);
 const sizeActive = ref([]);
-
-let priceRange = ref([0, 1000000]);
 
 const checkingSizeAvailability = (size) => {
   if (sizeActiveCheck(size)) {
@@ -236,39 +247,35 @@ const closeSlideFilters = () => {
   isSlideOutVisibleFilters.value = false;
 };
 
-const sizes = ref([
-  "2100*1000*24",
-  "2100*1010*14",
-  "2100*1300*34",
-  "2000*900*48",
-  "2100*100*24",
-  "2100*1010*4",
-  "210*1300*34",
-]);
+const inner_values = new Set();
+const unique_names = [];
+const unique_values = new Map();
 
-const interiorModels = ref([
-  "10(6)мм Гладкая 1",
-  "10(6)мм Гладкая 2",
-  "10(6)мм Гладкая 2",
-  "10(6)мм Гладкая 2",
-  "10(6)мм Гладкая 2",
-  "10(6)мм Гладкая 2",
-  "10(6)мм Гладкая 2",
-  "10(6)мм Гладкая 2",
-]);
+if (filters && filters.length) {
+  for (let i = 0; i < filters.length; i++) {
+    if (!unique_names.includes(filters[i].name) && filters[i].name !== "Цена") {
+      unique_names.push(filters[i].name);
+      unique_values.set(filters[i].name, new Map());
+    }
+    if (filters[i].features && filters[i].features.length) {
+      for (let j = 0; j < filters[i].features.length; j++) {
+        const feature = filters[i].features[j];
+        if (!inner_values.has(feature.value)) {
+          inner_values.add(feature.value);
 
-const searchQuery = ref("");
-const searchResults = ref([]);
-
-const performSearch = () => {
-  const fuse = new Fuse([...interiorModels.value]);
-  searchResults.value = fuse.search(searchQuery.value);
-};
-
-watchEffect(() => {
-  performSearch();
-});
+          const innerMap = unique_values.get(filters[i].name);
+          const featureList = innerMap.get(feature.name) || [];
+          featureList.push(feature.value);
+          innerMap.set(feature.name, featureList);
+        }
+      }
+    }
+  }
+} else {
+  console.error("filters is undefined or has no length");
+}
 </script>
+
 <style lang="scss">
 .price-range {
   width: 100%;
@@ -280,8 +287,6 @@ watchEffect(() => {
 }
 .price-range::-webkit-slider-thumb {
   position: relative;
-  /* width: 20px;
-    height: 20px; */
   top: -7px;
   border: 2px solid inherit;
 }
@@ -297,15 +302,11 @@ watchEffect(() => {
 }
 .circle-count-filters {
   position: fixed;
-  top: 5px; /* или другое значение, чтобы задать отступ сверху */
-  right: 5px; /* или другое значение, чтобы задать отступ справа */
-  z-index: 10; /* или любое другое высокое значение */
+  top: 5px;
+  right: 5px;
+  z-index: 10;
 }
 
-// .catalog-filters-img {
-//     position: relative;
-//     z-index: 0;
-// }
 .catalog-filters-img {
   position: relative;
 }
@@ -317,7 +318,6 @@ watchEffect(() => {
 }
 
 .catalog-mobile-btn-container {
-  // width: 100vw;
   padding: 10px;
   display: flex;
   align-items: center;
@@ -337,7 +337,6 @@ watchEffect(() => {
   font-weight: 400;
   line-height: 29px;
   letter-spacing: 0em;
-  // text-align: center;
   color: #f9fafb;
 
   background-color: #38bdf8;
@@ -364,7 +363,7 @@ watchEffect(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 110px;
+  width: 120px;
   height: 24px;
   padding: 4px 8px;
   border-radius: 8px;
@@ -373,11 +372,10 @@ watchEffect(() => {
   transition: background-color 0.3s;
 }
 
-// add classes to btn-active
 .size-btn-active > button {
   border: none;
   border-radius: 8px;
-  width: 110px;
+  width: 120px;
   height: 24px;
   background: rgba(rgb(56, 189, 248), 0.7);
   transition: background-color 0.3s;
@@ -395,14 +393,6 @@ watchEffect(() => {
   width: 110px;
   height: 24px;
 }
-
-// .sizes-BTN-item-mobile {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// }
-
-// add transition and border
 
 .size-btn-slot {
   font-family: Sansation;
@@ -452,10 +442,6 @@ watchEffect(() => {
   padding: 0 10px 0 10px;
   width: 100vw;
   height: 98px;
-  // height: 100vw;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: space-evenly;
 }
 
 .catalog-mobile-price-title {
@@ -477,13 +463,6 @@ watchEffect(() => {
 }
 
 .catalog-page-filters-mobile {
-  // @media screen and (max-width: 9999px) {
-  //   display: none;
-  // }
-  // @media screen and (max-width: 768px) {
-  //   display: block;
-  // }
-  // height: 100%;
   position: fixed;
   background: #f9fafb;
   top: 0;
@@ -533,7 +512,6 @@ watchEffect(() => {
   margin-right: 8px;
 }
 
-// .............................
 .catalog-menu-search {
   margin-bottom: 12px;
   width: 280px;
@@ -665,10 +643,6 @@ watchEffect(() => {
   background-color: #38bdf8;
 }
 
-/* .catalog-checkbox:not(:disabled):active + label::before {
-  background-color: #e9950e;
-  border-color: #0d58ae;
-} */
 .catalog-page-menu {
   display: flex;
   margin-right: 20px;
@@ -680,7 +654,6 @@ watchEffect(() => {
 
 .menu {
   max-width: 280px;
-  /* padding: 20px; */
 }
 
 .price-settings {
@@ -699,7 +672,6 @@ watchEffect(() => {
   font-weight: 400;
   line-height: 22px;
   letter-spacing: 0em;
-  /* text-align: center; */
 }
 
 .price-box-1,
@@ -733,10 +705,6 @@ watchEffect(() => {
   line-height: 16px;
   letter-spacing: 0em;
   color: #d1d5db;
-  /* padding-top: 8px;
-  padding-right: 6px;
-  padding-bottom: 8px;
-  padding-left: 6px; */
 }
 
 .price-box-1::placeholder {
@@ -763,7 +731,40 @@ watchEffect(() => {
   letter-spacing: 0em;
   color: #9ca3af;
   display: flex;
-  align-items: center;
   justify-content: flex-start;
+}
+
+// filters
+.full-filter {
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.filter__title {
+  margin: 0;
+  color: var(--gray-700, #374151);
+}
+
+.filter__subtitle {
+  margin: 10px 0 5px;
+  color: var(--gray-700, #374151);
+
+  font-family: Sansation;
+  font-size: 16px;
+  font-style: normal;
+
+  line-height: 140%;
+}
+
+.list__filters {
+  margin-left: 20px;
+}
+
+.checkbox__label {
+  padding-bottom: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 </style>

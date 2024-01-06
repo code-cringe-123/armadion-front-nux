@@ -1,23 +1,7 @@
 <template>
   <div class="catalog-wrapper">
     <div class="products-wrapper">
-      <!-- <div class="products" v-for="product in products" :key="product.id">
-          <Product :product="product" />
-        </div> -->
-      <div
-        v-if="products_filtered.length === 0"
-        class="products"
-        v-for="product in products"
-        :key="product.id"
-      >
-        <Product :product="product" />
-      </div>
-      <div
-        v-else
-        class="products"
-        v-for="product in products_filtered"
-        :key="product.id"
-      >
+      <div class="products" v-for="product in products" :key="product.id">
         <Product :product="product" />
       </div>
     </div>
@@ -25,31 +9,7 @@
 </template>
 
 <script setup>
-const {
-  products,
-  products_filtered,
-  select_left__range,
-  select_right__range,
-  searchQuery,
-} = defineProps([
-  "products",
-  "products_filtered",
-  "select_left__range",
-  "select_right__range",
-]);
-
-// const FilteredItems = ref([]);
-// отслеживание каждого нажатия на клавишу в js`е и передача этих данных
-// console.log(products[0].title);
-
-// const applyFilters = () => {
-//   FilteredItems.value = products.filter(product => {
-//     return (
-//       product.price >= select_left__range &&
-//       product.price <= select_right__range
-//     );
-//   });
-// };
+const props = defineProps(["products"]);
 </script>
 
 <style lang="scss">

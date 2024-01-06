@@ -85,11 +85,14 @@
 
       <div class="product-page-characteristics-container">
         <div class="product-page-characteristics-wrapper">
-            <!-- {{ product && product.title.padEnd(86, '.')  }}{{ product && product.number}} -->
+          <!-- {{ product && product.title.padEnd(86, '.')  }}{{ product && product.number}} -->
           <div class="stats__title">{{ new_names[0].name }}</div>
           <div class="stats" v-for="category in new_names" :key="categoryIndex">
             <h4>{{ category.name }}</h4>
-            <p v-for="(feature, featureIndex) in category.features" :key="featureIndex">
+            <p
+              v-for="(feature, featureIndex) in category.features"
+              :key="featureIndex"
+            >
               <span>{{ feature.name }}</span>
               <span class="dotted__line"></span>
               <span class="size">{{ feature.value }}</span>
@@ -109,10 +112,7 @@
 </template>
 
 <script setup>
-// import SimilarDoors from '../components/SimilarDoors.vue'
 import { ref } from "vue";
-// import swiper from './slider.vue'
-// import TopSwiper from './slider-pag.vue'
 
 const changeMainImage = (event) => {
   const pageImage = document.getElementById("pageImage");
@@ -156,15 +156,19 @@ const slickOptions = {
   initialSlide: 0,
   arrows: false,
 };
-console.log("2123")
-console.log(data.value.feature_categories)
+console.log("2123");
+console.log(data.value.feature_categories);
 
 // Характеристики для h4
-const new_names = []
-const errors_names = []
+const new_names = [];
+const errors_names = [];
 for (let i = 0; i < data.value.feature_categories.length; i++) {
-  if ((!errors_names.includes(data.value.feature_categories[i].name) && (data.value.feature_categories[i].name.toLowerCase() !== 'Габаритные размеры (В*Ш*Г), мм'.toLowerCase()))) {
-    errors_names.push(data.value.feature_categories[i].name)
+  if (
+    !errors_names.includes(data.value.feature_categories[i].name) &&
+    data.value.feature_categories[i].name.toLowerCase() !==
+      "Габаритные размеры (В*Ш*Г), мм".toLowerCase()
+  ) {
+    errors_names.push(data.value.feature_categories[i].name);
     new_names.push(data.value.feature_categories[i]);
   }
 }
@@ -200,7 +204,7 @@ for (let i = 0; i < data.value.feature_categories.length; i++) {
   margin: 0 auto;
 }
 .page-body-left__img > img {
-  width: 280px;
+  width: 220px;
   height: 413px;
 }
 .carousel {
@@ -219,7 +223,7 @@ for (let i = 0; i < data.value.feature_categories.length; i++) {
 
 .carousel__item img {
   position: block;
-  width: 76px;
+  width: 65px;
   height: 112px;
 }
 
@@ -227,7 +231,7 @@ for (let i = 0; i < data.value.feature_categories.length; i++) {
   border: 2px solid #38bdf8;
 }
 
-h4 {
+.stats h4 {
   margin: 0;
   padding-bottom: 12px;
   color: var(--gray-700, #374151);
@@ -285,19 +289,15 @@ h4 {
 }
 
 .product-page-characteristics-wrapper {
- display: grid;
- grid-template-columns: repeat(2, 1fr);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(4, auto) repeat(2, auto);
   gap: 20px;
- 
 }
 
 .product-page-characteristics-wrapper .stats:first-of-type h4 {
   color: blue;
 }
-
-
-
 
 .product-page-characteristics-container {
   margin: 60px 0;
@@ -305,7 +305,7 @@ h4 {
   flex-direction: column;
   gap: 20px;
 }
-.stats__title{
+.stats__title {
   font-family: Sansation;
   font-size: 24px;
   font-weight: 400;

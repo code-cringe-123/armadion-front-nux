@@ -26,9 +26,11 @@ const modules = [Pagination];
 }
 
 .slider-image {
-  height: 95%;
-  width: 45%;
-  padding-bottom: 20px;
+  height: 413px;
+  width: 210px;
+  /* height: auto; */
+  /* width: auto; */
+  padding-bottom: 30px;
 }
 
 .top__swiper {
