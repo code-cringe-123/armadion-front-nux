@@ -148,36 +148,44 @@
       </div>
 
       <!-- Настройки габаритных размеров -->
+      <!-- второй подзаголовок -->
+
+      <!-- Подзаголовок -->
+
       <div class="dimension-settings">
         <div
           style="display: flex; flex-direction: column"
           class="dimension-item"
-          v-for="[key, value] of unique_values"
+          v-for="(key, value) in unique_values"
           :key="size"
         >
-          <!-- Подзаголовок -->
-          <h2 class="filter__title">{{ key }}</h2>
-          <div class="full-filter" v-for="[key_key, value_value] of value">
-            <!-- второй подзаголовок -->
-            <h4 class="filter__subtitle">{{ key_key }}</h4>
-            <div class="list__filters" v-for="value_value_value of value_value">
+          <h2 class="filter__title">{{ value }}</h2>
+          <div class="full-filter" v-for="(key_key, value_value) in key">
+            <h4 class="filter__subtitle">{{ value_value }}</h4>
+            <div
+              class="list__filters"
+              v-for="(key_key_key, value_value_value) in key_key"
+            >
               <label class="checkbox__label">
                 <input
                   class="catalog-checkbox"
                   type="checkbox"
-                  @click="$emit('filterRequest', key_key, value_value_value)"
+                  @click="
+                    $emit('filterRequest', key_key_key[0], key_key_key[1])
+                  "
                   @change="(event) => handleChange(event, value_value_value)"
                 />
                 <span class="filter__value">{{ value_value_value }}</span>
               </label>
             </div>
           </div>
-          <!-- @click="onFilterUpdate(size)"  сверху было-->
         </div>
       </div>
+    </div>
+    <!-- @click="onFilterUpdate(size)"  сверху было-->
 
-      <!-- Настройки модели внутренней отделки 2 -->
-      <!-- <div class="interior-settings">
+    <!-- Настройки модели внутренней отделки 2 -->
+    <!-- <div class="interior-settings">
         <div class="catalog-menu-title">
           {{ data?.filters?.[5]?.features[0].name }}
         </div>
@@ -207,7 +215,6 @@
           </label>
         </div>
       </div> -->
-    </div>
   </div>
 </template>
 
@@ -220,6 +227,9 @@ import { defineEmits } from "vue";
 const emit = defineEmits(["filterRequest"]);
 const { filters } = defineProps(["filters"]);
 const sizeActive = ref([]);
+
+const value_slug = "2100-1000-70";
+const name_slug = "gabaritnye-razmery-vshg-mm";
 
 const checkingSizeAvailability = (size) => {
   if (sizeActiveCheck(size)) {
@@ -248,14 +258,12 @@ const closeSlideFilters = () => {
 };
 
 const inner_values = new Set();
-const unique_names = [];
-const unique_values = new Map();
+const unique_values = {};
 
 if (filters && filters.length) {
   for (let i = 0; i < filters.length; i++) {
-    if (!unique_names.includes(filters[i].name) && filters[i].name !== "Цена") {
-      unique_names.push(filters[i].name);
-      unique_values.set(filters[i].name, new Map());
+    if (!unique_values[filters[i].name] && filters[i].name !== "Цена") {
+      unique_values[filters[i].name] = {};
     }
     if (filters[i].features && filters[i].features.length) {
       for (let j = 0; j < filters[i].features.length; j++) {
@@ -263,10 +271,13 @@ if (filters && filters.length) {
         if (!inner_values.has(feature.value)) {
           inner_values.add(feature.value);
 
-          const innerMap = unique_values.get(filters[i].name);
-          const featureList = innerMap.get(feature.name) || [];
-          featureList.push(feature.value);
-          innerMap.set(feature.name, featureList);
+          const innerMap = unique_values[filters[i].name];
+          if (!innerMap[feature.name]) {
+            innerMap[feature.name] = {};
+          }
+
+          const featureMap = innerMap[feature.name];
+          featureMap[feature.value] = [feature.name_slug, feature.value_slug];
         }
       }
     }
@@ -274,6 +285,7 @@ if (filters && filters.length) {
 } else {
   console.error("filters is undefined or has no length");
 }
+
 </script>
 
 <style lang="scss">

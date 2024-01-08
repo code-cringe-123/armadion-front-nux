@@ -1,43 +1,51 @@
 <template>
   <div class="catalog-page-container">
     <Catalog-menu :filters="filters" @filterRequest="onFilterUpdate" />
-    <Catalog :products="products" />
+    <Catalog :products="products" :products_filtered="products_filtered" />
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, watchEffect } from "vue";
 const products = ref([]);
+const products_filtered = ref([]);
 const filters = ref([]);
 
 const filterQuery = new URLSearchParams();
 
 function onFilterUpdate(key_key, value_value_value) {
-  filterQuery.set(key_key, value_value_value);
-  // console.log("HERE@@@");
-  // console.log(key_key, value_value_value);
-  // console.log(`https://api-armadion.ru/doors/filter${filterQuery.toString()}`);
-  update();
+  filterQuery.append(key_key, value_value_value);
+  refresh();
 }
 
-const { data, update } = await useFetch(
-  `https://api-armadion.ru/doors/filter${filterQuery.toString()}`,
+const { data, refresh } = await useFetch(
+  `https://api-armadion.ru/doors/filter?${filterQuery.toString()}`,
 );
 
-products.value = data.value.doors;
-filters.value = data.value.filters;
+watchEffect(() => {
+  for (let [key, value] of filterQuery.entries()) {
+    console.log(key, value);
+    
+    products.value.push(
+      ...`https://api-armadion.ru/doors/filter?${filterQuery.toString()}`.value
+        .doors,
+    );
+  }
+  // products.value = [...data.value.doors];
 
-// const new_sizes = [];
-// console.log(data.value.filters);
-// for (let i = 0; i < data.value.filters[3].features.length; i++) {
-//   if (!new_sizes.includes(data.value.filters[3].features[i].value)) {
-//     new_sizes.push(data.value.filters[3].features[i].value);
-//   }
-// }
-
-const test = (size) => {
-  console.log(size);
-};
+  filters.value = data.value.filters;
+  // try {
+  //   products.value = [...data.value.doors];
+  //   console.log(products)
+  // } catch (error) {
+  //   console.error("Произошла ошибка:", error);
+  // }
+  // // products.value.push(...data.value.doors);
+  // console.log("HERE");
+  // // console.log( `https://api-armadion.ru/doors/filter?${filterQuery.toString()}`)
+  // console.log(data);
+  // console.log(products);
+});
 </script>
 
 <style lang="scss">

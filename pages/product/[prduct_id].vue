@@ -86,14 +86,24 @@
       <div class="product-page-characteristics-container">
         <div class="product-page-characteristics-wrapper">
           <!-- {{ product && product.title.padEnd(86, '.')  }}{{ product && product.number}} -->
-          <div class="stats__title">{{ new_names[0].name }}</div>
+          <div
+            class="stats__title"
+            v-if="
+              new_names[0].name.toLowerCase() !==
+                'габаритные размеры (в*ш*г), мм' &&
+              new_names[0].name.toLowerCase() !== 'характеристики'
+            "
+          >
+            >
+            {{ new_names[0].name }}
+          </div>
           <div class="stats" v-for="category in new_names" :key="categoryIndex">
             <h4>{{ category.name }}</h4>
             <p
               v-for="(feature, featureIndex) in category.features"
               :key="featureIndex"
             >
-              <span>{{ feature.name }}</span>
+              <span class="span-characteristics">{{ feature.name }}</span>
               <span class="dotted__line"></span>
               <span class="size">{{ feature.value }}</span>
             </p>
@@ -163,18 +173,20 @@ console.log(data.value.feature_categories);
 const new_names = [];
 const errors_names = [];
 for (let i = 0; i < data.value.feature_categories.length; i++) {
+  const currentName = data.value.feature_categories[i].name.toLowerCase();
+
   if (
-    !errors_names.includes(data.value.feature_categories[i].name) &&
-    data.value.feature_categories[i].name.toLowerCase() !==
-      "Габаритные размеры (В*Ш*Г), мм".toLowerCase()
+    !errors_names.includes(currentName) &&
+    currentName !== "габаритные размеры (в*ш*г), мм".toLowerCase()
   ) {
-    errors_names.push(data.value.feature_categories[i].name);
+    errors_names.push(currentName);
     new_names.push(data.value.feature_categories[i]);
   }
 }
 </script>
 
 <style>
+
 /*  */
 .doors__slider .swiper {
   width: 100%;
@@ -236,24 +248,29 @@ for (let i = 0; i < data.value.feature_categories.length; i++) {
   padding-bottom: 12px;
   color: var(--gray-700, #374151);
 }
+
 .stats > p {
   margin: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   color: #9ca3af;
   padding-bottom: 8px;
 }
+.stats:nth-child(2) {
+  margin-top: 68px;
+}
 .dotted__line {
   flex: 1;
-  border-bottom: 1px dashed #e5e7eb; /* Измените цвет по необходимости */
-  margin: auto 0 3.5px; /* Регулирует расстояние между точками и текстом */
+  border-bottom: 1px dashed #e5e7eb;
+  margin: auto 0 3.5px;
   vertical-align: middle;
   display: inline-block;
 }
 .size {
   display: block;
   color: #6b7280;
+  max-width: 197px;
 }
 
 .color-img {
@@ -296,7 +313,14 @@ for (let i = 0; i < data.value.feature_categories.length; i++) {
 }
 
 .product-page-characteristics-wrapper .stats:first-of-type h4 {
-  color: blue;
+  font-family: Sansation;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 29px;
+  margin-bottom: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #374151;
 }
 
 .product-page-characteristics-container {
@@ -510,6 +534,22 @@ for (let i = 0; i < data.value.feature_categories.length; i++) {
   }
   .doors__cont {
     display: none;
+  }
+}
+@media screen and (max-width: 455px) {
+  .product-page-body-right {
+    width: 100vw;
+    padding: 0 10px;
+  }
+  .product-page-characteristics-wrapper {
+    width: 100vw;
+    padding: 0 10px;  
+  }
+  .span-characteristics {
+    font-size: 14px;
+  }
+  .size {
+    font-size: 14px;
   }
 }
 </style>
