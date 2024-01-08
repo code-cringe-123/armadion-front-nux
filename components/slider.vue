@@ -1,13 +1,13 @@
 <template>
   <div class="SimilarDoors-title">Похожие Двери</div>
-  <div class="swiper-mobu">
-    <swiper class="mySwiper-mobile" :slidesPerView="1" loop loopAddBlankSlides>
+  <div class="similar-slider-mobile">
+    <swiper class="mySwiper" :slidesPerView="1" loop loopAddBlankSlides>
       <swiper-slide v-for="door in similardoors" :key="door.id">
         <PopularProduct :product="door" />
       </swiper-slide>
     </swiper>
   </div>
-  <div class="swiper">
+  <div class="similar-slider">
     <swiper class="mySwiper" :slidesPerView="2" loop loopAddBlankSlides>
       <swiper-slide v-for="door in similardoors" :key="door.id">
         <PopularProduct :product="door" />
@@ -23,14 +23,14 @@ const props = defineProps(["similardoors"]);
 </script>
 
 <style lang="scss">
-.swiper {
+.similar-slider {
   display: block;
   @media screen and (max-width: 700px) {
     display: none;
   }
 }
 
-.swiper-mobu {
+.similar-slider-mobile {
   display: none;
   @media screen and (max-width: 700px) {
     display: block;
