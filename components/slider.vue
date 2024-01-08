@@ -1,21 +1,19 @@
 <template>
   <div class="SimilarDoors-title">Похожие Двери</div>
-  <swiper
-    v-if="isWideScreen"
-    class="mySwiper"
-    :slidesPerView="2"
-    loop
-    loopAddBlankSlides
-  >
-    <swiper-slide v-for="door in similardoors" :key="door.id">
-      <PopularProduct :product="door" />
-    </swiper-slide>
-  </swiper>
-  <swiper v-else class="mySwiper" :slidesPerView="2" loop loopAddBlankSlides>
-    <swiper-slide v-for="door in similardoors" :key="door.id">
-      <PopularProduct :product="door" />
-    </swiper-slide>
-  </swiper>
+  <div class="swiper-mobu">
+    <swiper class="mySwiper-mobile" :slidesPerView="1" loop loopAddBlankSlides>
+      <swiper-slide v-for="door in similardoors" :key="door.id">
+        <PopularProduct :product="door" />
+      </swiper-slide>
+    </swiper>
+  </div>
+  <div class="swiper">
+    <swiper class="mySwiper" :slidesPerView="2" loop loopAddBlankSlides>
+      <swiper-slide v-for="door in similardoors" :key="door.id">
+        <PopularProduct :product="door" />
+      </swiper-slide>
+    </swiper>
+  </div>
 </template>
 
 <script setup>
@@ -24,7 +22,21 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 const props = defineProps(["similardoors"]);
 </script>
 
-<style>
+<style lang="scss">
+.swiper {
+  display: block;
+  @media screen and (max-width: 700px) {
+    display: none;
+  }
+}
+
+.swiper-mobu {
+  display: none;
+  @media screen and (max-width: 700px) {
+    display: block;
+  }
+}
+
 .doors__slider .swiper .swiper-wrapper {
   display: flex;
   margin-left: 10px;
@@ -46,9 +58,10 @@ const props = defineProps(["similardoors"]);
   align-items: center;
 }
 
-.product-wrapper {
+/* .product-wrapper {
   width: 100%;
-}
+  display: contents
+} */
 
 .SimilarDoors-title {
   text-align: center;

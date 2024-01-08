@@ -77,6 +77,7 @@ const { props, products_filtered } = defineProps([
 .product-wrapper {
   width: 217px;
   height: 315px;
+  display: contents
 }
 
 .img-product-wrapper {

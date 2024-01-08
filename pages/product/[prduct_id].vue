@@ -270,7 +270,6 @@ for (let i = 0; i < data.value.feature_categories.length; i++) {
 .size {
   display: block;
   color: #6b7280;
-  max-width: 197px;
 }
 
 .color-img {
@@ -550,6 +549,10 @@ for (let i = 0; i < data.value.feature_categories.length; i++) {
   }
   .size {
     font-size: 14px;
+    /* max-width: 197px; */
+  }
+  .stats:nth-child(2) {
+    margin-top: 0px;
   }
 }
 </style>
