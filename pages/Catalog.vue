@@ -15,6 +15,11 @@ const filterQuery = new URLSearchParams();
 
 async function onFilterUpdate(key_key, value_value_value) {
   filterQuery.append(key_key, value_value_value);
+  await refresh(); // Подразумеваю, что refresh - это асинхронная функция
+  // Считаем время после завершения запроса
+  const endTime = performance.now();
+  const duration = endTime - startTime;
+  console.log(`Время выполнения запроса: ${duration} миллисекунд`);
 }
 
 let { data, refresh } = await useFetch(
@@ -27,7 +32,6 @@ watchEffect(async () => {
   refresh();
   for (let [key, value] of filterQuery.entries()) {
     console.log(key, value);
-    
   }
   data = await useFetch(
     `https://api-armadion.ru/doors/filter?${filterQuery.toString()}`,
