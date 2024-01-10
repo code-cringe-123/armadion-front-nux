@@ -11,12 +11,12 @@ const products = ref([]);
 const products_filtered = ref([]);
 const filters = ref([]);
 
-const filterQuery = new URLSearchParams();
+// const filterQuery = new URLSearchParams();
 
-function onFilterUpdate(key_key, value_value_value) {
-  filterQuery.append(key_key, value_value_value);
-  refresh();
-}
+// function onFilterUpdate(key_key, value_value_value) {
+//   filterQuery.append(key_key, value_value_value);
+//   refresh();
+// }
 
 let { data, refresh } = await useFetch(
   `https://api-armadion.ru/doors/filter?${filterQuery.toString()}`,
