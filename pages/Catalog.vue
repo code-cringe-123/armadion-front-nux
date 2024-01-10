@@ -1,11 +1,11 @@
 <template>
   <div class="catalog-page-container">
-    <Catalog-menu :filters="filters" @filterRequest="onFilterUpdate" />
-    <Catalog :products="products" :products_filtered="products_filtered" />
+    <!-- <Catalog-menu :filters="filters" @filterRequest="onFilterUpdate" />
+    <Catalog :products="products" :products_filtered="products_filtered" /> -->
   </div>
 </template>
 
-<script setup>
+<!-- <script setup>
 import { ref, watchEffect } from "vue";
 const products = ref([]);
 const products_filtered = ref([]);
@@ -13,16 +13,8 @@ const filters = ref([]);
 
 const filterQuery = new URLSearchParams();
 
-// Сохраняем время начала запроса
-const startTime = performance.now();
-
 async function onFilterUpdate(key_key, value_value_value) {
   filterQuery.append(key_key, value_value_value);
-  await refresh(); // Подразумеваю, что refresh - это асинхронная функция
-  // Считаем время после завершения запроса
-  const endTime = performance.now();
-  const duration = endTime - startTime;
-  console.log(`Время выполнения запроса: ${duration} миллисекунд`);
 }
 
 let { data, refresh } = await useFetch(
@@ -67,7 +59,7 @@ watchEffect(async () => {
   filters.value = data?.data?._value?.filters;
 
 });
-</script>
+</script> -->
 
 <style lang="scss">
 .catalog-page-container {
