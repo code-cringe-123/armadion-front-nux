@@ -45,10 +45,19 @@ const props = defineProps({
   }
 }
 
-.catalog-btn-more:hover {
-  background-color: #4b5563;
-  color: #d1d5db;
-  transition: 0.3s;
+@media (hover: hover){
+  .catalog-btn-more:hover {
+    background-color: #4b5563;
+    color: #d1d5db;
+    transition: 0.3s;
+  }
+}
+@media (hover: none){
+  .catalog-btn-more:active {
+    background-color: #d1d5db;
+    color: #4b5563;
+    transition: 0.3s;
+  }
 }
 
 .catalog-btn-more:active {
