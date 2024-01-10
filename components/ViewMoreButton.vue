@@ -60,9 +60,5 @@ const props = defineProps({
   }
 }
 
-.catalog-btn-more:active {
-  background-color: #d1d5db;
-  color: #4b5563;
-  transition: 0.3s;
-}
+
 </style>
