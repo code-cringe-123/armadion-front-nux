@@ -28,16 +28,20 @@
     height: 51px;
   }
 }
-
-.measurements-btn:hover {
-  background-color: #374151;
-  color: #f9fafb;
-  transition: 0.3s;
+@media (hover: hover){
+  .measurements-btn:hover {
+    background-color: #374151;
+    color: #f9fafb;
+    transition: 0.3s;
+  }
 }
 
-.measurements-btn:active {
-  color: #4b5563;
-  background-color: transparent;
-  transition: 0.3s;
+@media (hover: none){
+  .measurements-btn:active {
+    color: #4b5563;
+    background-color: transparent;
+    transition: 0.3s;
+  }
 }
+
 </style>
