@@ -13,9 +13,16 @@ const filters = ref([]);
 
 const filterQuery = new URLSearchParams();
 
-function onFilterUpdate(key_key, value_value_value) {
+// Сохраняем время начала запроса
+const startTime = performance.now();
+
+async function onFilterUpdate(key_key, value_value_value) {
   filterQuery.append(key_key, value_value_value);
-  refresh();
+  await refresh(); // Подразумеваю, что refresh - это асинхронная функция
+  // Считаем время после завершения запроса
+  const endTime = performance.now();
+  const duration = endTime - startTime;
+  console.log(`Время выполнения запроса: ${duration} миллисекунд`);
 }
 
 let { data, refresh } = await useFetch(
@@ -28,11 +35,11 @@ watchEffect(async () => {
   refresh();
   for (let [key, value] of filterQuery.entries()) {
     console.log(key, value);
-    data = await useFetch(
-    `https://api-armadion.ru/doors/filter?${filterQuery.toString()}`,
-    );
+    
   }
-
+  data = await useFetch(
+    `https://api-armadion.ru/doors/filter?${filterQuery.toString()}`,
+  );
   
   
   // console.log(1)
@@ -52,9 +59,12 @@ watchEffect(async () => {
   //   }
   // }
   console.log(data)
+  console.log(`https://api-armadion.ru/doors/filter?${filterQuery.toString()}`)
   console.log(data?.data?._value?.doors)
-  products.value = data?.data?._value?.doors;
-  filters.value = data.value.filters;
+  products.value.push(...(data?.data?._value?.doors || []));
+
+
+  filters.value = data?.data?._value?.filters;
 
 });
 </script>
