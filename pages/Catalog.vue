@@ -1,9 +1,10 @@
 <template>
   <div class="catalog-page-container">
-    <Catalog-menu :filters="filters" @filterRequest="onFilterUpdate" />
-    <Catalog :products="products" :products_filtered="products_filtered" />
+    <!-- <Catalog-menu :filters="filters" @filterRequest="onFilterUpdate" />
+    <Catalog :products="products" :products_filtered="products_filtered" /> -->
   </div>
 </template>
+
 <script setup>
 import { ref, watchEffect } from "vue";
 const products = ref([]);
@@ -12,7 +13,7 @@ const filters = ref([]);
 const filterQuery = new URLSearchParams();
 function onFilterUpdate(key_key, value_value_value) {
   filterQuery.append(key_key, value_value_value);
-  refresh();
+  refresh(); 
 }
 const { data, refresh } = await useFetch(
   `https://api-armadion.ru/doors/filter?${filterQuery.toString()}`,
@@ -41,7 +42,7 @@ watchEffect(() => {
   // console.log(products);
 });
 </script>
-  
+
 <style lang="scss">
 .catalog-page-container {
   margin-top: 195px;
