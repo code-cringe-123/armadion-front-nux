@@ -40,17 +40,21 @@ const props = defineProps({
   transition: 0.3s;
   /* margin-bottom: 8px */
 }
-
-.action-btn:hover {
-  background-color: #0484c7;
-  transition: 0.5s;
+@media (hover: hover){
+  .action-btn:hover {
+    background-color: #0484c7;
+    transition: 0.5s;
+  }
 }
 
-.action-btn:active {
-  color: #f9fafb;
-  background-color: #0ea5e9;
-  transition: 0.3s;
+@media (hover: none){
+  .action-btn:active {
+    color: #f9fafb;
+    background-color: #0ea5e9;
+    transition: 0.3s;
+  }
 }
+
 
 .form-btn {
   // font-size: 16px;
