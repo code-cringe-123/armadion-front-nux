@@ -154,7 +154,6 @@ similardoors.value = data.value.similar_doors;
 
 const productImg = ref({
   imgs: ["/svg/doors/door.svg", "/svg/doors/door.svg", "/svg/doors/door.svg"],
-  // Add more product properties as needed
 });
 
 const slickOptions = {
