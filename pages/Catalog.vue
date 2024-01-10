@@ -25,10 +25,10 @@ let { data, refresh } = await useFetch(
 watchEffect(async () => {
   refresh();
   for (let [key, value] of filterQuery.entries()) {
-    console.log(key, value);
-    data = await useFetch(
-    `https://api-armadion.ru/doors/filter?${filterQuery.toString()}`,
-    );
+    // console.log(key, value);
+    // data = await useFetch(
+    // `https://api-armadion.ru/doors/filter?${filterQuery.toString()}`,
+    // );
   }
 
   
