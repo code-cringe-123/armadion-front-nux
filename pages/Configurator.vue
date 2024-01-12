@@ -1,7 +1,7 @@
 <template>
   <iframe
     id="configurator"
-    src="https://zavod--incredible-sawine-77cffc.netlify.app/"
+    src="https://tourmaline-alfajores-cbb3b1.netlify.app/"
     frameborder="0"
   ></iframe>
 </template>
