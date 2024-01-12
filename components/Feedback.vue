@@ -37,8 +37,8 @@
     <div class="privacy">
       <div class="privacy-text">
         Нажимая “Отправить” вы соглашаетесь с
-        <router-link class="privacy-link" to="#">
-          политикой конфиденциальности</router-link
+        <NuxtLink class="privacy-link" to="/Politics">
+          политикой конфиденциальности</NuxtLink
         >
       </div>
     </div>

@@ -1,9 +1,16 @@
 <template>
-  <button class="measurements-btn" type="button">
+  <button class="measurements-btn" type="button" @click="scrollToForm">
     <slot></slot>
   </button>
 </template>
-
+<script setup>
+const scrollToForm = () => {
+  const formScrollElement = document.getElementById('form-scroll');
+  if (formScrollElement) {
+    formScrollElement.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+</script>
 <style lang="scss">
 .measurements-btn {
   width: 230px;

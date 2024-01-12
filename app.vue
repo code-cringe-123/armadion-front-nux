@@ -11,6 +11,10 @@
   box-sizing: border-box;
 }
 
+:root{
+  --title-color: #111827;
+}
+
 @font-face {
   font-family: Sansation;
   font-weight: 700;
