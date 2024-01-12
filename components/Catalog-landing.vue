@@ -3,20 +3,44 @@
     <div class="catalog-landing-wrapper">
       <div class="catalog-title">Готовые конфигурации</div>
       <div class="products-wrapper-landing">
-        <div class="products" v-for="product in products" :key="product.id">
+        <div
+          class="products"
+          :class="{
+            'products-active': isActiveProducts || index < 4,
+            'products-inactive': !isActiveProducts && index >= 4,
+          }"
+          v-for="(product, index) in products"
+          :key="product.id"
+        >
           <PopularProduct :product="product" />
         </div>
       </div>
-      <ViewMoreButton>Смотреть все</ViewMoreButton>
+      <ViewMoreButton
+        @click="toggleActiveProducts"
+        :class="{ 'inactive-btn': isActiveProducts }"
+        >Смотреть все</ViewMoreButton
+      >
     </div>
   </div>
 </template>
 
 <script setup>
 const props = defineProps(["products"]);
+const isActiveProducts = ref(false);
+
+const toggleActiveProducts = () => {
+  isActiveProducts.value = !isActiveProducts.value;
+};
 </script>
 
 <style lang="scss">
+// inactive
+
+.products-inactive, .inactive-btn {
+  display: none !important;
+}
+
+
 .catalog-container {
   width: 100%;
   display: flex;
