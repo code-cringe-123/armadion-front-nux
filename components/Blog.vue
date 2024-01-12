@@ -3,19 +3,34 @@
     <div class="blog-wrapper">
       <div class="blog-title">Из Блога</div>
       <div class="posts-wrapper">
-        <div class="posts" v-for="post in posts" :key="post.id">
+        <div
+          class="posts"
+          :class="{
+            'posts-active': isActivePost || index1 < 2,
+            'posts-inactive': !isActivePost && index1 >= 2,
+          }"
+          v-for="(post, index1) in posts"
+          :key="post.id"
+        >
           <Post :post="post" />
         </div>
       </div>
-      <ViewMoreButton>Смотреть все</ViewMoreButton>
+      <ViewMoreButton
+        @click="toggleActivePost"
+        :class="{ 'posts-btn': isActivePost }"
+        >Смотреть все</ViewMoreButton
+      >
     </div>
   </div>
 </template>
 
 <script setup>
-// import MoreBtn from '../components/btns/ViewMoreButton.vue'
-// import Post from './Post.vue'
 import { ref, onMounted } from "vue";
+const isActivePost = ref(false);
+
+const toggleActivePost = () => {
+  isActivePost.value = !isActivePost.value;
+};
 
 const posts = ref([]);
 
@@ -36,6 +51,11 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
+.posts-inactive,
+.posts-btn {
+  display: none !important;
+}
+
 .blog-container {
   width: 100%;
   display: flex;
