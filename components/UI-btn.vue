@@ -1,5 +1,5 @@
 <template>
-  <button v-if="type === 'header'" class="action-btn">
+  <button v-if="type === 'header'" class="action-btn" @click="scrollToForm">
     <slot></slot>
   </button>
   <button v-else class="action-btn form-btn" :style="{ marginBottom: mb }">
@@ -8,6 +8,13 @@
 </template>
 
 <script setup>
+const scrollToForm = () => {
+  const formScrollElement = document.getElementById('form-scroll');
+  if (formScrollElement) {
+    formScrollElement.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
 const props = defineProps({
   type: {
     type: String,
