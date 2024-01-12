@@ -10,8 +10,12 @@
 <script setup>
 const scrollToForm = () => {
   const formScrollElement = document.getElementById('form-scroll');
+  const formScrollElement_Contact = document.getElementById('form-scroll-Contact');
   if (formScrollElement) {
     formScrollElement.scrollIntoView({ behavior: 'smooth' });
+  }
+  if (formScrollElement_Contact) {
+    formScrollElement_Contact.scrollIntoView({ behavior: 'smooth' });
   }
 };
 
