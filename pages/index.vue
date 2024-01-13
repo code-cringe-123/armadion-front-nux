@@ -4,7 +4,7 @@
     <Catalog-landing :products="products" />
     <Measurements />
     <Blog />
-    <Form id="form-scroll-landing"/>
+    <Form id="form-scroll"/>
   </div>
 </template>
 
