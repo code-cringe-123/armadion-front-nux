@@ -1,5 +1,5 @@
 <template>
-  <div class="form-container" id="form-scroll">
+  <div class="form-container">
     <div class="form-wrapper">
       <Feedback />
       <img class="form-img" src="../public/svg/Form-img.svg" alt="picture" />

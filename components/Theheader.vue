@@ -130,21 +130,36 @@ const categories = [
     label: "Фурнитура",
   },
 ];
+// const menu = [
+//   {
+//     name: "Для дилеров",
+//     path: "/Contact",
+//   },
+//   {
+//     name: "Для застройщиков",
+//     path: "/Catalog",
+//   },
+//   {
+//     name: "Правила эксплуатации",
+//     path: "/operating_rules",
+//   },
+//   {
+//     name: "Двери оптом",
+//     path: "/Configurator",
+//   },
+// ];
+
 const menu = [
   {
-    name: "Для дилеров",
+    name: "Контакты",
     path: "/Contact",
   },
   {
-    name: "Для застройщиков",
+    name: "Каталог",
     path: "/Catalog",
   },
   {
-    name: "Правила эксплуатации",
-    path: "/operating_rules",
-  },
-  {
-    name: "Двери оптом",
+    name: "Конструткор",
     path: "/Configurator",
   },
 ];
