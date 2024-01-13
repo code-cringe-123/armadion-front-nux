@@ -11,13 +11,15 @@
 
 const scrollToForm = () => {
   const formScrollElement = document.getElementById('form-scroll');
+  const formScrollElementContact = document.getElementById('form-scroll-Contact');
   if (formScrollElement) {
     formScrollElement.scrollIntoView({ behavior: 'smooth' });
-  } else {
-    window.location.href="/Contact"
-  }
-}
-    
+  } else if (formScrollElementContact){
+    formScrollElementContact.scrollIntoView({ behavior: 'smooth' })
+  } else{
+    window.location.href = '/Contact'
+  } 
+};
 
 
 const props = defineProps({
