@@ -1,5 +1,5 @@
 <template>
-  <button v-if="type === 'header'" class="action-btn" @click="scrollToForm">
+  <button v-if="type === 'header'" class="action-btn" @click="scrollToForm" >
     <slot></slot>
   </button>
   <button v-else class="action-btn form-btn" :style="{ marginBottom: mb }">
@@ -8,16 +8,19 @@
 </template>
 
 <script setup>
+
 const scrollToForm = () => {
+  
+
   const formScrollElement = document.getElementById('form-scroll');
-  const formScrollElement_Contact = document.getElementById('form-scroll-Contact');
   if (formScrollElement) {
     formScrollElement.scrollIntoView({ behavior: 'smooth' });
   }
-  if (formScrollElement_Contact) {
-    formScrollElement_Contact.scrollIntoView({ behavior: 'smooth' });
-  }
+  else{
+    window.location.href = '/Contact'
+  } 
 };
+
 
 const props = defineProps({
   type: {
@@ -29,7 +32,7 @@ const props = defineProps({
     type: String,
     required: false,
   },
-});
+});   
 </script>
 
 <style lang="scss">
