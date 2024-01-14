@@ -54,7 +54,7 @@
           fill="#fff"
           class="active-count-filters"
         >
-          2
+          {{ countFilters }}
         </text>
       </svg>
       <div @click="toggleSlideFilters" class="catalog-filters-name">
@@ -96,21 +96,33 @@
             />
           </div>
           <div class="catalog-mobile-price-container-buttom">
-            <div class="catalog-mobile-price-title">Габаритные размеры</div>
+            
             <div class="sizes-BTN-mobile-wrapper">
               <div
-                v-for="size in sizes"
-                :key="size"
+                v-for="(mobKey, mobValue, mobIndex) in Object.entries(unique_values).slice(0, 3)"
+                :key="mobIndex"
                 class="catalog-menu-mobile-item"
-                @click="handleTableClick(size)"
+                @click="handleTableClick(mobValue)"
                 :class="{
-                  'size-btn-active': sizeActiveCheck(size),
-                  'size-btn': !sizeActiveCheck(size),
+                  'size-btn-active': sizeActiveCheck(mobValue),
+                  'size-btn': !sizeActiveCheck(mobValue),
                 }"
               >
-                <button class="size-btn">
-                  <span class="size-btn-slot">{{ size }}</span>
-                </button>
+                <h3 style="font-size: 12px;" class="catalog-mobile-price-title">{{ mobKey[0] }}</h3>
+                  
+                <div>
+                  <div v-for="(mobKey_key, mobValue_value) in Object.entries(mobKey[1]).slice(0, 1)">
+                    <h4 style="font-size: 12px;" class="catalog-mobile-price-title">{{ mobKey_key[mobValue_value] }}</h4>
+
+                    <div>
+                      <div style="margin-top: 5px;" v-for="(mobKey_key_key, mobValue_value_value) in Object.entries(mobKey_key[1])">
+                        <button @click="$emit('filterRequest', mobKey_key_key[1][0], mobKey_key_key[1][1])" style="width: 100px; height: 35px;" class="size-btn">
+                          <span style="font-size: 10px;" class="size-btn-slot">{{ mobKey_key_key[0] }}</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -224,9 +236,11 @@ import { vMaska } from "maska";
 import { defineEmits } from "vue";
 
 const emit = defineEmits(["filterRequest"]);
-const { filters } = defineProps(["filters"]);
+const { filters,doors } = defineProps(["filters", "doors"]);
 const sizeActive = ref([]);
 
+console.log(doors)
+const countFilters = doors.length;
 
 const checkingSizeAvailability = (size) => {
   if (sizeActiveCheck(size)) {
@@ -259,7 +273,7 @@ const unique_values = {};
 
 if (filters && filters.length) {
   for (let i = 0; i < filters.length; i++) {
-    if (!unique_values[filters[i].name] && filters[i].name !== "Цена") {
+    if (!unique_values[filters[i].name] && filters[i].name !== "Цена" && filters[i].name !== "Дверное полотно") {
       unique_values[filters[i].name] = {};
     }
     if (filters[i].features && filters[i].features.length) {
@@ -282,6 +296,9 @@ if (filters && filters.length) {
 } else {
   console.error("filters is undefined or has no length");
 }
+console.log(unique_values)
+console.log(inner_values)
+
 // const handleChange = (event, value_value_value) => {
 
 // }
@@ -336,7 +353,7 @@ if (filters && filters.length) {
   position: absolute;
   margin-left: auto;
   margin-right: auto;
-  bottom: 30px;
+  bottom: 10px;
   left: 0;
   text-align: center;
   right: 0;

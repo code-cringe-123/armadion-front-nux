@@ -97,15 +97,43 @@
             >
             {{ new_names[0].name }}
           </div>
-          <div class="stats" v-for="category in new_names" :key="categoryIndex">
+          <div class="stats" v-for="(category,categoryIndex) in new_names" :key="categoryIndex">
             <h4>{{ category.name }}</h4>
-            <p
-              v-for="(feature, featureIndex) in category.features"
-              :key="featureIndex"
-            >
-              <span class="span-characteristics">{{ feature.name }}</span>
-              <span class="dotted__line"></span>
-              <span class="size">{{ feature.value }}</span>
+            <p v-if="categoryIndex == 0" v-for="(feature, featureIndex_temp) in category.features" :key="featureIndex_temp">
+              <div style="display: flex; flex-direction: column; gap: 8px; width: 100%;">
+                <span style="display: flex; width: 100%;">
+                  <span class="span-characteristics">{{ 
+                    sizeMesName
+                  }}</span>
+                  <span class="dotted__line"></span>
+                  <span class="size">{{ 
+                    sizeMesValue
+                  }}</span>
+                </span>
+
+                <span style="display: flex; width: 100%;">
+                  <span class="span-characteristics">{{ 
+                    feature.name
+                  }}</span>
+                  <span class="dotted__line"></span>
+                  <span class="size">{{ 
+                    feature.value
+                  }}</span>
+                </span>
+                
+              </div>  
+            </p>
+
+            <p v-else v-for="(feature, featureIndex) in category.features" :key="featureIndex">
+              <span style="display: flex; width: 100%;">
+                <span class="span-characteristics">{{ 
+                  feature.name
+                }}</span>
+                <span class="dotted__line"></span>
+                <span class="size">{{ 
+                  feature.value
+                }}</span>
+              </span>
             </p>
           </div>
         </div>
@@ -165,21 +193,23 @@ const slickOptions = {
   initialSlide: 0,
   arrows: false,
 };
-console.log("2123");
-console.log(data.value.feature_categories);
 
 // Характеристики для h4
 const new_names = [];
 const errors_names = [];
+let sizeMesName;
+let sizeMesValue;
 for (let i = 0; i < data.value.feature_categories.length; i++) {
   const currentName = data.value.feature_categories[i].name.toLowerCase();
-
   if (
     !errors_names.includes(currentName) &&
     currentName !== "габаритные размеры (в*ш*г), мм".toLowerCase()
   ) {
     errors_names.push(currentName);
     new_names.push(data.value.feature_categories[i]);
+  } else if (currentName === "габаритные размеры (в*ш*г), мм".toLowerCase()){
+    sizeMesName = data.value.feature_categories[i].features[0].name;
+    sizeMesValue = data.value.feature_categories[i].features[0].value;
   }
 }
 </script>

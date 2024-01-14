@@ -66,7 +66,7 @@ watchEffect(() => {
 
 <template>
   <div class="catalog-page-container">
-    <Catalog-menu :filters="data.filters" @filterRequest="onFilterUpdate" />
+    <Catalog-menu :filters="data.filters" :doors="data.doors" @filterRequest="onFilterUpdate" />
     <Catalog :products="data.doors" :products_filtered="data.doors" />
   </div>
 </template>
@@ -84,8 +84,6 @@ async function onFilterUpdate(key_key, value_value_value) {
    // Если ключ не существует, добавляем его
    filterQuery.value[key_key] = value_value_value;
  }
- 
- console.log(filterQuery.value);
 //  refresh();
 }
 
