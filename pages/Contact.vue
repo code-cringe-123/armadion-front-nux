@@ -1,5 +1,5 @@
 <template>
-  <div class="form-contacts-container">
+  <div class="form-contacts-container" id="form-scroll-Contact">
     <div class="form-contacts-wrapper-monitor">
       <div class="form-contacts-title" id="form-scroll-Contact">Контакты</div>
       <div class="contacts-form">
@@ -13,9 +13,13 @@
     <!-- мобилка -->
     <div class="form-contacts-wrapper-mobile">
       <div class="form-contacts-title">Контакты</div>
+
       <div class="contacts-form">
         <div class="form-contacts">
           <Contacts/>
+      <div class="contacts-form" >
+        <div class="form-contacts" id="form-scroll-Contact">
+          <Contacts />
           <Address />
         </div>
         <Feedback id="form-scroll-Contact"/>

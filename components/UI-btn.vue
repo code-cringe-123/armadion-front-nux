@@ -1,5 +1,5 @@
 <template>
-  <button v-if="type === 'header'" class="action-btn" @click="scrollToForm" >
+  <button v-if="type == 'header'" class="action-btn" @click="scrollToForm" >
     <slot></slot>
   </button>
   <button v-else class="action-btn form-btn" :style="{ marginBottom: mb }">
@@ -20,8 +20,7 @@ const scrollToForm = () => {
   } else {
     window.location.href="/Contact"
   }
-}
-    
+};
 
 
 const props = defineProps({
