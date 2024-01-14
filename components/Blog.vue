@@ -15,11 +15,11 @@
           <Post :post="post" />
         </div>
       </div>
-      <ViewMoreButton
+      <!-- <ViewMoreButton
         @click="toggleActivePost"
         :class="{ 'posts-btn': isActivePost }"
         >Смотреть все</ViewMoreButton
-      >
+      > -->
     </div>
   </div>
 </template>

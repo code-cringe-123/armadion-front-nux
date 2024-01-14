@@ -6,6 +6,19 @@
         <div
           class="products"
           :class="{
+            'products-active': isActiveProducts || index < 8,
+            'products-inactive': !isActiveProducts && index >= 8,
+          }"
+          v-for="(product, index) in products"
+          :key="product.id"
+        >
+          <PopularProduct :product="product" />
+        </div>
+      </div>
+      <div class="products-wrapper-landing-mobile">
+        <div
+          class="products"
+          :class="{
             'products-active': isActiveProducts || index < 4,
             'products-inactive': !isActiveProducts && index >= 4,
           }"
@@ -15,11 +28,13 @@
           <PopularProduct :product="product" />
         </div>
       </div>
-      <ViewMoreButton
+      <!-- потом можно будет вернуть, пока что так оставить -->
+      <!-- <ViewMoreButton
         @click="toggleActiveProducts"
         :class="{ 'inactive-btn': isActiveProducts }"
         >Смотреть все</ViewMoreButton
-      >
+      > -->
+      <ViewMoreButton>Смотреть все</ViewMoreButton>
     </div>
   </div>
 </template>
@@ -40,6 +55,14 @@ const toggleActiveProducts = () => {
   display: none !important;
 }
 
+.products-wrapper-landing-mobile {
+  display: none;
+  @media screen and (max-width: 425px) {
+    display: block;
+    display: grid;
+    gap: 20px;
+  }
+}
 
 .catalog-container {
   width: 100%;
@@ -94,6 +117,9 @@ const toggleActiveProducts = () => {
     flex-direction: column;
     align-items: center;
     gap: 10px;
+  }
+  @media screen and (max-width: 425px) {
+    display: none;
   }
 }
 

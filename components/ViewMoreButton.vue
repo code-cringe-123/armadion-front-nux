@@ -1,11 +1,15 @@
 <template>
-  <button
-    class="catalog-btn-more"
-    :style="{ width: width, height: height, borderRadius: br }"
-    type="button"
-  >
+  <NuxtLink
+      to="/Catalog"
+      >
+    <button
+      class="catalog-btn-more"
+      :style="{ width: width, height: height, borderRadius: br }"
+      type="button"
+    >
     <slot></slot>
-  </button>
+    </button>
+  </NuxtLink>  
 </template>
 
 <script setup>
@@ -25,6 +29,8 @@ const props = defineProps({
 });
 </script>
 <style lang="scss">
+
+
 .catalog-btn-more {
   margin-top: 24px;
   width: 236px;

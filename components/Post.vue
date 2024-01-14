@@ -34,8 +34,8 @@ const props = defineProps(["post"]);
 }
 
 .post-img {
-  max-width: 100vw;
-  max-height: 383px;
+  width: 100vw;
+  height: 383px;
   margin-bottom: 24px;
 
   @media screen and (max-width: 1440px) {
@@ -68,6 +68,7 @@ const props = defineProps(["post"]);
   margin: 0 0 12px 20px;
 
   @media screen and (max-width: 425px) {
+    margin: 0 10px 12px 10px;
     font-size: 24px;
     font-weight: 400;
     line-height: 29px;
@@ -82,6 +83,7 @@ const props = defineProps(["post"]);
   padding: 0 20px;
 
   @media screen and (max-width: 425px) {
+    padding: 0 10px;
     font-size: 16px;
     font-weight: 400;
     line-height: 22px;

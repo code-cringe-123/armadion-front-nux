@@ -16,18 +16,18 @@
               <li
                 class="footer-catalog-list__list-item color-hover footer-otstup-str"
               >
-                <NuxtLink to="#">Дилерам</NuxtLink>
+                <NuxtLink to="https://armadion.ru/dilerstvo/">Дилерам</NuxtLink>
               </li>
               <li
                 class="footer-catalog-list__list-item color-hover footer-otstup-str"
               >
-                <NuxtLink to="#">Застройщикам</NuxtLink>
+                <NuxtLink to="https://armadion.ru/zastrojschikam/">Застройщикам</NuxtLink>
               </li>
               <li class="footer-catalog-list__list-item color-hover">
-                <NuxtLink to="#">Где купить</NuxtLink>
+                <NuxtLink to="https://armadion.ru/contact/">Где купить</NuxtLink>
               </li>
               <li class="footer-catalog-list__list-item color-hover">
-                <NuxtLink to="#">Двери оптом</NuxtLink>
+                <NuxtLink to="https://armadion.ru/dveri-optom/">Двери оптом</NuxtLink>
               </li>
             </ul>
           </div>
@@ -39,18 +39,18 @@
               <li
                 class="footer-catalog-list__list-item color-hover footer-otstup-str"
               >
-                <NuxtLink to="#">Завод Армада</NuxtLink>
+                <NuxtLink to="https://armadion.ru/about_us/">Завод Армада</NuxtLink>
               </li>
               <li
                 class="footer-catalog-list__list-item color-hover footer-otstup-str"
               >
-                <NuxtLink to="#">Доставка и оплата</NuxtLink>
+                <NuxtLink to="https://armadion.ru/delivery/">Доставка и оплата</NuxtLink>
               </li>
               <li class="footer-catalog-list__list-item color-hover">
-                <NuxtLink to="#">Наша гарантия</NuxtLink>
+                <NuxtLink to="https://armadion.ru/garantiya/">Наша гарантия</NuxtLink>
               </li>
               <li class="footer-catalog-list__list-item color-hover">
-                <NuxtLink to="#">Политика <br />конфиденциальности</NuxtLink>
+                <NuxtLink to="/Politics">Политика <br />конфиденциальности</NuxtLink>
               </li>
             </ul>
           </div>
@@ -62,21 +62,21 @@
               <li
                 class="footer-catalog-list__list-item color-hover footer-otstup-str"
               >
-                <NuxtLink to="#">Входные двери</NuxtLink>
+                <NuxtLink to="/Catalog">Входные двери</NuxtLink>
               </li>
               <li
                 class="footer-catalog-list__list-item color-hover footer-otstup-str"
               >
-                <NuxtLink to="#">Противопожарные двери</NuxtLink>
+                <NuxtLink to="https://armadion.ru/protivopozharnye-dveri/">Противопожарные двери</NuxtLink>
               </li>
               <li class="footer-catalog-list__list-item color-hover">
-                <NuxtLink to="#">Фурнитура</NuxtLink>
+                <NuxtLink to="https://armadion.ru/furnitura/">Фурнитура</NuxtLink>
               </li>
               <li class="footer-catalog-list__list-item color-hover">
-                <NuxtLink to="#">Внешняя отделка</NuxtLink>
+                <NuxtLink to="https://armadion.ru/vneshnyaya-otdelka/">Внешняя отделка</NuxtLink>
               </li>
               <li class="footer-catalog-list__list-item color-hover">
-                <NuxtLink to="#">Отделка панелью</NuxtLink>
+                <NuxtLink to="https://armadion.ru/otdelka-panelyu/">Отделка панелью</NuxtLink>
               </li>
             </ul>
           </div>

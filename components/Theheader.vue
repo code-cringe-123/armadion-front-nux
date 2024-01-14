@@ -67,7 +67,8 @@
         <div class="Company-name">
           <NuxtLink to="/">Армада.</NuxtLink>
         </div>
-        <div
+         <!-- потом вернуть, как будет больше страниц -->
+        <!-- <div
           class="header-catalog-wrapper"
           ref="block"
           @click="toggleSlideCatalogBlock"
@@ -80,8 +81,21 @@
             />
           </div>
           <div class="header-catalog-name">Каталог</div>
-        </div>
-        <div
+        </div> -->
+        <NuxtLink
+          class="header-catalog-wrapper"
+          to="/Catalog"
+        >
+          <div class="header-catalog-logo-wrapper">
+            <img
+              class="header-catalog-logo"
+              src="../public/svg/Catalog-icon.svg"
+              alt="catalog"
+            />
+          </div>
+          <div class="header-catalog-name">Каталог</div>
+        </NuxtLink>
+        <!-- <div
           :class="[
             'slide-out-block-catalog-block',
             { show: isSlideOutVisibleCatalogBlock },
@@ -91,17 +105,23 @@
           <div ref="blockContent" class="catalog-block-content">
             <HeaderCatalog />
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="right-side">
         <div class="nav">
-          <NuxtLink
+          <!-- потом вернуть, как будет больше страниц -->
+          <!-- <NuxtLink
             class="menu__link"
             :to="element.path"
             v-for="(element, i) of menu"
             :key="i"
             >{{ element.name }}</NuxtLink
-          >
+          > -->
+          <NuxtLink
+            class="menu__link"
+            to="/Configurator"
+            >Конструткор
+          </NuxtLink>
         </div>
         <UI-btn type="header">Связь с нами</UI-btn>
       </div>
@@ -150,10 +170,6 @@ const categories = [
 // ];
 
 const menu = [
-  {
-    name: "Контакты",
-    path: "/Contact",
-  },
   {
     name: "Каталог",
     path: "/Catalog",
@@ -471,6 +487,7 @@ const hideCatalogLinksBlock = () => {
 }
 
 .header-catalog-wrapper {
+  text-decoration: none;
   padding-top: 5px;
   display: flex;
   align-items: center;

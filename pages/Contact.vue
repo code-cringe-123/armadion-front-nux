@@ -1,7 +1,7 @@
 <template>
   <div class="form-contacts-container">
     <div class="form-contacts-wrapper-monitor">
-      <div class="form-contacts-title">Контакты</div>
+      <div class="form-contacts-title" id="form-scroll-Contact">Контакты</div>
       <div class="contacts-form">
         <div class="form-contacts">
           <Feedback />
@@ -15,10 +15,10 @@
       <div class="form-contacts-title">Контакты</div>
       <div class="contacts-form">
         <div class="form-contacts">
-          <Contacts />
+          <Contacts/>
           <Address />
         </div>
-        <Feedback />
+        <Feedback id="form-scroll-Contact"/>
       </div>
     </div>
     <!-- ------ -->

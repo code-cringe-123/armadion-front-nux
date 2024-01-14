@@ -2,11 +2,10 @@
   <div class="hero-wrapper">
     <div class="hero-container">
       <div class="inf-wrapper">
-        <div class="hero-inf-title">Armadion the new way to do houses</div>
+        <div class="hero-inf-title">Армадион: <br> Ваши двери в мир уверенности и стиля</div>
         <div class="hero-inf-text-wrapper">
           <div class="hero-inf-text">
-            The insparation, that armada gives me is just incredable, if u
-            choose the door diller armada is you choise.
+            Надежная защита и великолепный дизайн – двери, которые созданы для вас.
           </div>
         </div>
         <!-- <ScrollToBottom class="scroll-btn" /> -->

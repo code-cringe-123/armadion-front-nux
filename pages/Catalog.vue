@@ -1,7 +1,7 @@
-<template>
+<!-- <template>
   <div class="catalog-page-container">
-    <!-- <Catalog-menu :filters="filters" @filterRequest="onFilterUpdate" />
-    <Catalog :products="products" :products_filtered="products_filtered" /> -->
+    <Catalog-menu :filters="filters" @filterRequest="onFilterUpdate" />
+    <Catalog :products="products" :products_filtered="products_filtered" />
   </div>
 </template>
 
@@ -59,71 +59,33 @@ watchEffect(() => {
     align-items: center;
   }
 }
-</style>
+</style> -->
 
 
 
 
-<!-- <template>
+<template>
   <div class="catalog-page-container">
-    <Catalog-menu :filters="filters" @filterRequest="onFilterUpdate" />
-    <Catalog :products="products" :products_filtered="products_filtered" />
+    <Catalog-menu :filters="data.filters" @filterRequest="onFilterUpdate" />
+    <Catalog :products="data.doors" :products_filtered="data.doors" />
   </div>
 </template>
 
 <script setup>
-import { ref, watchEffect } from "vue";
-const products = ref([]);
-const products_filtered = ref([]);
-const filters = ref([]);
-
-const filterQuery = new URLSearchParams();
+import { ref } from "vue"
+const filterQuery = ref({});
 
 async function onFilterUpdate(key_key, value_value_value) {
-  filterQuery.append(key_key, value_value_value);
+  filterQuery.value[key_key] = value_value_value
+  // удалять filterQuery.value[key_key] если такой key_key уже есть
+  refresh()
 }
 
 let { data, refresh } = await useFetch(
-  `https://api-armadion.ru/doors/filter?${filterQuery.toString()}`,
+  `https://api-armadion.ru/doors/filter`, 
+  {query:filterQuery.value}
 );
 
-filters.value = data.value.filters;
-
-watchEffect(async () => {
-  refresh();
-  for (let [key, value] of filterQuery.entries()) {
-    console.log(key, value);
-  }
-  data = await useFetch(
-    `https://api-armadion.ru/doors/filter?${filterQuery.toString()}`,
-  );
-  
-  
-  // console.log(1)
-  // console.log(data?.data?._value?.doors);
-  // for (var key1 in data) {
-  //   if (key1 === "data"){
-  //     for (var key_key2 in data[key1]){
-  //       if (key_key2 === "_value"){
-  //         for (var key_key_key3 in data[key1][key_key2]){
-  //           if (key_key_key3 === "doors"){
-  //             console.log(data[key1][key_key2][key_key_key3])
-  //             console.log(`${key1}, ${key_key2}, ${key_key_key3}`)
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
-  console.log(data)
-  console.log(`https://api-armadion.ru/doors/filter?${filterQuery.toString()}`)
-  console.log(data?.data?._value?.doors)
-  products.value.push(...(data?.data?._value?.doors || []));
-
-
-  filters.value = data?.data?._value?.filters;
-
-});
 </script>
 
 <style lang="scss">
@@ -142,4 +104,4 @@ watchEffect(async () => {
     align-items: center;
   }
 }
-</style> -->
+</style>

@@ -173,8 +173,9 @@
                   @click="
                     $emit('filterRequest', key_key_key[0], key_key_key[1])
                   "
-                  @change="(event) => handleChange(event, value_value_value)"
+                  
                 />
+                <!-- @change="(event) => handleChange(event, value_value_value)" -->
                 <span class="filter__value">{{ value_value_value }}</span>
               </label>
             </div>
@@ -285,7 +286,9 @@ if (filters && filters.length) {
 } else {
   console.error("filters is undefined or has no length");
 }
+// const handleChange = (event, value_value_value) => {
 
+// }
 </script>
 
 <style lang="scss">
