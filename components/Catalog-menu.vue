@@ -170,11 +170,9 @@
                 <input
                   class="catalog-checkbox"
                   type="checkbox"
-                  @click="
-                    $emit('filterRequest', key_key_key[0], key_key_key[1])
-                  "
-                  
+                  @click="$emit('filterRequest', key_key_key[0], key_key_key[1])"
                 />
+
                 <!-- @change="(event) => handleChange(event, value_value_value)" -->
                 <span class="filter__value">{{ value_value_value }}</span>
               </label>
@@ -229,8 +227,6 @@ const emit = defineEmits(["filterRequest"]);
 const { filters } = defineProps(["filters"]);
 const sizeActive = ref([]);
 
-const value_slug = "2100-1000-70";
-const name_slug = "gabaritnye-razmery-vshg-mm";
 
 const checkingSizeAvailability = (size) => {
   if (sizeActiveCheck(size)) {
