@@ -10,7 +10,8 @@
           <div class="nav-mobile">
             <div class="nav-mobile-header">
               <button @click="closeSlide" class="close-btn">закрыть</button>
-              <div class="mobile-name-and-icon-menu">
+              <!-- когда будет доделан католог и его разделы вернуть!!! -->
+              <!-- <div class="mobile-name-and-icon-menu">
                 <div class="menu-name">меню</div>
                 <div class="menu-icon-wrapper" @click="toggleCatalogLinksBlock">
                   <img
@@ -51,7 +52,7 @@
                     </li>
                   </ul>
                 </div>
-              </div>
+              </div> -->
             </div>
             <NuxtLink
               @click="closeSlide"
@@ -95,6 +96,7 @@
           </div>
           <div class="header-catalog-name">Каталог</div>
         </NuxtLink>
+        <!-- когда будет доделан католог и его разделы вернуть!!! -->
         <!-- <div
           :class="[
             'slide-out-block-catalog-block',
