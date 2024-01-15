@@ -99,28 +99,21 @@
             
             <div class="sizes-BTN-mobile-wrapper">
               <div
+                style="width: 100%;"
                 v-for="(mobKey, mobValue, mobIndex) in Object.entries(unique_values).slice(0, 3)"
                 :key="mobIndex"
                 class="catalog-menu-mobile-item"
               >
                 <!-- <h3 class="catalog-mobile-price-title">{{ mobKey[0] }}</h3> -->
                   
-                <div >
-                  <div v-for="(mobKey_key, mobValue_value) in Object.entries(mobKey[1]).slice(0, 1)">
-                    <h4 class="catalog-mobile-price-title">{{ mobKey_key[mobValue_value] }}</h4>
+                <div v-for="(mobKey_key, mobValue_value) in Object.entries(mobKey[1]).slice(0, 1)">
+                  <h4 class="catalog-mobile-price-title">{{ mobKey_key[mobValue_value] }}</h4>
 
-                    <div style="display: flex; flex-direction: row; flex-wrap: wrap; width: 500px;">
-                      <div style="margin-top: 5px; padding-right: 15px;" v-for="(mobKey_key_key, mobValue_value_value) in Object.entries(mobKey_key[1])"
-                      @click="handleTableClick(mobKey_key_key[0])">
-                        <button 
-                        @click="$emit('filterRequest', mobKey_key_key[1][0], mobKey_key_key[1][1])" 
-                        style="width: 100px; height: 35px;" :class="{
-                        'size-btn-active': sizeActiveCheck(mobKey_key_key[0]),
-                        'size-btn': !sizeActiveCheck(mobKey_key_key[0]),
-                      }">
-                          <span style="font-size: 10px;" class="size-btn-slot">{{ mobKey_key_key[0] }}</span>
-                        </button>
-                      </div>
+                  <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+                    <div v-for="(mobKey_key_key, mobValue_value_value) in Object.entries(mobKey_key[1])" @click="handleTableClick(mobKey_key_key[0])">
+                      <button @click="$emit('filterRequest', mobKey_key_key[1][0], mobKey_key_key[1][1])" style="flex: 1 0 calc(33.33% - 5px); max-width: 100px; height: 35px; margin-bottom: 5px;" :class="{'size-btn-active': sizeActiveCheck(mobKey_key_key[0]), 'size-btn': !sizeActiveCheck(mobKey_key_key[0])}">
+                        <span style="font-size: 10px;" class="size-btn-slot">{{ mobKey_key_key[0] }}</span>
+                      </button>
                     </div>
                   </div>
                 </div>
