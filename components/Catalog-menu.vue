@@ -130,7 +130,7 @@
         </div>
         <div class="catalog-mobile-btn-container" @click="closeSlideFilters">
           <button class="catalog-mobile-filter-button">
-            Показать {{ countDoors }} товаров
+            Показать товары
           </button>
         </div>
       </div>
@@ -279,30 +279,40 @@ const unique_values = {};
 
 if (filters && filters.length) {
   for (let i = 0; i < filters.length; i++) {
-    console.log(filters[i].name)
     if (
       filters[i].name !== "Цена" &&
       filters[i].name !== "Дверное полотно" &&
-      filters[i].name !== "Дверная коробка"
+      filters[i].name !== "Дверная коробка" && 
+      filters[i].name !== "Характеристики"
     ) {
       if (!unique_values[filters[i].name]) {
         unique_values[filters[i].name] = {};
       }
       if (filters[i].features && filters[i].features.length) {
-        // console.log(filters[i].features)
         for (let j = 0; j < filters[i].features.length; j++) {
-          const feature = filters[i].features[j];
-          if (!inner_values.has(feature.value)) {
-            inner_values.add(feature.value);
+          if (
+            filters[i].features[j].name !== "Глазок" &&
+            filters[i].features[j].name !== "Задвижка" &&
+            filters[i].features[j].name !== "Материал внутренней отделки" &&
+            filters[i].features[j].name !== "Броненакладка" &&
+            filters[i].features[j].name !== "Материал внешней отделки" &&
+            filters[i].features[j].name !== "Ручка" &&
+            filters[i].features[j].name !== "Накладки"
+            ){
+            const feature = filters[i].features[j];
+            if (!inner_values.has(feature.value)) {
+              inner_values.add(feature.value);
 
-            const innerMap = unique_values[filters[i].name];
-            if (!innerMap[feature.name]) {
-              innerMap[feature.name] = {};
+              const innerMap = unique_values[filters[i].name];
+              if (!innerMap[feature.name]) {
+                innerMap[feature.name] = {};
+              }
+
+              const featureMap = innerMap[feature.name];
+              featureMap[feature.value] = [feature.name_slug, feature.value_slug];
             }
-
-            const featureMap = innerMap[feature.name];
-            featureMap[feature.value] = [feature.name_slug, feature.value_slug];
           }
+          
         }
       }
     }
