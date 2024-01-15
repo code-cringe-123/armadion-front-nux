@@ -105,12 +105,12 @@
               >
                 <!-- <h3 class="catalog-mobile-price-title">{{ mobKey[0] }}</h3> -->
                   
-                <div>
+                <div >
                   <div v-for="(mobKey_key, mobValue_value) in Object.entries(mobKey[1]).slice(0, 1)">
                     <h4 class="catalog-mobile-price-title">{{ mobKey_key[mobValue_value] }}</h4>
 
-                    <div>
-                      <div style="margin-top: 5px;" v-for="(mobKey_key_key, mobValue_value_value) in Object.entries(mobKey_key[1])"
+                    <div style="display: flex; flex-direction: row; flex-wrap: wrap; width: 500px;">
+                      <div style="margin-top: 5px; padding-right: 15px;" v-for="(mobKey_key_key, mobValue_value_value) in Object.entries(mobKey_key[1])"
                       @click="handleTableClick(mobKey_key_key[0])">
                         <button 
                         @click="$emit('filterRequest', mobKey_key_key[1][0], mobKey_key_key[1][1])" 
@@ -453,8 +453,10 @@ if (filters && filters.length) {
 
 .sizes-BTN-mobile-wrapper {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 150px;
+  // display: flex;
+  // flex-direction: column;
 }
 
 .catalog-mobile-price-container-up {
