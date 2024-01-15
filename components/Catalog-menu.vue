@@ -88,7 +88,7 @@
               placeholder="От 900₽"
               v-maska
               data-maska="От #####₽"
-              @input="emitFilterRequest1"
+              @keyup="emitFilterRequest1"
             />
             <input
               ref="priceBox2"
@@ -96,7 +96,7 @@
               placeholder="До"
               v-maska
               data-maska="До #####₽"
-              @input="emitFilterRequest2"
+              @keyup="emitFilterRequest2"
             />
           </div>
           <div class="catalog-mobile-price-container-buttom">
