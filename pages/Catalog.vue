@@ -76,6 +76,7 @@ import { ref } from "vue"
 const filterQuery = ref({});
 
 async function onFilterUpdate(key_key, value_value_value) {
+  console.log(filterQuery)
  // Проверяем, существует ли уже ключ в filterQuery.value
  if (filterQuery.value.hasOwnProperty(key_key)) {
    // Если ключ существует, удаляем его

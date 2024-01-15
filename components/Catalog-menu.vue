@@ -83,16 +83,20 @@
           <div class="catalog-mobile-price-title">Цена</div>
           <div class="price-range-mobile">
             <input
+              ref="priceBox1"
               class="price-box-mobile-1 price-box"
               placeholder="От 900₽"
-              v-maska="0"
-              data-maska="От ###₽"
+              v-maska
+              data-maska="От #####₽"
+              @keyup="$emit('filterRequest', 'min_price', this.$refs.priceBox1.value.slice(3))"
             />
             <input
+              ref="priceBox2"
               class="price-box-mobile-2 price-box"
-              placeholder="До 100000₽"
-              v-maska="1000"
-              data-maska="До ####₽"
+              placeholder="До"
+              v-maska
+              data-maska="До #####₽"
+              @keyup="$emit('filterRequest', 'max_price', this.$refs.priceBox2.value.slice(3))"
             />
           </div>
           <div class="catalog-mobile-price-container-buttom">
@@ -138,16 +142,21 @@
         <div class="catalog-menu-title">Цена</div>
         <div class="price-range">
           <input
+            ref="priceBox1"
             class="price-box-1 price-box"
             placeholder="От 900₽"
             v-maska
-            data-maska="От ###₽"
+            data-maska="От #####₽"
+            @keyup="$emit('filterRequest', 'min_price', this.$refs.priceBox1.value.slice(3))"
           />
+
           <input
+            ref="priceBox2"
             class="price-box-2 price-box"
             placeholder="До"
             v-maska
             data-maska="До #####₽"
+            @keyup="$emit('filterRequest', 'max_price', this.$refs.priceBox2.value.slice(3))"
           />
         </div>
       </div>
