@@ -88,7 +88,7 @@
               placeholder="От 900₽"
               v-maska
               data-maska="От #####₽"
-              @keyup="$emit('filterRequest', 'min_price', this.$refs.priceBox1.value.slice(3))"
+              @input="emitFilterRequest1"
             />
             <input
               ref="priceBox2"
@@ -96,7 +96,7 @@
               placeholder="До"
               v-maska
               data-maska="До #####₽"
-              @keyup="$emit('filterRequest', 'max_price', this.$refs.priceBox2.value.slice(3))"
+              @input="emitFilterRequest2"
             />
           </div>
           <div class="catalog-mobile-price-container-buttom">
@@ -147,7 +147,7 @@
             placeholder="От 900₽"
             v-maska
             data-maska="От #####₽"
-            @keyup="$emit('filterRequest', 'min_price', this.$refs.priceBox1.value.slice(3))"
+            @keyup="emitFilterRequest1"
           />
 
           <input
@@ -156,7 +156,7 @@
             placeholder="До"
             v-maska
             data-maska="До #####₽"
-            @keyup="$emit('filterRequest', 'max_price', this.$refs.priceBox2.value.slice(3))"
+            @keyup="emitFilterRequest2"
           />
         </div>
       </div>
@@ -237,6 +237,10 @@ import Fuse from "fuse.js";
 import { vMaska } from "maska";
 import { defineEmits } from "vue";
 let countDoors = 0;
+
+const priceBox1 = ref(null);
+const priceBox2 = ref(null);
+
 const emit = defineEmits(["filterRequest"]);
 const { filters,doors } = defineProps(["filters", "doors"]);
 const sizeActive = ref([]);
@@ -321,11 +325,26 @@ if (filters && filters.length) {
   }
 } else {
   console.error("filters is undefined or has no length");
-}
+};
 
-// const handleChange = (event, value_value_value) => {
+const emitFilterRequest1 = () => {
+ let value = priceBox1.value.value;
+ if (!value.includes("₽")) {
+   priceBox1.value.value = value + "₽";
+ }
+ const numericValue = value.slice(3, 8);
+ emit('filterRequest', 'min_price', numericValue);
+};
 
-// }
+const emitFilterRequest2 = () => {
+ let value = priceBox2.value.value;
+ if (!value.includes("₽")) {
+   priceBox2.value.value = value + "₽";
+ }
+ const numericValue = value.slice(3, 8);
+ emit('filterRequest', 'max_price', numericValue);
+};
+
 </script>
 
 <style lang="scss">
