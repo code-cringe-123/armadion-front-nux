@@ -99,7 +99,7 @@
             
             <div class="sizes-BTN-mobile-wrapper">
               <div
-                style="width: 100%;"
+                style="width: 100%; height: 100%;"
                 v-for="(mobKey, mobValue, mobIndex) in Object.entries(unique_values).slice(0, 3)"
                 :key="mobIndex"
                 class="catalog-menu-mobile-item"
@@ -447,7 +447,6 @@ if (filters && filters.length) {
 .sizes-BTN-mobile-wrapper {
   display: grid;
   grid-template-rows: repeat(3, 1fr);
-  gap: 150px;
   // display: flex;
   // flex-direction: column;
 }
