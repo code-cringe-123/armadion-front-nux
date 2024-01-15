@@ -103,7 +103,7 @@
                 :key="mobIndex"
                 class="catalog-menu-mobile-item"
               >
-                <h3 class="catalog-mobile-price-title">{{ mobKey[0] }}</h3>
+                <!-- <h3 class="catalog-mobile-price-title">{{ mobKey[0] }}</h3> -->
                   
                 <div>
                   <div v-for="(mobKey_key, mobValue_value) in Object.entries(mobKey[1]).slice(0, 1)">
@@ -243,8 +243,6 @@ const sizeActive = ref([]);
 let countFilters = 0;
 
 const checkingSizeAvailability = (size) => {
-  console.log('her')
-  console.log(doors)
   if (sizeActiveCheck(size)) {
     sizeActive.value = sizeActive.value.filter((item) => item !== size);
     countFilters -= 1;
@@ -281,25 +279,34 @@ const unique_values = {};
 
 if (filters && filters.length) {
   for (let i = 0; i < filters.length; i++) {
-    if (!unique_values[filters[i].name] && filters[i].name !== "Цена" && filters[i].name !== "Дверное полотно") {
-      unique_values[filters[i].name] = {};
-    }
-    if (filters[i].features && filters[i].features.length) {
-      for (let j = 0; j < filters[i].features.length; j++) {
-        const feature = filters[i].features[j];
-        if (!inner_values.has(feature.value)) {
-          inner_values.add(feature.value);
+    console.log(filters[i].name)
+    if (
+      filters[i].name !== "Цена" &&
+      filters[i].name !== "Дверное полотно" &&
+      filters[i].name !== "Дверная коробка"
+    ) {
+      if (!unique_values[filters[i].name]) {
+        unique_values[filters[i].name] = {};
+      }
+      if (filters[i].features && filters[i].features.length) {
+        // console.log(filters[i].features)
+        for (let j = 0; j < filters[i].features.length; j++) {
+          const feature = filters[i].features[j];
+          if (!inner_values.has(feature.value)) {
+            inner_values.add(feature.value);
 
-          const innerMap = unique_values[filters[i].name];
-          if (!innerMap[feature.name]) {
-            innerMap[feature.name] = {};
+            const innerMap = unique_values[filters[i].name];
+            if (!innerMap[feature.name]) {
+              innerMap[feature.name] = {};
+            }
+
+            const featureMap = innerMap[feature.name];
+            featureMap[feature.value] = [feature.name_slug, feature.value_slug];
           }
-
-          const featureMap = innerMap[feature.name];
-          featureMap[feature.value] = [feature.name_slug, feature.value_slug];
         }
       }
     }
+    
   }
 } else {
   console.error("filters is undefined or has no length");
