@@ -99,7 +99,6 @@
             
             <div class="sizes-BTN-mobile-wrapper">
               <div
-                style="width: 100%; height: 100%;"
                 v-for="(mobKey, mobValue, mobIndex) in Object.entries(unique_values).slice(0, 3)"
                 :key="mobIndex"
                 class="catalog-menu-mobile-item"
@@ -429,10 +428,7 @@ if (filters && filters.length) {
   background-color: #f3f4f6;
 }
 
-.catalog-menu-mobile-item {
-  width: 110px;
-  height: 24px;
-}
+
 
 .size-btn-slot {
   font-family: Sansation;
@@ -445,10 +441,13 @@ if (filters && filters.length) {
 }
 
 .sizes-BTN-mobile-wrapper {
-  display: grid;
+  display: grid;  
   grid-template-rows: repeat(3, 1fr);
-  // display: flex;
-  // flex-direction: column;
+}
+
+.catalog-menu-mobile-item {
+  width: 100%; 
+  
 }
 
 .catalog-mobile-price-container-up {
