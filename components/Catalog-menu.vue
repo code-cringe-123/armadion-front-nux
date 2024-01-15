@@ -102,21 +102,22 @@
                 v-for="(mobKey, mobValue, mobIndex) in Object.entries(unique_values).slice(0, 3)"
                 :key="mobIndex"
                 class="catalog-menu-mobile-item"
-                @click="handleTableClick(mobValue)"
-                :class="{
-                  'size-btn-active': sizeActiveCheck(mobValue),
-                  'size-btn': !sizeActiveCheck(mobValue),
-                }"
               >
-                <h3 style="font-size: 12px;" class="catalog-mobile-price-title">{{ mobKey[0] }}</h3>
+                <h3 class="catalog-mobile-price-title">{{ mobKey[0] }}</h3>
                   
                 <div>
                   <div v-for="(mobKey_key, mobValue_value) in Object.entries(mobKey[1]).slice(0, 1)">
-                    <h4 style="font-size: 12px;" class="catalog-mobile-price-title">{{ mobKey_key[mobValue_value] }}</h4>
+                    <h4 class="catalog-mobile-price-title">{{ mobKey_key[mobValue_value] }}</h4>
 
                     <div>
-                      <div style="margin-top: 5px;" v-for="(mobKey_key_key, mobValue_value_value) in Object.entries(mobKey_key[1])">
-                        <button @click="$emit('filterRequest', mobKey_key_key[1][0], mobKey_key_key[1][1])" style="width: 100px; height: 35px;" class="size-btn">
+                      <div style="margin-top: 5px;" v-for="(mobKey_key_key, mobValue_value_value) in Object.entries(mobKey_key[1])"
+                      @click="handleTableClick(mobKey_key_key[0])">
+                        <button 
+                        @click="$emit('filterRequest', mobKey_key_key[1][0], mobKey_key_key[1][1])" 
+                        style="width: 100px; height: 35px;" :class="{
+                        'size-btn-active': sizeActiveCheck(mobKey_key_key[0]),
+                        'size-btn': !sizeActiveCheck(mobKey_key_key[0]),
+                      }">
                           <span style="font-size: 10px;" class="size-btn-slot">{{ mobKey_key_key[0] }}</span>
                         </button>
                       </div>
@@ -129,7 +130,7 @@
         </div>
         <div class="catalog-mobile-btn-container" @click="closeSlideFilters">
           <button class="catalog-mobile-filter-button">
-            Показать 2 товаров
+            Показать {{ countFilters }} товаров
           </button>
         </div>
       </div>
@@ -239,22 +240,26 @@ const emit = defineEmits(["filterRequest"]);
 const { filters,doors } = defineProps(["filters", "doors"]);
 const sizeActive = ref([]);
 
-console.log(doors)
-const countFilters = doors.length;
+let countFilters = 0;
 
 const checkingSizeAvailability = (size) => {
   if (sizeActiveCheck(size)) {
     sizeActive.value = sizeActive.value.filter((item) => item !== size);
+    countFilters -= 1;
   } else {
     sizeActive.value.push(size);
+    countFilters += 1;
+
   }
 };
 
 const sizeActiveCheck = (size) => {
+  
   return sizeActive.value.includes(size);
 };
 
 const handleTableClick = (size) => {
+  
   checkingSizeAvailability(size);
 };
 
@@ -296,8 +301,6 @@ if (filters && filters.length) {
 } else {
   console.error("filters is undefined or has no length");
 }
-console.log(unique_values)
-console.log(inner_values)
 
 // const handleChange = (event, value_value_value) => {
 
@@ -387,12 +390,10 @@ console.log(inner_values)
   cursor: pointer;
 }
 
-.size-btn > button {
+.size-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 120px;
-  height: 24px;
   padding: 4px 8px;
   border-radius: 8px;
   background-color: #f3f4f6;
@@ -400,11 +401,9 @@ console.log(inner_values)
   transition: background-color 0.3s;
 }
 
-.size-btn-active > button {
+.size-btn-active {
   border: none;
   border-radius: 8px;
-  width: 120px;
-  height: 24px;
   background: rgba(rgb(56, 189, 248), 0.7);
   transition: background-color 0.3s;
   .size-btn-slot {
@@ -475,7 +474,7 @@ console.log(inner_values)
 .catalog-mobile-price-title {
   color: #374151;
   font-family: Sansation;
-  font-size: 16px;
+  font-size: 10px;
   font-weight: 400;
   line-height: 22px;
   letter-spacing: 0em;
@@ -509,7 +508,7 @@ console.log(inner_values)
 
 .close-filters {
   width: 100vw;
-  margin-bottom: 16px;
+  // margin-bottom: 16px;
   padding: 10px 10px 0 0;
   display: flex;
   justify-content: flex-end;
