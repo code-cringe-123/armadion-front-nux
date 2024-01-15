@@ -130,7 +130,7 @@
         </div>
         <div class="catalog-mobile-btn-container" @click="closeSlideFilters">
           <button class="catalog-mobile-filter-button">
-            Показать {{ countFilters }} товаров
+            Показать {{ countDoors }} товаров
           </button>
         </div>
       </div>
@@ -235,7 +235,7 @@ import { ref, watchEffect, computed } from "vue";
 import Fuse from "fuse.js";
 import { vMaska } from "maska";
 import { defineEmits } from "vue";
-
+let countDoors = 0;
 const emit = defineEmits(["filterRequest"]);
 const { filters,doors } = defineProps(["filters", "doors"]);
 const sizeActive = ref([]);
@@ -243,6 +243,8 @@ const sizeActive = ref([]);
 let countFilters = 0;
 
 const checkingSizeAvailability = (size) => {
+  console.log('her')
+  console.log(doors)
   if (sizeActiveCheck(size)) {
     sizeActive.value = sizeActive.value.filter((item) => item !== size);
     countFilters -= 1;
@@ -250,8 +252,9 @@ const checkingSizeAvailability = (size) => {
     sizeActive.value.push(size);
     countFilters += 1;
 
-  }
+    }
 };
+
 
 const sizeActiveCheck = (size) => {
   
