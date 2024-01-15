@@ -91,7 +91,9 @@ let { data, refresh } = await useFetch(
   `https://api-armadion.ru/doors/filter`, 
   {query:filterQuery.value}
 );
-
+// let { data } = await useFetch(
+//   `https://api-armadion.ru/doors/filter?min_price=20650.0`
+// );
 </script>
 
 <style lang="scss">

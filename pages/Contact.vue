@@ -13,19 +13,14 @@
     <!-- мобилка -->
     <div class="form-contacts-wrapper-mobile">
       <div class="form-contacts-title">Контакты</div>
-        <div class="contacts-form">
-          <div class="form-contacts">
-            <Contacts/>
-        <div class="contacts-form" >
-          <div class="form-contacts" id="form-scroll-Contact">
-            <Contacts />
-            <Address />
-          </div>
-          <Feedback id="form-scroll-Contact"/>
+      <div class="contacts-form" >
+        <div class="form-contacts" id="form-scroll-Contact">
+          <Contacts />
+          <Address />
         </div>
+        <Feedback id="form-scroll-Contact"/>
       </div>
     </div>
-  </div>
     <!-- ------ -->
   </div>
 </template>
