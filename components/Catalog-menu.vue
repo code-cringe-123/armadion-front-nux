@@ -83,20 +83,20 @@
           <div class="catalog-mobile-price-title">Цена</div>
           <div class="price-range-mobile">
             <input
-              ref="priceBox1"
-              class="price-box-mobile-1 price-box"
+              ref="priceBoxMobile1"
+              class="price-box-1 price-box"
               placeholder="От 900₽"
               v-maska
               data-maska="От #####₽"
-              @keyup="emitFilterRequest1"
+              @keyup="emitFilterRequestMobile1"
             />
             <input
-              ref="priceBox2"
-              class="price-box-mobile-2 price-box"
-              placeholder="До"
+              ref="priceBoxMobile2"
+              class="price-box-2 price-box"
+              placeholder="От 900₽"
               v-maska
-              data-maska="До #####₽"
-              @keyup="emitFilterRequest2"
+              data-maska="От #####₽"
+              @keyup="emitFilterRequestMobile2"
             />
           </div>
           <div class="catalog-mobile-price-container-buttom">
@@ -237,7 +237,8 @@ import Fuse from "fuse.js";
 import { vMaska } from "maska";
 import { defineEmits } from "vue";
 let countDoors = 0;
-
+const priceBoxMobile1 = ref(null)
+const priceBoxMobile2 = ref(null)
 const priceBox1 = ref(null);
 const priceBox2 = ref(null);
 
@@ -325,6 +326,25 @@ if (filters && filters.length) {
   }
 } else {
   console.error("filters is undefined or has no length");
+};
+
+const emitFilterRequestMobile1 = () => {
+ let value = priceBoxMobile1.value.value;
+ if (!value.includes("₽")) {
+   priceBoxMobile1.value.value = value + "₽";
+ }
+ const numericValue = value.slice(3, 8);
+ emit('filterRequest', 'min_price', numericValue);
+};
+
+
+const emitFilterRequestMobile2 = () => {
+ let value = priceBoxMobile2.value.value;
+ if (!value.includes("₽")) {
+   priceBoxMobile2.value.value = value + "₽";
+ }
+ const numericValue = value.slice(3, 8);
+ emit('filterRequest', 'max_price', numericValue);
 };
 
 const emitFilterRequest1 = () => {
