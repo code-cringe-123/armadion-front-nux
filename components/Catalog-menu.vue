@@ -93,9 +93,9 @@
             <input
               ref="priceBoxMobile2"
               class="price-box-2 price-box"
-              placeholder="От 900₽"
+              placeholder="До"
               v-maska
-              data-maska="От #####₽"
+              data-maska="До #####₽"
               @keyup="emitFilterRequestMobile2"
             />
           </div>
