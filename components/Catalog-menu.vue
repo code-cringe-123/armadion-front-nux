@@ -99,7 +99,7 @@
               @keyup="emitFilterRequestMobile2"
             />
           </div>
-          <div class="catalog-mobile-price-container-buttom">
+          <div class="catalog-mobile-price-container-buttom" style="min-height: 100%; max-height: 480px; overflow-y: auto; display: flex; flex-direction: column;">
             
             <div class="sizes-BTN-mobile-wrapper">
               <div
@@ -109,10 +109,10 @@
               >
                 <!-- <h3 class="catalog-mobile-price-title">{{ mobValue }}</h3> -->
                   
-                <div v-for="(mobKey_key, mobValue_value) in mobKey">
+                <div v-for="(mobKey_key, mobValue_value) in mobKey" >
                   <h4 class="catalog-mobile-price-title">{{ mobValue_value }}</h4>
 
-                  <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+                  <div style="display: flex; flex-wrap: wrap; gap: 5px;" >
                     <div v-for="(mobKey_key_key, mobValue_value_value) in mobKey_key" @click="handleTableClick(mobValue_value_value)">
                       <button @click="$emit('filterRequest', mobKey_key_key[0], mobKey_key_key[1])" style="flex: 1 0 calc(33.33% - 5px); max-width: 100px; height: 35px; margin-bottom: 5px;" :class="{'size-btn-active': sizeActiveCheck(mobValue_value_value), 'size-btn': !sizeActiveCheck(mobValue_value_value)}">
                         <span style="font-size: 10px;" class="size-btn-slot">{{ mobValue_value_value }}</span>
@@ -490,13 +490,16 @@ const emitFilterRequest2 = () => {
 }
 
 .sizes-BTN-mobile-wrapper {
-  display: grid;  
-  grid-template-rows: repeat(3, 1fr);
+  // display: grid;  
+  // grid-template-rows: repeat(3, 1fr);
 }
 
 .catalog-menu-mobile-item {
   width: 100%; 
   
+}
+.catalog-menu-mobile-item:nth-child(3){
+  height: 74px;
 }
 
 .catalog-mobile-price-container-up {
@@ -544,6 +547,9 @@ const emitFilterRequest2 = () => {
 }
 
 .close-filters-img-container {
+  position: absolute;
+  top: 5px;
+  right: 5px;
   width: 34px;
   height: 34px;
   display: flex;
@@ -564,6 +570,7 @@ const emitFilterRequest2 = () => {
 }
 
 .catalog-page-filters-mobile.show {
+  min-width: 100%;
   left: 0;
   transition: 0.7s;
 }
