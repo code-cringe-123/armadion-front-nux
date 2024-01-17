@@ -122,7 +122,7 @@
           <NuxtLink
             class="menu__link"
             to="/Configurator"
-            >Конструткор
+            >Конструктор
           </NuxtLink>
         </div>
         <UI-btn type="header">Связь с нами</UI-btn>
@@ -177,7 +177,7 @@ const menu = [
     path: "/Catalog",
   },
   {
-    name: "Конструткор",
+    name: "Конструктор",
     path: "/Configurator",
   },
 ];
