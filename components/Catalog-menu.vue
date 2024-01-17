@@ -103,7 +103,7 @@
             
             <div class="sizes-BTN-mobile-wrapper">
               <div
-                v-for="(mobKey, mobValue, mobIndex) in Object.entries(unique_values).slice(0, 3)"
+                v-for="(mobKey, mobValue, mobIndex) in Object.entries(unique_values)"
                 :key="mobIndex"
                 class="catalog-menu-mobile-item"
               >
@@ -327,6 +327,7 @@ if (filters && filters.length) {
 } else {
   console.error("filters is undefined or has no length");
 };
+
 
 const emitFilterRequestMobile1 = () => {
  let value = priceBoxMobile1.value.value;
