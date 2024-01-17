@@ -2,7 +2,7 @@
   <div class="form">
     <div class="form-title">Оставить заявку</div>
     <div class="form-text">
-      Вам позвонит менеджер, который поможет сделать выбор
+      Вам позвонит менеджер, который поможет сделать выбор.
     </div>
     <div class="zayavka-title">Ваше имя</div>
     <input
