@@ -263,7 +263,7 @@ const sendPostRequest = async () => {
     // Отправьте POST-запрос
     const response = await axios({
       method: "post",
-      url: "https://api-armadion.ru/contact-form/",
+      url: "https://sheet.best/api/sheets/48a0e185-2f27-4b56-960e-eddfd2a3a70b",
       data: {
         user_name: name.value,
         phone_number: phone.value,
