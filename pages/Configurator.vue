@@ -10,19 +10,33 @@
   </div>
 </template>
 
-<style>
-.configurator__btn__back {
-  position: relative;
-  z-index: 100;
-  width: 100px;
-  height: 100px;
-}
+<style lang="scss">
+
 .configurator__wrapper {
-  margin-bottom: -103px;
+  margin-top: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -105px;
+  width: 100vw;
+  height: 100vh;
+  // overflow-x: hidden;
+  // overflow-y: hidden;
+  @media screen and (max-width: 768px) {
+    // transform: rotate(90deg);
+    // margin-bottom: 0;
+    margin-top: 30px;
+  }
 }
 #configurator {
-  width: 1920px;
-  height: 750px;
-  margin-top: 90px;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  @media screen and (max-width: 768px) {
+    margin-bottom: -20px;
+    width: 100vw;
+    height: 100%;
+  }
 }
 </style>
