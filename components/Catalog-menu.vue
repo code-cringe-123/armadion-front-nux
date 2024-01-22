@@ -100,15 +100,13 @@
             />
           </div>
           <div class="catalog-mobile-price-container-buttom" style="min-height: 100%; max-height: 480px; overflow-y: auto; display: flex; flex-direction: column;">
-            
+
             <div class="sizes-BTN-mobile-wrapper">
               <div
                 v-for="(mobKey, mobValue) in  unique_values"
                 :key="mobIndex"
                 class="catalog-menu-mobile-item"
               >
-                <!-- <h3 class="catalog-mobile-price-title">{{ mobValue }}</h3> -->
-                  
                 <div v-for="(mobKey_key, mobValue_value) in mobKey" >
                   <h4 class="catalog-mobile-price-title">{{ mobValue_value }}</h4>
 
@@ -195,39 +193,6 @@
         </div>
       </div>
     </div>
-    <!-- @click="onFilterUpdate(size)"  сверху было-->
-
-    <!-- Настройки модели внутренней отделки 2 -->
-    <!-- <div class="interior-settings">
-        <div class="catalog-menu-title">
-          {{ data?.filters?.[5]?.features[0].name }}
-        </div>
-        <input
-          class="catalog-menu-search"
-          v-model="searchQuery"
-          @input="performSearch"
-          placeholder="Найти"
-        />
-        {{ searchQuery }}
-        <div
-          class="interior-item"
-          v-for="result in searchResults"
-          :key="result.item"
-        >
-          <input class="catalog-checkbox" type="checkbox" />
-          {{ result.item }}
-        </div>
-        <div
-          class="interior-item"
-          v-for="model in data?.filters?.[5]?.features"
-          :key="model"
-        >
-          <label class="label-checkbex">
-            <input class="catalog-checkbox" type="checkbox" />
-            {{ model.value }}
-          </label>
-        </div>
-      </div> -->
   </div>
 </template>
 
@@ -261,12 +226,12 @@ const checkingSizeAvailability = (size) => {
 
 
 const sizeActiveCheck = (size) => {
-  
+
   return sizeActive.value.includes(size);
 };
 
 const handleTableClick = (size) => {
-  
+
   checkingSizeAvailability(size);
 };
 console.log(sizeActive)
@@ -288,7 +253,7 @@ if (filters && filters.length) {
     if (
       filters[i].name !== "Цена" &&
       filters[i].name !== "Дверное полотно" &&
-      filters[i].name !== "Дверная коробка" && 
+      filters[i].name !== "Дверная коробка" &&
       filters[i].name !== "Характеристики"
     ) {
       if (!unique_values[filters[i].name]) {
@@ -318,11 +283,11 @@ if (filters && filters.length) {
               featureMap[feature.value] = [feature.name_slug, feature.value_slug];
             }
           }
-          
+
         }
       }
     }
-    
+
   }
 } else {
   console.error("filters is undefined or has no length");
@@ -490,13 +455,13 @@ const emitFilterRequest2 = () => {
 }
 
 .sizes-BTN-mobile-wrapper {
-  // display: grid;  
+  // display: grid;
   // grid-template-rows: repeat(3, 1fr);
 }
 
 .catalog-menu-mobile-item {
-  width: 100%; 
-  
+  width: 100%;
+
 }
 .catalog-menu-mobile-item:nth-child(3){
   height: 74px;
