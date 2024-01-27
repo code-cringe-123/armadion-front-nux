@@ -16,6 +16,7 @@
   font-weight: 400;
   line-height: 29px;
   letter-spacing: 0em;
+  left: 0;
   text-align: left;
   color: #374151;
 }
