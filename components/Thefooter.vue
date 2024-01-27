@@ -16,7 +16,7 @@
               <li
                 class="footer-catalog-list__list-item color-hover footer-otstup-str"
               >
-                <NuxtLink to="/Deliv">Дилерам</NuxtLink>
+                <NuxtLink to="https://armadion.ru/dilerstvo/">Дилерам</NuxtLink>
               </li>
               <li
                 class="footer-catalog-list__list-item color-hover footer-otstup-str"
@@ -27,7 +27,7 @@
                 <NuxtLink to="https://armadion.ru/contact/">Где купить</NuxtLink>
               </li>
               <li class="footer-catalog-list__list-item color-hover">
-                <NuxtLink to="https://armadion.ru/dveri-optom/">Двери оптом</NuxtLink>
+                <NuxtLink to="/DoorsWholesale">Двери оптом</NuxtLink>
               </li>
             </ul>
           </div>
