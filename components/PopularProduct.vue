@@ -98,6 +98,7 @@ const props = defineProps(["product"]);
 }
 
 .product-name {
+  font-family: Sansation;
   text-decoration: none;
   font-size: 16px;
   font-weight: 400;

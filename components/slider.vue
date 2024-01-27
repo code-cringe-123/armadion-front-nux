@@ -64,11 +64,21 @@ const props = defineProps(["similardoors"]);
 } */
 
 .SimilarDoors-title {
+  color: var(--gray-700, #374151);
   font-family: Sansation;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 28.8px */
   text-align: center;
   margin-bottom: 20px;
+  margin-right: 56%;
+  @media screen and (max-width: 850px) {
+    text-align: center;
+    margin-right: 0;
+  }
   @media screen and (max-width: 700px) {
-    margin-right: 210px;
+    margin-right: 147px;
     
   }
 }

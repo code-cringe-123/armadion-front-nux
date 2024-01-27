@@ -102,6 +102,7 @@ const { props, products_filtered } = defineProps([
 }
 
 .product-name {
+  font-family: Sansation;
   text-decoration: none;
   font-size: 16px;
   font-weight: 400;
