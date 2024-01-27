@@ -47,7 +47,7 @@
                 <NuxtLink to="/Deliv">Доставка и оплата</NuxtLink>
               </li>
               <li class="footer-catalog-list__list-item color-hover">
-                <NuxtLink to="https://armadion.ru/garantiya/">Наша гарантия</NuxtLink>
+                <NuxtLink to="/Guarantee">Наша гарантия</NuxtLink>
               </li>
               <li class="footer-catalog-list__list-item color-hover">
                 <NuxtLink to="/Politics">Политика <br />конфиденциальности</NuxtLink>
