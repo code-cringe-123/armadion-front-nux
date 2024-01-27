@@ -1,7 +1,7 @@
 <template>
     <div class="deliv__container">
         <div class="deliv__wrapper">
-            <img src="" alt="" class="deliv__img">
+            <img src="../public/svg/zz.svg" alt="" class="deliv__img">
             <div class="deliv-text__block">
                 <h2 class="deliv__title">Большой Заголовок</h2>
                 <p class="deliv__subtitle">
