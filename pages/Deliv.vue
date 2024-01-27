@@ -37,7 +37,7 @@
 
 <style>
     .deliv__container{
-        padding: 160px 130px 0 ;
+        padding: 160px 0 0 ;
     }
 
     .deliv__img{
@@ -46,6 +46,9 @@
         margin: 0 auto;
         @media screen and (max-width: 880px) {
             min-width: 100%;
+        }
+        @media screen and (max-width: 425px) {
+            width: 100vw;
         }
     }
 
