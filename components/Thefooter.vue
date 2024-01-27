@@ -44,7 +44,7 @@
               <li
                 class="footer-catalog-list__list-item color-hover footer-otstup-str"
               >
-                <NuxtLink to="https://armadion.ru/delivery/">Доставка и оплата</NuxtLink>
+                <NuxtLink to="/Deliv">Доставка и оплата</NuxtLink>
               </li>
               <li class="footer-catalog-list__list-item color-hover">
                 <NuxtLink to="https://armadion.ru/garantiya/">Наша гарантия</NuxtLink>
