@@ -1,9 +1,9 @@
 <template>
     <div class="deliv__container">
         <div class="deliv__wrapper">
-            <img src="../public/svg/zz.svg" alt="" class="deliv__img">
+            <!-- <img src="../public/svg/zz.svg" alt="" class="deliv__img"> -->
             <div class="deliv-text__block">
-                <h2 class="deliv__title">Наша гарантия</h2>
+                <h2 class="deliv__title" style="padding-top: 50px;">Наша гарантия</h2>
                 
                 <section class="first__section">
                     <h3 class="section-f__title">1. Условия гарантии</h3>

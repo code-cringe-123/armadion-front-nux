@@ -1,7 +1,7 @@
 <template>
     <div class="deliv__container">
         <div class="deliv__wrapper">
-            <img src="../public/svg/zz.svg" alt="" class="deliv__img">
+            <!-- <img src="../public/svg/zz.svg" alt="" class="deliv__img"> -->
             <div class="deliv-text__block">
                 <h2 class="deliv__title">Доставка и оплата</h2>
                 <!-- <p class="deliv__subtitle">
@@ -48,6 +48,11 @@
 <style>
     .deliv__container{
         padding: 160px 0 0 ;
+        @media screen and (max-width: 1024px) {
+            padding-top: 50px;
+            padding-left: 10px;
+            padding-right: 10px;
+    }
     }
 
     .deliv__img{

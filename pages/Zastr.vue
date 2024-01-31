@@ -1,7 +1,7 @@
 <template>
     <div class="deliv__container">
         <div class="deliv__wrapper">
-            <img src="../public/svg/zz.svg" alt="" class="deliv__img">
+            <!-- <img src="../public/svg/zz.svg" alt="" class="deliv__img"> -->
             <div class="deliv-text__block">
                 <h2 class="deliv__title">Входные двери из Йошкар-Олы: специальные условия для застройщиковк</h2>
                 <p class="deliv__subtitle">
@@ -44,3 +44,10 @@
 
 </script>
 
+<style>
+.deliv__container {
+    @media screen and (max-width: 1024px) {
+        padding: 0 10px;
+    }
+}
+</style>
