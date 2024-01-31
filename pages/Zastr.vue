@@ -43,11 +43,3 @@
 <script setup>
 
 </script>
-
-<style>
-.deliv__container {
-    @media screen and (max-width: 1024px) {
-        padding: 0 10px;
-    }
-}
-</style>
