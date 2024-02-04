@@ -97,12 +97,15 @@ const nameValid = ref(false);
 const phoneValid = ref(false);
 
 const validateName = () => {
-  nameValid.value = !!name.value.trim(); // Update validity based on whether the name is empty or not
+  const nameWithoutSpaces = name.value.replace(/\s/g, "");
+  const isNameValid = nameWithoutSpaces.length >= 2;
+  nameValid.value = isNameValid;
 };
 
 const validatePhone = () => {
-  // You can add more sophisticated phone number validation logic if needed
-  phoneValid.value = !!phone.value.trim();
+  const phoneDigitsOnly = phone.value.replace(/\D/g, "");
+  const isPhoneValid = phoneDigitsOnly.length >= 11;
+  phoneValid.value = isPhoneValid;
 };
 </script>
 
