@@ -4,12 +4,13 @@
     <div class="form-text">
       Вам позвонит менеджер, который поможет сделать выбор.
     </div>
-    <div class="zayavka-title">Ваше имя</div>
+    <div class="zayavka-title">Ваше имя и фамилия</div>
     <input
       class="form-input form-name"
       placeholder="Григорий Григорьев"
       type="text"
       v-model="name"
+      @input="validateName"
     />
     <div class="zayavka-title">Телефон</div>
     <input
@@ -22,6 +23,7 @@
       v-maska
       data-maska="+7 (###) ###-##-##"
       v-model="phone"
+      @input="validatePhone"
     />
     <!-- <button class="form-btn blue-btn">Заказать звонок</button> -->
     <br />
@@ -32,6 +34,8 @@
       mb="8px"
       type="feedback"
       class="feedback-btn"
+      :disabled="!nameValid || !phoneValid"
+      :class="{ 'required-field': !nameValid || !phoneValid }"
       >Отправить</UI-btn
     >
     <div class="privacy">
@@ -45,7 +49,70 @@
   </div>
 </template>
 <!-- pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" -->
+<script setup>
+import { ref } from "vue";
+import axios from "axios";
+import { vMaska } from "maska";
+
+// Дата пользователя
+const currentDate = new Date();
+const day = currentDate.getDate().toString().padStart(2, "0");
+const month = (currentDate.getMonth() + 1).toString().padStart(2, "0"); // Месяцы в JavaScript начинаются с 0
+const year = currentDate.getFullYear();
+const formattedDate = `${day}/${month}/${year}`;
+console.log(formattedDate);
+
+// Время пользователя
+const hours = currentDate.getHours().toString().padStart(2, "0");
+const minutes = currentDate.getMinutes().toString().padStart(2, "0");
+const seconds = currentDate.getSeconds().toString().padStart(2, "0");
+
+const formattedTime = `${hours}:${minutes}:${seconds}`;
+console.log(formattedTime);
+
+const name = ref("");
+const phone = ref("");
+const sendPostRequest = async () => {
+  try {
+    const response = await axios({
+      method: "post",
+      // url: "https://api-armadion.ru/contact-form/",
+      url: "https://sheet.best/api/sheets/48a0e185-2f27-4b56-960e-eddfd2a3a70b",
+      data: {
+        Date: formattedDate,
+        Time: formattedTime,
+        Name: name.value,
+        "Phone number": phone.value.slice(1),
+        "Status of application": "в обработке",
+      },
+    });
+
+    console.log(response);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const nameValid = ref(false);
+const phoneValid = ref(false);
+
+const validateName = () => {
+  nameValid.value = !!name.value.trim(); // Update validity based on whether the name is empty or not
+};
+
+const validatePhone = () => {
+  // You can add more sophisticated phone number validation logic if needed
+  phoneValid.value = !!phone.value.trim();
+};
+</script>
+
 <style lang="scss">
+.required-field {
+  background-color: #f8d7da;
+}
+.required-field:hover {
+  background-color: #fbc2cc;
+}
 .form {
   // max-width: 580px;
   height: 369px;
@@ -245,48 +312,3 @@
 //     }
 // }
 </style>
-
-<script setup>
-import { ref } from "vue";
-import axios from "axios";
-import { vMaska } from "maska";
-
-// Дата пользователя
-const currentDate = new Date();
-const day = currentDate.getDate().toString().padStart(2, "0");
-const month = (currentDate.getMonth() + 1).toString().padStart(2, "0"); // Месяцы в JavaScript начинаются с 0
-const year = currentDate.getFullYear();
-const formattedDate = `${day}/${month}/${year}`;
-console.log(formattedDate);
-
-// Время пользователя
-const hours = currentDate.getHours().toString().padStart(2, "0");
-const minutes = currentDate.getMinutes().toString().padStart(2, "0");
-const seconds = currentDate.getSeconds().toString().padStart(2, "0");
-
-const formattedTime = `${hours}:${minutes}:${seconds}`;
-console.log(formattedTime);
-
-const name = ref("");
-const phone = ref("");
-const sendPostRequest = async () => {
-  try {
-    const response = await axios({
-      method: "post",
-      // url: "https://api-armadion.ru/contact-form/",
-      url: "https://sheet.best/api/sheets/48a0e185-2f27-4b56-960e-eddfd2a3a70b",
-      data: {
-        Date: formattedDate,
-        Time: formattedTime,
-        Name: name.value,
-        "Phone number": phone.value.slice(1),
-        "Status of application": "в обработке",
-      },
-    });
-
-    console.log(response);
-  } catch (error) {
-    console.error(error);
-  }
-};
-</script>
