@@ -24,7 +24,9 @@
                 <NuxtLink to="/Zastr">Застройщикам</NuxtLink>
               </li>
               <li class="footer-catalog-list__list-item color-hover">
-                <NuxtLink to="https://armadion.ru/contact/">Где купить</NuxtLink>
+                <NuxtLink to="https://armadion.ru/contact/"
+                  >Где купить</NuxtLink
+                >
               </li>
               <li class="footer-catalog-list__list-item color-hover">
                 <NuxtLink to="/DoorsWholesale">Двери оптом</NuxtLink>
@@ -39,7 +41,9 @@
               <li
                 class="footer-catalog-list__list-item color-hover footer-otstup-str"
               >
-                <NuxtLink to="https://armadion.ru/about_us/">Завод Армада</NuxtLink>
+                <NuxtLink to="https://armadion.ru/about_us/"
+                  >Завод Армада</NuxtLink
+                >
               </li>
               <li
                 class="footer-catalog-list__list-item color-hover footer-otstup-str"
@@ -50,7 +54,9 @@
                 <NuxtLink to="/Guarantee">Наша гарантия</NuxtLink>
               </li>
               <li class="footer-catalog-list__list-item color-hover">
-                <NuxtLink to="/Politics">Политика <br />конфиденциальности</NuxtLink>
+                <NuxtLink to="/Politics"
+                  >Политика <br />конфиденциальности</NuxtLink
+                >
               </li>
             </ul>
           </div>
@@ -67,16 +73,16 @@
               <li
                 class="footer-catalog-list__list-item color-hover footer-otstup-str"
               >
-                <NuxtLink to="https://armadion.ru/protivopozharnye-dveri/">Противопожарные двери</NuxtLink>
+                <NuxtLink to="/Catalog">Противопожарные двери</NuxtLink>
               </li>
               <li class="footer-catalog-list__list-item color-hover">
-                <NuxtLink to="https://armadion.ru/furnitura/">Фурнитура</NuxtLink>
+                <NuxtLink to="/Catalog">Фурнитура</NuxtLink>
               </li>
               <li class="footer-catalog-list__list-item color-hover">
-                <NuxtLink to="https://armadion.ru/vneshnyaya-otdelka/">Внешняя отделка</NuxtLink>
+                <NuxtLink to="/Catalog">Внешняя отделка</NuxtLink>
               </li>
               <li class="footer-catalog-list__list-item color-hover">
-                <NuxtLink to="https://armadion.ru/otdelka-panelyu/">Отделка панелью</NuxtLink>
+                <NuxtLink to="/Catalog">Отделка панелью</NuxtLink>
               </li>
             </ul>
           </div>
