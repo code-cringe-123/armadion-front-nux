@@ -22,55 +22,58 @@ const props = defineProps(["similardoors"]);
 .similar-slider {
   display: flex;
   overflow-x: scroll;
+
   scrollbar-color: inherit #e0e0e0;
   scrollbar-width: thin;
   padding-bottom: 100px;
   margin-bottom: 50px;
+  @media screen and (max-width: 1190px) {
+    max-width: 60%;
+    margin: 0 auto;
+  }
   @media screen and (max-width: 700px) {
     display: none;
   }
 }
+
 .slider__wrapper:first-child {
-  margin-left: 160px;
+  margin-left: 0;
+  @media screen and (max-width: 1190px) {
+    margin-left: 100px;
+  }
+  @media screen and (max-width: 981px) {
+    margin-left: 200px;
+  }
 }
-.slider__wrapper:first-child {
-  margin-left: 160px;
-}
+
 .slider__wrapper {
   margin-left: 500px;
+  @media screen and (max-width: 1190px) {
+    margin-left: 100px;
+  }
+  @media screen and (max-width: 981px) {
+    margin-left: 100px;
+  }
 }
 .similar-slider-mobile {
   display: none;
   @media screen and (max-width: 700px) {
-    display: block;
+    display: flex;
+    overflow-x: scroll;
+    scrollbar-color: inherit #e0e0e0;
+    scrollbar-width: thin;
+    padding-bottom: 100px;
+    margin-bottom: 50px;
+    max-width: 30%;
+    margin: 0 auto;
+    .slider__wrapper:first-child {
+      margin-left: 0;
+    }
+  }
+  @media screen and (max-width: 375px) {
+    width: 100%;
   }
 }
-
-.doors__slider .swiper .swiper-wrapper {
-  display: flex;
-  margin-left: 10px;
-}
-
-.doors__slider .swiper {
-  width: 50%;
-  display: block;
-}
-
-.doors__slider .swiper .swiper-wrapper .swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-
-  /* Center slide text vertically */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* .product-wrapper {
-  width: 100%;
-  display: contents
-} */
 
 .SimilarDoors-title {
   color: var(--gray-700, #374151);
@@ -79,15 +82,13 @@ const props = defineProps(["similardoors"]);
   font-style: normal;
   font-weight: 400;
   line-height: 120%; /* 28.8px */
-  text-align: center;
   margin-bottom: 20px;
-  margin-right: 56%;
-  @media screen and (max-width: 850px) {
+  // margin-right: 56%;
+  @media screen and (max-width: 1190px) {
     text-align: center;
     margin-right: 0;
   }
   @media screen and (max-width: 700px) {
-    margin-right: 147px;
   }
 }
 </style>
