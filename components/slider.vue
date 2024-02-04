@@ -1,35 +1,44 @@
 <template>
   <div class="SimilarDoors-title">Похожие Двери</div>
   <div class="similar-slider-mobile">
-    <swiper class="mySwiper" :slidesPerView="1" loop loopAddBlankSlides>
-      <swiper-slide v-for="door in similardoors" :key="door.id">
-        <PopularProduct :product="door" />
-      </swiper-slide>
-    </swiper>
+    <div class="slider__wrapper" v-for="door in similardoors" :key="door.id">
+      <PopularProduct :product="door" />
+    </div>
   </div>
   <div class="similar-slider">
-    <swiper class="mySwiper" :slidesPerView="2" loop loopAddBlankSlides>
-      <swiper-slide v-for="door in similardoors" :key="door.id">
-        <PopularProduct :product="door" />
-      </swiper-slide>
-    </swiper>
+    <div class="slider__wrapper" v-for="door in similardoors" :key="door.id">
+      <PopularProduct :product="door" />
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from "vue";
-import { Swiper, SwiperSlide } from "swiper/vue";
+// import { ref, onMounted, onBeforeUnmount } from "vue";
+// import { Swiper, SwiperSlide } from "swiper/vue";
 const props = defineProps(["similardoors"]);
 </script>
 
 <style lang="scss">
 .similar-slider {
-  display: block;
+  display: flex;
+  overflow-x: scroll;
+  scrollbar-color: inherit #e0e0e0;
+  scrollbar-width: thin;
+  padding-bottom: 100px;
+  margin-bottom: 50px;
   @media screen and (max-width: 700px) {
     display: none;
   }
 }
-
+.slider__wrapper:first-child {
+  margin-left: 160px;
+}
+.slider__wrapper:first-child {
+  margin-left: 160px;
+}
+.slider__wrapper {
+  margin-left: 500px;
+}
 .similar-slider-mobile {
   display: none;
   @media screen and (max-width: 700px) {
@@ -79,7 +88,6 @@ const props = defineProps(["similardoors"]);
   }
   @media screen and (max-width: 700px) {
     margin-right: 147px;
-    
   }
 }
 </style>
