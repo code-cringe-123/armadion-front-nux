@@ -15,18 +15,17 @@
       <div class="form-contacts-title">Контакты</div>
       <div class="contacts-form">
         <div class="form-contacts" id="form-scroll-Contact">
-          <Contacts /> 
+          <Contacts />
           <Address />
         </div>
-        <Feedback id="form-scroll-Contact"/>
+        <Feedback id="form-scroll-Contact" />
       </div>
     </div>
     <!-- ------ -->
   </div>
 </template>
 
-<script setup>
-</script>
+<script setup></script>
 
 <style lang="scss">
 .contacts-form {

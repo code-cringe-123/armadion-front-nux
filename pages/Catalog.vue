@@ -1,31 +1,34 @@
 <template>
   <div class="catalog-page-container">
-    <Catalog-menu :filters="data.filters" :doors="data.doors" @filterRequest="onFilterUpdate" />
+    <Catalog-menu
+      :filters="data.filters"
+      :doors="data.doors"
+      @filterRequest="onFilterUpdate"
+    />
     <Catalog :products="data.doors" :products_filtered="data.doors" />
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue"
+import { ref } from "vue";
 const filterQuery = ref({});
 
 async function onFilterUpdate(key_key, value_value_value) {
-  console.log(filterQuery)
- // Проверяем, существует ли уже ключ в filterQuery.value
- if (filterQuery.value.hasOwnProperty(key_key)) {
-   // Если ключ существует, удаляем его
-   delete filterQuery.value[key_key];
- } else {
-   // Если ключ не существует, добавляем его
-   filterQuery.value[key_key] = value_value_value;
- }
-//  refresh();
+  console.log(filterQuery);
+  // Проверяем, существует ли уже ключ в filterQuery.value
+  if (filterQuery.value.hasOwnProperty(key_key)) {
+    // Если ключ существует, удаляем его
+    delete filterQuery.value[key_key];
+  } else {
+    // Если ключ не существует, добавляем его
+    filterQuery.value[key_key] = value_value_value;
+  }
+  //  refresh();
 }
 
-let { data, refresh } = await useFetch(
-  `https://api-armadion.ru/doors/filter`,
-  {query:filterQuery.value}
-);
+let { data, refresh } = await useFetch(`https://api-armadion.ru/doors/filter`, {
+  query: filterQuery.value,
+});
 // let { data } = await useFetch(
 //   `https://api-armadion.ru/doors/filter?min_price=20650.0`
 // );

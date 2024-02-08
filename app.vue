@@ -13,7 +13,7 @@
   box-sizing: border-box;
 }
 
-:root{
+:root {
   --title-color: #111827;
 }
 

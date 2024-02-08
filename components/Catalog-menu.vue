@@ -99,21 +99,57 @@
               @keyup="emitFilterRequestMobile2"
             />
           </div>
-          <div class="catalog-mobile-price-container-buttom" style="min-height: 100%; max-height: 480px; overflow-y: auto; display: flex; flex-direction: column;">
-
+          <div
+            class="catalog-mobile-price-container-buttom"
+            style="
+              min-height: 100%;
+              max-height: 480px;
+              overflow-y: auto;
+              display: flex;
+              flex-direction: column;
+            "
+          >
             <div class="sizes-BTN-mobile-wrapper">
               <div
-                v-for="(mobKey, mobValue) in  unique_values"
+                v-for="(mobKey, mobValue) in unique_values"
                 :key="mobIndex"
                 class="catalog-menu-mobile-item"
               >
-                <div v-for="(mobKey_key, mobValue_value) in mobKey" >
-                  <h4 class="catalog-mobile-price-title">{{ mobValue_value }}</h4>
+                <div v-for="(mobKey_key, mobValue_value) in mobKey">
+                  <h4 class="catalog-mobile-price-title">
+                    {{ mobValue_value }}
+                  </h4>
 
-                  <div style="display: flex; flex-wrap: wrap; gap: 5px;" >
-                    <div v-for="(mobKey_key_key, mobValue_value_value) in mobKey_key" @click="handleTableClick(mobValue_value_value)">
-                      <button @click="$emit('filterRequest', mobKey_key_key[0], mobKey_key_key[1])" style="flex: 1 0 calc(33.33% - 5px); max-width: 100px; height: 35px; margin-bottom: 5px;" :class="{'size-btn-active': sizeActiveCheck(mobValue_value_value), 'size-btn': !sizeActiveCheck(mobValue_value_value)}">
-                        <span style="font-size: 10px;" class="size-btn-slot">{{ mobValue_value_value }}</span>
+                  <div style="display: flex; flex-wrap: wrap; gap: 5px">
+                    <div
+                      v-for="(
+                        mobKey_key_key, mobValue_value_value
+                      ) in mobKey_key"
+                      @click="handleTableClick(mobValue_value_value)"
+                    >
+                      <button
+                        @click="
+                          $emit(
+                            'filterRequest',
+                            mobKey_key_key[0],
+                            mobKey_key_key[1],
+                          )
+                        "
+                        style="
+                          flex: 1 0 calc(33.33% - 5px);
+                          max-width: 100px;
+                          height: 35px;
+                          margin-bottom: 5px;
+                        "
+                        :class="{
+                          'size-btn-active':
+                            sizeActiveCheck(mobValue_value_value),
+                          'size-btn': !sizeActiveCheck(mobValue_value_value),
+                        }"
+                      >
+                        <span style="font-size: 10px" class="size-btn-slot">{{
+                          mobValue_value_value
+                        }}</span>
                       </button>
                     </div>
                   </div>
@@ -123,9 +159,7 @@
           </div>
         </div>
         <div class="catalog-mobile-btn-container" @click="closeSlideFilters">
-          <button class="catalog-mobile-filter-button">
-            Показать товары
-          </button>
+          <button class="catalog-mobile-filter-button">Показать товары</button>
         </div>
       </div>
     </div>
@@ -182,7 +216,9 @@
                 <input
                   class="catalog-checkbox"
                   type="checkbox"
-                  @click="$emit('filterRequest', key_key_key[0], key_key_key[1])"
+                  @click="
+                    $emit('filterRequest', key_key_key[0], key_key_key[1])
+                  "
                 />
 
                 <!-- @change="(event) => handleChange(event, value_value_value)" -->
@@ -202,13 +238,13 @@ import Fuse from "fuse.js";
 import { vMaska } from "maska";
 import { defineEmits } from "vue";
 let countDoors = 0;
-const priceBoxMobile1 = ref(null)
-const priceBoxMobile2 = ref(null)
+const priceBoxMobile1 = ref(null);
+const priceBoxMobile2 = ref(null);
 const priceBox1 = ref(null);
 const priceBox2 = ref(null);
 
 const emit = defineEmits(["filterRequest"]);
-const { filters,doors } = defineProps(["filters", "doors"]);
+const { filters, doors } = defineProps(["filters", "doors"]);
 const sizeActive = ref([]);
 
 let countFilters = 0;
@@ -220,21 +256,17 @@ const checkingSizeAvailability = (size) => {
   } else {
     sizeActive.value.push(size);
     countFilters += 1;
-
-    }
+  }
 };
 
-
 const sizeActiveCheck = (size) => {
-
   return sizeActive.value.includes(size);
 };
 
 const handleTableClick = (size) => {
-
   checkingSizeAvailability(size);
 };
-console.log(sizeActive)
+console.log(sizeActive);
 const isSlideOutVisibleFilters = ref(false);
 
 const toggleSlideFilters = () => {
@@ -269,7 +301,7 @@ if (filters && filters.length) {
             filters[i].features[j].name !== "Материал внешней отделки" &&
             filters[i].features[j].name !== "Ручка" &&
             filters[i].features[j].name !== "Накладки"
-            ){
+          ) {
             const feature = filters[i].features[j];
             if (!inner_values.has(feature.value)) {
               inner_values.add(feature.value);
@@ -280,57 +312,55 @@ if (filters && filters.length) {
               }
 
               const featureMap = innerMap[feature.name];
-              featureMap[feature.value] = [feature.name_slug, feature.value_slug];
+              featureMap[feature.value] = [
+                feature.name_slug,
+                feature.value_slug,
+              ];
             }
           }
-
         }
       }
     }
-
   }
 } else {
   console.error("filters is undefined or has no length");
-};
-
+}
 
 const emitFilterRequestMobile1 = () => {
- let value = priceBoxMobile1.value.value;
- if (!value.includes("₽")) {
-   priceBoxMobile1.value.value = value + "₽";
- }
- const numericValue = value.slice(3, 8);
- emit('filterRequest', 'min_price', numericValue);
+  let value = priceBoxMobile1.value.value;
+  if (!value.includes("₽")) {
+    priceBoxMobile1.value.value = value + "₽";
+  }
+  const numericValue = value.slice(3, 8);
+  emit("filterRequest", "min_price", numericValue);
 };
 
-
 const emitFilterRequestMobile2 = () => {
- let value = priceBoxMobile2.value.value;
- if (!value.includes("₽")) {
-   priceBoxMobile2.value.value = value + "₽";
- }
- const numericValue = value.slice(3, 8);
- emit('filterRequest', 'max_price', numericValue);
+  let value = priceBoxMobile2.value.value;
+  if (!value.includes("₽")) {
+    priceBoxMobile2.value.value = value + "₽";
+  }
+  const numericValue = value.slice(3, 8);
+  emit("filterRequest", "max_price", numericValue);
 };
 
 const emitFilterRequest1 = () => {
- let value = priceBox1.value.value;
- if (!value.includes("₽")) {
-   priceBox1.value.value = value + "₽";
- }
- const numericValue = value.slice(3, 8);
- emit('filterRequest', 'min_price', numericValue);
+  let value = priceBox1.value.value;
+  if (!value.includes("₽")) {
+    priceBox1.value.value = value + "₽";
+  }
+  const numericValue = value.slice(3, 8);
+  emit("filterRequest", "min_price", numericValue);
 };
 
 const emitFilterRequest2 = () => {
- let value = priceBox2.value.value;
- if (!value.includes("₽")) {
-   priceBox2.value.value = value + "₽";
- }
- const numericValue = value.slice(3, 8);
- emit('filterRequest', 'max_price', numericValue);
+  let value = priceBox2.value.value;
+  if (!value.includes("₽")) {
+    priceBox2.value.value = value + "₽";
+  }
+  const numericValue = value.slice(3, 8);
+  emit("filterRequest", "max_price", numericValue);
 };
-
 </script>
 
 <style lang="scss">
@@ -442,8 +472,6 @@ const emitFilterRequest2 = () => {
   background-color: #f3f4f6;
 }
 
-
-
 .size-btn-slot {
   font-family: Sansation;
   font-size: 14px;
@@ -461,9 +489,8 @@ const emitFilterRequest2 = () => {
 
 .catalog-menu-mobile-item {
   width: 100%;
-
 }
-.catalog-menu-mobile-item:nth-child(3){
+.catalog-menu-mobile-item:nth-child(3) {
   height: 74px;
 }
 

@@ -1,15 +1,13 @@
 <template>
-  <NuxtLink
-      to="/Catalog"
-      >
+  <NuxtLink to="/Catalog">
     <button
       class="catalog-btn-more"
       :style="{ width: width, height: height, borderRadius: br }"
       type="button"
     >
-    <slot></slot>
+      <slot></slot>
     </button>
-  </NuxtLink>  
+  </NuxtLink>
 </template>
 
 <script setup>
@@ -29,8 +27,6 @@ const props = defineProps({
 });
 </script>
 <style lang="scss">
-
-
 .catalog-btn-more {
   margin-top: 24px;
   width: 236px;
@@ -51,20 +47,18 @@ const props = defineProps({
   }
 }
 
-@media (hover: hover){
+@media (hover: hover) {
   .catalog-btn-more:hover {
     background-color: #4b5563;
     color: #d1d5db;
     transition: 0.3s;
   }
 }
-@media (hover: none){
+@media (hover: none) {
   .catalog-btn-more:active {
     background-color: #d1d5db;
     color: #4b5563;
     transition: 0.3s;
   }
 }
-
-
 </style>

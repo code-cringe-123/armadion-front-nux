@@ -5,9 +5,9 @@
 </template>
 <script setup>
 const scrollToForm = () => {
-  const formScrollElement = document.getElementById('form-scroll');
+  const formScrollElement = document.getElementById("form-scroll");
   if (formScrollElement) {
-    formScrollElement.scrollIntoView({ behavior: 'smooth' });
+    formScrollElement.scrollIntoView({ behavior: "smooth" });
   }
 };
 </script>
@@ -35,7 +35,7 @@ const scrollToForm = () => {
     height: 51px;
   }
 }
-@media (hover: hover){
+@media (hover: hover) {
   .measurements-btn:hover {
     background-color: #374151;
     color: #f9fafb;
@@ -43,12 +43,11 @@ const scrollToForm = () => {
   }
 }
 
-@media (hover: none){
+@media (hover: none) {
   .measurements-btn:active {
     color: #4b5563;
     background-color: transparent;
     transition: 0.3s;
   }
 }
-
 </style>

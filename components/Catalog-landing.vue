@@ -51,7 +51,8 @@ const toggleActiveProducts = () => {
 <style lang="scss">
 // inactive
 
-.products-inactive, .inactive-btn {
+.products-inactive,
+.inactive-btn {
   display: none !important;
 }
 

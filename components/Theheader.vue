@@ -68,7 +68,7 @@
         <div class="Company-name">
           <NuxtLink to="/">Армада.</NuxtLink>
         </div>
-         <!-- потом вернуть, как будет больше страниц -->
+        <!-- потом вернуть, как будет больше страниц -->
         <!-- <div
           class="header-catalog-wrapper"
           ref="block"
@@ -83,10 +83,7 @@
           </div>
           <div class="header-catalog-name">Каталог</div>
         </div> -->
-        <NuxtLink
-          class="header-catalog-wrapper"
-          to="/Catalog"
-        >
+        <NuxtLink class="header-catalog-wrapper" to="/Catalog">
           <div class="header-catalog-logo-wrapper">
             <img
               class="header-catalog-logo"
@@ -119,9 +116,7 @@
             :key="i"
             >{{ element.name }}</NuxtLink
           > -->
-          <NuxtLink
-            class="menu__link"
-            to="/Configurator"
+          <NuxtLink class="menu__link" to="/Configurator"
             >Конструктор
           </NuxtLink>
         </div>

@@ -2,10 +2,14 @@
   <div class="hero-wrapper">
     <div class="hero-container">
       <div class="inf-wrapper">
-        <div class="hero-inf-title">Армадион: <br> Ваши двери в мир уверенности и стиля</div>
+        <div class="hero-inf-title">
+          Армадион: <br />
+          Ваши двери в мир уверенности и стиля
+        </div>
         <div class="hero-inf-text-wrapper">
           <div class="hero-inf-text">
-            Надежная защита и великолепный дизайн – двери, которые созданы для вас.
+            Надежная защита и великолепный дизайн – двери, которые созданы для
+            вас.
           </div>
         </div>
         <!-- <ScrollToBottom class="scroll-btn" /> -->

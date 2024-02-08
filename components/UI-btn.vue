@@ -1,5 +1,5 @@
 <template>
-  <button v-if="type == 'header'" class="action-btn" @click="scrollToForm" >
+  <button v-if="type == 'header'" class="action-btn" @click="scrollToForm">
     <slot></slot>
   </button>
   <button v-else class="action-btn form-btn" :style="{ marginBottom: mb }">
@@ -8,20 +8,20 @@
 </template>
 
 <script setup>
-
 const scrollToForm = () => {
   // const formScrollElement = document.getElementById('form-scroll');
-  const formScrollElementContact = document.getElementById('form-scroll-Contact');
+  const formScrollElementContact = document.getElementById(
+    "form-scroll-Contact",
+  );
   // if (formScrollElement) {
   //   formScrollElement.scrollIntoView({ behavior: 'smooth' });
-  // } else 
+  // } else
   if (formScrollElementContact) {
-    formScrollElementContact.scrollIntoView({ behavior: 'smooth' });
+    formScrollElementContact.scrollIntoView({ behavior: "smooth" });
   } else {
-    window.location.href="/Contact"
+    window.location.href = "/Contact";
   }
 };
-
 
 const props = defineProps({
   type: {
@@ -33,7 +33,7 @@ const props = defineProps({
     type: String,
     required: false,
   },
-});   
+});
 </script>
 
 <style lang="scss">
@@ -55,21 +55,20 @@ const props = defineProps({
   transition: 0.3s;
   /* margin-bottom: 8px */
 }
-@media (hover: hover){
+@media (hover: hover) {
   .action-btn:hover {
     background-color: #0484c7;
     transition: 0.5s;
   }
 }
 
-@media (hover: none){
+@media (hover: none) {
   .action-btn:active {
     color: #f9fafb;
     background-color: #0ea5e9;
     transition: 0.3s;
   }
 }
-
 
 .form-btn {
   // font-size: 16px;
