@@ -69,6 +69,7 @@ console.log(contactsWhere);
       @media screen and (max-width: 920px) {
         flex-direction: column;
         align-items: flex-start;
+        margin-bottom: 28px;
       }
       .location__title {
         color: #374151;
@@ -77,6 +78,9 @@ console.log(contactsWhere);
         font-size: 64px;
         font-weight: 400;
         line-height: 105%;
+        @media screen and (max-width: 920px) {
+          font-size: 32px;
+        }
       }
 
       .location__link {
@@ -110,9 +114,9 @@ console.log(contactsWhere);
       .location-info_div__l {
         padding: 10px 0 26px 15px;
         border: 1px solid rgb(209, 213, 219);
-        /* @media screen and (max-width: 920px) {
-          order: 1;
-        } */
+        @media screen and (max-width: 920px) {
+          padding: 10px;
+        }
         .location-info__block {
           margin-top: 16px;
           .info-b {
@@ -136,6 +140,9 @@ console.log(contactsWhere);
           .contact__item {
             display: flex;
             margin-top: 16px;
+            @media screen and (max-width: 480px) {
+              flex-direction: column;
+            }
             .contact-i_l {
               min-width: 220px;
               color: rgb(156, 163, 175);
@@ -151,6 +158,10 @@ console.log(contactsWhere);
               font-size: 16px;
               font-weight: 400;
               line-height: 120%;
+              @media screen and (max-width: 480px) {
+                padding: 0;
+                padding-top: 5px;
+              }
             }
           }
         }
@@ -164,7 +175,9 @@ console.log(contactsWhere);
           width: 100%;
           padding: 26px 16px;
           border: 1px solid rgb(209, 213, 219);
-
+          @media screen and (max-width: 480px) {
+            flex-direction: column;
+          }
           &:hover {
             .store_t__l {
               color: rgb(56, 189, 248);
@@ -173,6 +186,13 @@ console.log(contactsWhere);
           }
           .store_t__l {
             padding-right: 10px;
+          }
+          .store_st__r {
+            color: rgb(156, 163, 175);
+            font-family: Sansation;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 120%;
           }
         }
       }
