@@ -22,17 +22,9 @@
             </div>
             <div class="contact-us-b">
               <ul class="contacts__list">
-                <li class="contact__item">
-                  <p class="contact-i_l">Телефон администратора:</p>
-                  <p class="contact-i_r">+7 (8362) 64-24-88</p>
-                </li>
-                <li class="contact__item">
-                  <p class="contact-i_l">Рабочие часы:</p>
-                  <p class="contact-i_r">По будням с 9:00 до 18:00</p>
-                </li>
-                <li class="contact__item">
-                  <p class="contact-i_l">E-mail:</p>
-                  <p class="contact-i_r">armadionzakaz@gmail.com</p>
+                <li class="contact__item" v-for="(value, key) in contactsWhere">
+                  <p class="contact-i_l">{{ key }}</p>
+                  <p class="contact-i_r">{{ value }}</p>
                 </li>
               </ul>
             </div>
@@ -52,15 +44,21 @@
   </div>
 </template>
 
+<script setup>
+const contactsWhere = {
+  "Телефон администратора:": "+7 (8362) 64-24-88",
+  "Рабочие часы:": "По будням с 9:00 до 18:00",
+  "E-mail:": "armadionzakaz@gmail.com",
+};
+console.log(contactsWhere);
+</script>
 <style>
 .location__container {
   padding: 160px 0 0;
   max-width: 1200px;
   margin: 0 auto;
-  @media screen and (max-width: 1024px) {
-    padding-top: 50px;
-    padding-left: 10px;
-    padding-right: 10px;
+  @media screen and (max-width: 920px) {
+    padding: 160px 10px 0;
   }
   .location__wrapper {
     .location-title_div {
@@ -68,6 +66,10 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 52px;
+      @media screen and (max-width: 920px) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
       .location__title {
         color: #374151;
 
@@ -99,9 +101,18 @@
     .location-info {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      @media screen and (max-width: 920px) {
+        /* grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr; */
+        display: flex;
+        flex-direction: column-reverse;
+      }
       .location-info_div__l {
         padding: 10px 0 26px 15px;
         border: 1px solid rgb(209, 213, 219);
+        /* @media screen and (max-width: 920px) {
+          order: 1;
+        } */
         .location-info__block {
           margin-top: 16px;
           .info-b {

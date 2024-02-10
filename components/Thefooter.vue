@@ -24,7 +24,9 @@
                 <NuxtLink to="/Zastr">Застройщикам</NuxtLink>
               </li>
               <li class="footer-catalog-list__list-item color-hover">
-                <NuxtLink to="/WhereAreWe">Где купить</NuxtLink>
+                <NuxtLink to="https://armadion.ru/contact/"
+                  >Где купить</NuxtLink
+                >
               </li>
               <li class="footer-catalog-list__list-item color-hover">
                 <NuxtLink to="/DoorsWholesale">Двери оптом</NuxtLink>
