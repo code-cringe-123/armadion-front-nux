@@ -119,6 +119,15 @@
           <NuxtLink class="menu__link" to="/Configurator"
             >Конструктор
           </NuxtLink>
+          
+          <NuxtLink class="menu__link" to="/Dilers">Дилерам</NuxtLink>
+
+          <NuxtLink class="menu__link" to="/Zastr">Застройщикам</NuxtLink>
+
+          <NuxtLink class="menu__link" to="https://armadion.ru/contact/"
+            >Где купить</NuxtLink
+          >
+          <NuxtLink class="menu__link" to="/DoorsWholesale">Двери оптом</NuxtLink>
         </div>
         <UI-btn type="header">Связь с нами</UI-btn>
       </div>
@@ -305,7 +314,7 @@ const hideCatalogLinksBlock = () => {
     padding: 0 10px;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 830px) {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -325,7 +334,7 @@ const hideCatalogLinksBlock = () => {
     display: none;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 830px) {
     display: block;
   }
 
@@ -347,7 +356,7 @@ const hideCatalogLinksBlock = () => {
     display: none;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 830px) {
     display: block;
   }
 
@@ -495,7 +504,7 @@ const hideCatalogLinksBlock = () => {
     margin-right: 10px;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 830px) {
     display: none;
   }
 }
@@ -529,7 +538,7 @@ const hideCatalogLinksBlock = () => {
   align-items: center;
   justify-content: center;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 830px) {
     display: none;
   }
 }
