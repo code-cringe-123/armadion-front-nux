@@ -109,14 +109,14 @@
       <div class="right-side">
         <div class="nav">
           <!-- потом вернуть, как будет больше страниц -->
-          <!-- <NuxtLink
+          <NuxtLink
             class="menu__link"
             :to="element.path"
             v-for="(element, i) of menu"
             :key="i"
             >{{ element.name }}</NuxtLink
-          > -->
-          <NuxtLink class="menu__link" to="/Configurator"
+          >
+          <!-- <NuxtLink class="menu__link" to="/Configurator"
             >Конструктор
           </NuxtLink>
           
@@ -127,7 +127,7 @@
           <NuxtLink class="menu__link" to="https://armadion.ru/contact/"
             >Где купить</NuxtLink
           >
-          <NuxtLink class="menu__link" to="/DoorsWholesale">Двери оптом</NuxtLink>
+          <NuxtLink class="menu__link" to="/DoorsWholesale">Двери оптом</NuxtLink> -->
         </div>
         <UI-btn type="header">Связь с нами</UI-btn>
       </div>
@@ -177,12 +177,24 @@ const categories = [
 
 const menu = [
   {
-    name: "Каталог",
-    path: "/Catalog",
-  },
-  {
     name: "Конструктор",
     path: "/Configurator",
+  },
+  {
+    name: "Дилерам",
+    path: "/Dilers",
+  },
+  {
+    name: "Застройщикам",
+    path: "/Zastr",
+  },
+  {
+    name: "Где купить",
+    path: "https://armadion.ru/contact/",
+  },
+  {
+    name: "Двери оптом",
+    path: "/DoorsWholesale",
   },
 ];
 
