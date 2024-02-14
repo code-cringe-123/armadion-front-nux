@@ -127,7 +127,7 @@
           <NuxtLink class="menu__link" to="https://armadion.ru/contact/"
             >Где купить</NuxtLink
           >
-          <NuxtLink class="menu__link" to="/DoorsWholesale">Двери оптом</NuxtLink>
+          <NuxtLink class="menu__link" to="/DoorsWholesale">Двери оптом</NuxtLink> -->
         </div>
         <UI-btn type="header">Связь с нами</UI-btn>
       </div>
@@ -190,7 +190,7 @@ const menu = [
   },
   {
     name: "Где купить",
-    path: "https://armadion.ru/contact/",
+    path: "/WhereAreWe",
   },
   {
     name: "Двери оптом",
