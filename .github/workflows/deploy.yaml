@@ -21,6 +21,5 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            cd /home/armada/app
-            git pull
-            pm2 restart index
+            cd /home/armada/app &&
+            ls
