@@ -13,15 +13,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Setup SSH
-        uses: webfactory/ssh-agent@v0.5.3
+      - name: Execute remote commands via SSH
+        uses: appleboy/ssh-action@master
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: Deploy to server
-        run: |
-          ssh armada@xn--80aamqrjgl.xn--p1ai <<EOF
-          cd /home/armada/app
-          git pull
-          pm2 restart index
-          EOF
+          host: ${{ secrets.SSH_HOST }}
+          username: armada
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd /home/armada/app
+            git pull
+            pm2 restart index
