@@ -21,5 +21,8 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            cd /home/armada/app &&
-            ls
+            cd /home/armada/armadion-front-nux &&
+            git pull &&
+            npm ci &&
+            npm run build &&
+            pm2 restart index
