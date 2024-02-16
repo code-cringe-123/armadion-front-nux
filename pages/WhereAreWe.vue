@@ -3,7 +3,7 @@
     <div class="location__wrapper">
       <div class="location-title_div">
         <h2 class="location__title">Наши магазины</h2>
-        <a href="" class="location__link">
+        <a href="#" class="location__link">
           Смотреть на карте
           <span class="map__i"
             ><img src="../public/svg/map_icon.svg" alt=""
@@ -67,6 +67,7 @@
               v-for="(value, key) in contactsWhere"
               :key="key"
               @click="showStoreInfo(value)"
+              style="cursor: pointer;"
             >
               <p
                 class="store_t__l"
