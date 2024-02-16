@@ -30,14 +30,13 @@
     <!-- <button @click="sendPostRequest" class="form-btn blue-btn">Отправить</button> -->
 
     <UI-btn
-      @click="sendPostRequest"
+      @click="sendPostRequestAndShowPopup"
       mb="8px"
       type="feedback"
       class="feedback-btn"
-      :disabled="!nameValid || !phoneValid"
-      :class="{ 'required-field': !nameValid || !phoneValid }"
-      >Отправить</UI-btn
     >
+      Отправить
+    </UI-btn>
     <div class="privacy">
       <div class="privacy-text">
         Нажимая “Отправить” вы соглашаетесь с
@@ -45,6 +44,26 @@
           политикой конфиденциальности</NuxtLink
         >
       </div>
+    </div>
+  </div>
+
+  <div class="PopUp" v-if="showPopup && submitClicked" @click="closePopup">
+    <!-- Попап с подтверждением -->
+    <div class="Pop ActivePopUp">
+      <img class="PopImg" src="../public/svg/approvePopup.svg" alt="" />
+      <p class="describe">
+        Ваш заказ оформлен, в течение 24 часов с вами свяжется менеджер
+      </p>
+    </div>
+  </div>
+
+  <div class="PopUp" v-else-if="submitClicked" @click="closePopup">
+    <!-- Попап с предупреждением -->
+    <div class="Pop ActivePopUp">
+      <img class="PopImg" src="../public/svg/closepopUp.svg" alt="" />
+      <p class="describe">
+        Пожалуйста, введите валидные данные, чтобы мы могли с вами связаться!
+      </p>
     </div>
   </div>
 </template>
@@ -72,26 +91,7 @@ console.log(formattedTime);
 
 const name = ref("");
 const phone = ref("");
-const sendPostRequest = async () => {
-  try {
-    const response = await axios({
-      method: "post",
-      // url: "https://api-armadion.ru/contact-form/",
-      url: "https://sheet.best/api/sheets/48a0e185-2f27-4b56-960e-eddfd2a3a70b",
-      data: {
-        Date: formattedDate,
-        Time: formattedTime,
-        Name: name.value,
-        "Phone number": phone.value.slice(1),
-        "Status of application": "в обработке",
-      },
-    });
-
-    console.log(response);
-  } catch (error) {
-    console.error(error);
-  }
-};
+const showPopup = ref(false);
 
 const nameValid = ref(false);
 const phoneValid = ref(false);
@@ -106,6 +106,45 @@ const validatePhone = () => {
   const phoneDigitsOnly = phone.value.replace(/\D/g, "");
   const isPhoneValid = phoneDigitsOnly.length >= 11;
   phoneValid.value = isPhoneValid;
+};
+const submitClicked = ref(false); // Переменная состояния для отслеживания нажатия на кнопку "Отправить"
+
+const sendPostRequestAndShowPopup = async () => {
+  if (nameValid.value && phoneValid.value) {
+    await sendPostRequest(); // Выполнить отправку запроса
+    submitClicked.value = true;
+    showPopup.value = true;
+  } else {
+    submitClicked.value = true;
+    showPopup.value = false;
+  }
+};
+
+const sendPostRequest = async () => {
+  if (nameValid.value && phoneValid.value) {
+    try {
+      const response = await axios({
+        method: "post",
+        url: "https://sheet.best/api/sheets/48a0e185-2f27-4b56-960e-eddfd2a3a70b",
+        data: {
+          Date: formattedDate,
+          Time: formattedTime,
+          Name: name.value,
+          "Phone number": phone.value.slice(1),
+          "Status of application": "в обработке",
+        },
+      });
+
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+};
+
+const closePopup = () => {
+  showPopup.value = false;
+  submitClicked.value = false;
 };
 </script>
 
@@ -314,4 +353,59 @@ const validatePhone = () => {
 
 //     }
 // }
+
+// popup
+.PopUp {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.DisabledPopUp {
+  display: none;
+}
+
+.Pop.ActivePopUp {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+  width: 392px;
+  height: 229px;
+  border-radius: 16px;
+  background: #fff;
+
+  .PopImg {
+    padding-top: 15px;
+    display: block;
+    margin: 0 auto;
+  }
+  .describe {
+    color: var(--gray-500, #6b7280);
+    font-family: Sansation;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    padding: 0 5px;
+    line-height: 120%;
+  }
+}
+
+.form-btn-div {
+  display: flex;
+  color: var(--gray-400, #9ca3af);
+}
+
+.arrow {
+  position: relative;
+  top: 3px;
+}
 </style>

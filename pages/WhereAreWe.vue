@@ -320,10 +320,11 @@ selectedStore.value = Object.values(contactsWhere)[0];
     .location-info {
       display: grid;
       grid-template-columns: 1fr 1fr;
-
+      max-height: 660px;
       @media screen and (max-width: 920px) {
         /* grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr; */
+        max-height: 100%;
         display: flex;
         flex-direction: column-reverse;
       }
@@ -334,7 +335,7 @@ selectedStore.value = Object.values(contactsWhere)[0];
           padding: 10px;
         }
         .location-info__block {
-          iframe{
+          iframe {
             width: 100%;
             margin-bottom: 10px;
           }
@@ -388,12 +389,13 @@ selectedStore.value = Object.values(contactsWhere)[0];
       }
     }
     .location-choose_list__r {
-      max-height: 670px;
+      max-height: 660px;
       border: 1px solid rgb(209, 213, 219);
       overflow: auto;
       width: 100%;
       .store__list {
         .store__item {
+          cursor: pointer;
           display: flex;
           flex-direction: column;
           gap: 5px;
