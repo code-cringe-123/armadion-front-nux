@@ -34,7 +34,6 @@
       mb="8px"
       type="feedback"
       class="feedback-btn"
-      :class="{ 'required-field': !nameValid || !phoneValid }"
     >
       Отправить
     </UI-btn>
