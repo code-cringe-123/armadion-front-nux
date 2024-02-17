@@ -1,10 +1,10 @@
 <template>
     <div class="zastr__container">
-        <div class="deliv__wrapper">
-            <!-- <img src="../public/svg/zz.svg" alt="" class="deliv__img"> -->
-            <div class="deliv-text__block">
-                <h2 class="deliv__title">Входные двери из Йошкар-Олы: специальные условия для застройщиков</h2>
-                <p class="deliv__subtitle">
+        <div class="zastr__wrapper">
+            <!-- <img src="../public/svg/zz.svg" alt="" class="zastr__img"> -->
+            <div class="zastr-text__block">
+                <h2 class="zastr__title">Входные двери из Йошкар-Олы: специальные условия для застройщиков</h2>
+                <p class="zastr__subtitle">
                     Компания «Армадион» предлагает оптом двери для застройщиков. Конструкции выпускаются в соответствии с требованиями ГОСТ 31173-2016. Мы изготавливаем входные металлические двери на собственном предприятии, предоставляем большой выбор моделей и гарантии качества.
                 </p>
                 <section class="first__section">
@@ -39,7 +39,12 @@
         </div>
     </div>
 </template>
+<script setup>
+
+</script>
+
 <style>
+
 .zastr__container {
   padding: 160px 0 0;
   @media screen and (max-width: 1024px) {
@@ -48,23 +53,8 @@
     padding-right: 10px;
   }
 }
-</style>
-<script setup>
 
-</script>
-
-<style>
-
-.deliv__container {
-  padding: 160px 0 0;
-  @media screen and (max-width: 1024px) {
-    padding-top: 50px;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-}
-
-.deliv__img {
+.zastr__img {
   display: block;
 
   margin: 0 auto;
@@ -76,7 +66,7 @@
   }
 }
 
-.deliv-text__block {
+.zastr-text__block {
   max-width: 980px;
   margin: 0 auto 100px;
   @media screen and (max-width: 880px) {
@@ -84,7 +74,7 @@
   }
 }
 
-.deliv__title {
+.zastr__title {
   color: var(--gray-700, #374151);
 
   font-family: Sansation;
@@ -103,7 +93,7 @@
   }
 }
 
-.deliv__subtitle {
+.zastr__subtitle {
   margin-bottom: 32px;
   color: var(--gray-500, #6b7280);
   @media screen and (max-width: 880px) {
