@@ -17,13 +17,12 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
-          username: armada
+          username: gregor
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            cd /home/armada/armadion-front-nux 
+            cd /home/gregor/armadion-front-nux 
             export NVM_DIR=~/.nvm
-            source ~/.nvm/nvm.sh
             git pull 
             npm ci 
             npm run build 
