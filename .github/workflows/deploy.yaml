@@ -22,9 +22,9 @@ jobs:
           port: 22
           script: |
             eval $(ssh-agent -s)
-            ssh-add /home/gregor/.ssh/github_deploy
-            cd /home/gregor/armadion-front-nux 
-            sudo git pull 
-            sudo npm ci 
-            sudo npm run build 
+            ssh-add ~/.ssh/github_deploy
+            cd ~/armadion-front-nux 
+            git pull 
+            npm ci 
+            npm run build 
             pm2 restart index
