@@ -22,6 +22,8 @@ jobs:
           port: 22
           script: |
             sudo su
+            eval $(ssh-agent -s)
+            ssh-add /home/gregor/.ssh/github_deploy
             cd /home/gregor/armadion-front-nux 
             sudo git pull 
             sudo npm ci 
