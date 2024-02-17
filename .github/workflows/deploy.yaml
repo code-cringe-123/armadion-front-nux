@@ -23,7 +23,7 @@ jobs:
           script: |
             cd /home/gregor/armadion-front-nux 
             export NVM_DIR=~/.nvm
-            git pull 
-            npm ci 
-            npm run build 
+            sudo git pull 
+            sudo npm ci 
+            sudo npm run build 
             pm2 restart index
