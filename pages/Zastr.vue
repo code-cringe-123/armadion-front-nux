@@ -1,9 +1,9 @@
 <template>
-    <div class="deliv__container">
+    <div class="zastr__container">
         <div class="deliv__wrapper">
             <!-- <img src="../public/svg/zz.svg" alt="" class="deliv__img"> -->
             <div class="deliv-text__block">
-                <h2 class="deliv__title">Входные двери из Йошкар-Олы: специальные условия для застройщиковк</h2>
+                <h2 class="deliv__title">Входные двери из Йошкар-Олы: специальные условия для застройщиков</h2>
                 <p class="deliv__subtitle">
                     Компания «Армадион» предлагает оптом двери для застройщиков. Конструкции выпускаются в соответствии с требованиями ГОСТ 31173-2016. Мы изготавливаем входные металлические двери на собственном предприятии, предоставляем большой выбор моделей и гарантии качества.
                 </p>
@@ -39,7 +39,16 @@
         </div>
     </div>
 </template>
-
+<style>
+.zastr__container {
+  padding: 160px 0 0;
+  @media screen and (max-width: 1024px) {
+    padding-top: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+</style>
 <script setup>
 
 </script>

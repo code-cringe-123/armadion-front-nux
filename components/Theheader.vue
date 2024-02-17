@@ -194,7 +194,7 @@ const menu = [
   },
   {
     name: "Двери оптом",
-    path: "/DoorsWholesale",
+    path: "/Wholesale",
   },
 ];
 

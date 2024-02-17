@@ -24,12 +24,10 @@
                 <NuxtLink to="/Zastr">Застройщикам</NuxtLink>
               </li>
               <li class="footer-catalog-list__list-item color-hover">
-                <NuxtLink to="/WhereAreWe"
-                  >Где купить</NuxtLink
-                >
+                <NuxtLink to="/WhereAreWe">Где купить</NuxtLink>
               </li>
               <li class="footer-catalog-list__list-item color-hover">
-                <NuxtLink to="/DoorsWholesale">Двери оптом</NuxtLink>
+                <NuxtLink to="/Wholesale">Двери оптом</NuxtLink>
               </li>
             </ul>
           </div>
