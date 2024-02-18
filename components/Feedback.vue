@@ -60,7 +60,7 @@
   <div class="PopUp" v-else-if="submitClicked" @click="closePopup">
     <!-- Попап с предупреждением -->
     <div class="Pop ActivePopUp">
-      <img class="PopImg" src="../public/svg/closePopup.svg" alt="" />
+      <img class="PopImg" src="../public/svg/ClosePopup.svg" alt="" />
       <p class="describe">
         Пожалуйста, введите валидные данные, чтобы мы могли с вами связаться!
       </p>
