@@ -12,6 +12,6 @@
 import { ref } from "vue";
 
 const products = ref([]);
-const { data } = await useFetch(`https://api-armadion.ru/doors/popular/`);
+const { data } = await useFetch(`https://api-armadion.ru/doors/popular`);
 products.value = data.value;
 </script>
