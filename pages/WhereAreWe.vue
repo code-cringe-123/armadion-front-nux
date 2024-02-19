@@ -144,40 +144,33 @@ const contactsWhere = {
     link: "https://yandex.ru/map-widget/v1/?um=constructor%3Addaa07970f2d42197fa66ab9b6cf9fafc05b02f7ae60654b3b2decb3a1fc3ee3&amp;source=constructor",
   },
   7: {
-    title: "Мир дверей",
-    address: "г. Котлас, Болтинское шоссе, 8. «Строй-Сити»",
-    "Телефон администратора:": "+7 (911) 598-56-59",
-    "Рабочие часы:": "ПН-ПТ с 9:00-18:00, СБ-ВС с 10:00-18:00",
-    link: "https://yandex.ru/map-widget/v1/?um=constructor%3Af81203d8167c37e8a2d39c2d0ada1ded558f351a7b65c877ab3de73e91b18d6f&amp;source=constructor",
-  },
-  8: {
     title: "Окошко",
     address: "Рязанская область, г. Касимов, ул. Советская, д. 99",
     "Телефон администратора:": "+7 (952) 122-00-17",
     "Рабочие часы:": "ПН-ПТ с 9:00-18:00, СБ-ВС с 9:00-15:00",
     link: "https://yandex.ru/map-widget/v1/?um=constructor%3A4dec9729b5ba366adec3f288fd94cf2cd45fbd9186166312fff767e92db5ca07&amp;source=constructor",
   },
-  9: {
+  8: {
     title: "Салон дверей «АВАНДОР»",
     address: 'г. Казань, пр. Х. Ямашева, д. 93, ТК "САВИНОВО", 2 этаж',
     "Телефон администратора:": "+7 (917) 233-98-88",
     "Рабочие часы:": "ПН-ВС с 10:00-21:00",
     link: "https://yandex.ru/map-widget/v1/?um=constructor%3A756f9a9ef46b78560492a0190329fb2da13d4aa5e6aaa735eac140ab83f49a48&amp;source=constructor",
   },
-  10: {
+  9: {
     title: "Салон дверей «Армада»",
     address: "г. Балашиха, ул. Советская 35, офис 402",
     "Телефон администратора:": "+7 (495) 135-13-74",
     link: "https://yandex.ru/map-widget/v1/?um=constructor%3A14d1cc417e4427eeab6eefcfd12cfdb59a667183f5e78d21959057ad28600d16&amp;source=constructor",
   },
-  11: {
+  10: {
     title: "Салон дверей «Армада»",
     address:
       "г. Москва, Северо-Восточный административно-территориальный округ, ул. Шереметьевская, д.85, стр.1, этаж 5, пом.1, комн. № 2а",
     "Телефон администратора:": "+7 (495) 928-07-38",
     link: "https://yandex.ru/map-widget/v1/?um=constructor%3A4e59224313f83eb7887ed966a72dee43e8fc8f37b69775cbb9d485e12963a3be&amp;source=constructor",
   },
-  12: {
+  11: {
     title: "Салон дверей «Армада»",
     address:
       "г. Москва, Волгоградский проспект, 32 к. 25, ТЦ «Метр Квадратный», 1 этаж, павильон 172",
@@ -185,7 +178,7 @@ const contactsWhere = {
     "Рабочие часы:": "ПН-ВС с 9:00-20:00",
     link: "https://yandex.ru/map-widget/v1/?um=constructor%3Aca0e19e2cf0d2023d5028ca51ae50946910391ae2ff361fa028a1bd302a0d7b4&amp;source=constructor",
   },
-  13: {
+  12: {
     title: "Салон дверей «Армада»",
     address:
       "г. Реутов, Улица имени Академика В.Н. Челомея, 12, ТЦ «Аладин», 1 этаж",
@@ -193,7 +186,7 @@ const contactsWhere = {
     "Рабочие часы:": "ПН-ВС с 9:00-20:00",
     link: "https://yandex.ru/map-widget/v1/?um=constructor%3A6a942e05c7d2a1391edd2e42596d9c8b8357188ba1438cd5ededb05d4f69becc&amp;source=constructor",
   },
-  14: {
+  13: {
     title: "Салон дверей «Армада»",
     address:
       "г. Москва, Симферопольский бульвар, 11, ТЦ «Москворецкий рынок», 1 этаж, А 2060",
@@ -201,7 +194,7 @@ const contactsWhere = {
     "Рабочие часы:": "ПН-ВС с 9:00-20:00",
     link: "https://yandex.ru/map-widget/v1/?um=constructor%3A4cbc2a5c665f7efcf202cd8b0bdc42598bc04598e61fcb1edd75748637718e77&amp;source=constructor",
   },
-  15: {
+  14: {
     title: "Салон дверей «Армада»",
     address:
       "г. Реутов, Северный проезд, 1, Строительный рынок «Владимирский тракт», линия 1, П-2, 2 этаж, павильон 16",
@@ -209,7 +202,7 @@ const contactsWhere = {
     "Рабочие часы:": "ПН-ВС с 9:00-20:00",
     link: "https://yandex.ru/map-widget/v1/?um=constructor%3A72dc26b7ed8681e90b1719fcc2b9beb5d9c0db3aab53378cdd5a2cb7d50a01d1&amp;source=constructor",
   },
-  16: {
+  15: {
     title: "Салон дверей «Армада»",
     address:
       "г. Раменское, Донинское шоссе, 20, Строительный рынок «Радуга», эт. 2, пав. Б-5",
@@ -217,7 +210,7 @@ const contactsWhere = {
     "Рабочие часы:": "ПН-ВС с 9:00-20:00",
     link: "https://yandex.ru/map-widget/v1/?um=constructor%3Abf5979e1cc38a2849e00fa7f79c4e84a414974f8626f14e1df547abddd627fa9&amp;source=constructor",
   },
-  17: {
+  16: {
     title: "Салон дверей «Армада»",
     address:
       "г. Люберцы, Инициативная улица, 8, Строительный рынок «Эстакада», ряд 2, пав. В-21",
@@ -225,7 +218,7 @@ const contactsWhere = {
     "Рабочие часы:": "ПН-ВС с 9:00-20:00",
     link: "https://yandex.ru/map-widget/v1/?um=constructor%3Ace96221bcd38d19d689a1ba3b3625d7da639b82ea02fbf88404e219415f104a2&amp;source=constructor",
   },
-  18: {
+  17: {
     title: "Салон дверей «Армада»",
     address:
       "г. Красногорск, М-9 Балтия, 21-й километр, с1, Строительный двор «Петровский», магазин Б-52",
@@ -233,14 +226,14 @@ const contactsWhere = {
     "Рабочие часы:": "ПН-ВС с 9:00-20:00",
     link: "https://yandex.ru/map-widget/v1/?um=constructor%3Af96dbbb19886fb27cadcb80f95abc67f5c53f50f559fb705fb0b0153dd377e87&amp;source=constructor",
   },
-  19: {
+  18: {
     title: "Салон дверей «Армада»",
     address: "г. Москва, Осташковское шоссе, 1б, Строй двор «Яуза», ТСК 2-23",
     "Телефон администратора:": "+7 (919) 773-32-35",
     "Рабочие часы:": "ПН-ВС с 9:00-20:00",
     link: "https://yandex.ru/map-widget/v1/?um=constructor%3A2a2e99c3d83d45d0dc9c8ef2eb872fff1b947bd5fbdc4d815d58dfb687491907&amp;source=constructor",
   },
-  20: {
+  19: {
     title: "Салон дверей «Армада»",
     address: "г. Москва, ул. Салтыковская, д.26, стр.2",
     "Телефон администратора:": "+7 (495) 125-42-05",
