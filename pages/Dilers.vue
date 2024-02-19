@@ -89,6 +89,7 @@ export default {
   },
 };
 </script>
+
 <style>
 .dilers-info {
   padding-top: 160px;

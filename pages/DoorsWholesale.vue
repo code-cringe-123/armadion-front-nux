@@ -54,7 +54,7 @@
 <script setup>
 
 </script>
-<style>
+
 <style>
 .deliv__container {
   padding: 160px 0 0;
