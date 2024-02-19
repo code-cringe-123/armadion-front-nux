@@ -88,6 +88,7 @@
   </div>
 </template>
 
+
 <script setup>
 // const contactsWhere = {
 //   "Телефон администратора:": "+7 (8362) 64-24-88",

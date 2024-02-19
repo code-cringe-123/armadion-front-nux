@@ -76,7 +76,9 @@
     </div>
   </section>
 </template>
+
 <script></script>
+
 <style>
 .wholesale {
   width: 100%;

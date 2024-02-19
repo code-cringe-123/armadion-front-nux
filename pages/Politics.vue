@@ -17,6 +17,7 @@
   </div>
 </template>
 
+
 <script setup>
 const info__list = {
   "Предоставление информации Клиентом":

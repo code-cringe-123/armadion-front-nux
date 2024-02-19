@@ -1,0 +1,17 @@
+{
+    "name": "Armadion",
+    "description": "Armada",
+    "start_url": "/",
+    "lang": "ru",
+    "display": "standalone",
+    "icons": [{
+            "src": "icons/android-chrome-192x192.png"
+        },
+        {
+            "src": "icons/android-chrome-512x512.png"
+        },
+        {
+            "src": "icons/favicon-32x32.png"
+        }
+    ]
+}
