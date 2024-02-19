@@ -7,6 +7,7 @@
     <Form id="form-scroll" />
   </div>
 </template>
+<link rel="manifest" href="{% static "/manifest.json" %}">
 <script src="/static/build/app.js"></script>
 
    <script>
