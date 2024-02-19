@@ -1,4 +1,5 @@
 <template>
+  <link rel="manifest" href="{% static "/manifest.json" %}">
   <div>
     <Hero />
     <Catalog-landing :products="products" />
@@ -7,11 +8,16 @@
     <Form id="form-scroll" />
   </div>
 </template>
-<link rel="manifest" href="{% static "/manifest.json" %}">
-<script src="/static/build/app.js"></script>
+<script src="../static/build/app.js"></script>
 
-   <script>
-       if ('serviceWorker' in navigator) {
+<script setup>
+import { ref } from "vue";
+
+const products = ref([]);
+const { data } = await useFetch(`https://api-armadion.ru/doors/popular`);
+products.value = data.value;
+
+if ('serviceWorker' in navigator) {
            window.addEventListener('load', function() {
                navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
                    // Registration was successful
@@ -26,12 +32,4 @@
          } else {
            console.log('service worker is not supported');
          }
-   </script>
-
-<script setup>
-import { ref } from "vue";
-
-const products = ref([]);
-const { data } = await useFetch(`https://api-armadion.ru/doors/popular`);
-products.value = data.value;
 </script>
