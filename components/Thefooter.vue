@@ -39,13 +39,6 @@
               <li
                 class="footer-catalog-list__list-item color-hover footer-otstup-str"
               >
-                <NuxtLink to="https://armadion.ru/about_us/"
-                  >Завод Армада</NuxtLink
-                >
-              </li>
-              <li
-                class="footer-catalog-list__list-item color-hover footer-otstup-str"
-              >
                 <NuxtLink to="/Deliv">Доставка и оплата</NuxtLink>
               </li>
               <li class="footer-catalog-list__list-item color-hover">
