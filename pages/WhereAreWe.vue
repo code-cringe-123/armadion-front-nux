@@ -5,9 +5,18 @@
         <h2 class="location__title">Наши магазины</h2>
         <a :href="selectedStore.yalink" target="_blank" class="location__link">
           Смотреть на карте
-          <span class="map__i"
-            ><img src="../public/svg/map_icon.svg" alt=""
-          /></span>
+          <span class="map__i">
+            <svg
+              style="height: 1.2rem"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 384 512"
+            >
+              <path
+                fill="#9ca3af"
+                d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"
+              />
+            </svg>
+          </span>
         </a>
       </div>
 
@@ -340,7 +349,10 @@ selectedStore.value = Object.values(contactsWhere)[0];
         line-height: 140%;
         transition: background 0.3s ease;
         .map__i {
-          padding-left: 13px;
+          padding-left: 4px;
+          svg {
+            padding-top: 2px;
+          }
         }
         @media screen and (max-width: 920px) {
           margin-top: 10px;
@@ -350,6 +362,9 @@ selectedStore.value = Object.values(contactsWhere)[0];
     .location__link:hover {
       background: #0ea5e9;
       color: #fff;
+      .map__i svg path {
+        fill: #fff;
+      }
     }
     .location-info {
       display: grid;
