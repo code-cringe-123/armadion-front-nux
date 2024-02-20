@@ -298,6 +298,7 @@ for (let i = 0; i < data.value.feature_categories.length; i++) {
 }
 .size {
   display: block;
+  text-align: right;
   color: #6b7280;
 }
 

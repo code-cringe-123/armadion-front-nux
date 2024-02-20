@@ -305,9 +305,10 @@ selectedStore.value = Object.values(contactsWhere)[0];
     }
 
     .location-info {
+
       display: grid;
       grid-template-columns: 1fr 1fr;
-      max-height: 660px;
+      max-height: 670px;
       @media screen and (max-width: 920px) {
         /* grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr; */
@@ -316,6 +317,7 @@ selectedStore.value = Object.values(contactsWhere)[0];
         flex-direction: column-reverse;
       }
       .location-info_div__l {
+        
         padding: 10px 10px 10px 15px;
         border: 1px solid rgb(209, 213, 219);
         @media screen and (max-width: 920px) {
@@ -376,7 +378,8 @@ selectedStore.value = Object.values(contactsWhere)[0];
       }
     }
     .location-choose_list__r {
-      max-height: 660px;
+      min-height: 680px;
+      max-height: 680px;
       border: 1px solid rgb(209, 213, 219);
       overflow: auto;
       width: 100%;
