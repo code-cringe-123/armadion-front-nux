@@ -103,7 +103,7 @@
             class="catalog-mobile-price-container-buttom"
             style="
               min-height: 100%;
-              max-height: 480px;
+              max-height: 350px;
               overflow-y: auto;
               display: flex;
               flex-direction: column;
@@ -112,15 +112,15 @@
             <div class="sizes-BTN-mobile-wrapper">
               <div
                 v-for="(mobKey, mobValue) in unique_values"
-                :key="mobIndex"
+              
                 class="catalog-menu-mobile-item"
               >
-                <div v-for="(mobKey_key, mobValue_value) in mobKey">
+                <div class="menu-mobile-content-item" v-for="(mobKey_key, mobValue_value) in mobKey">
                   <h4 class="catalog-mobile-price-title">
                     {{ mobValue_value }}
                   </h4>
 
-                  <div style="display: flex; flex-wrap: wrap; gap: 5px">
+                  <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 20px">
                     <div
                       v-for="(
                         mobKey_key_key, mobValue_value_value
@@ -200,7 +200,7 @@
 
       <div class="dimension-settings">
         <div
-          style="display: flex; flex-direction: column"
+          style="display: flex; flex-direction: column;"
           class="dimension-item"
           v-for="(key, value) in unique_values"
           :key="size"
@@ -286,7 +286,7 @@ if (filters && filters.length) {
       filters[i].name !== "Цена" &&
       filters[i].name !== "Дверное полотно" &&
       filters[i].name !== "Дверная коробка" &&
-      filters[i].name !== "Характеристики"
+      filters[i].name !== "Характеристики" 
     ) {
       if (!unique_values[filters[i].name]) {
         unique_values[filters[i].name] = {};
@@ -300,7 +300,7 @@ if (filters && filters.length) {
             filters[i].features[j].name !== "Броненакладка" &&
             filters[i].features[j].name !== "Материал внешней отделки" &&
             filters[i].features[j].name !== "Ручка" &&
-            filters[i].features[j].name !== "Накладки"
+            filters[i].features[j].name !== "Накладки" 
           ) {
             const feature = filters[i].features[j];
             if (!inner_values.has(feature.value)) {
@@ -482,6 +482,7 @@ const emitFilterRequest2 = () => {
   color: #9ca3af;
 }
 
+
 .sizes-BTN-mobile-wrapper {
   // display: grid;
   // grid-template-rows: repeat(3, 1fr);
@@ -490,9 +491,7 @@ const emitFilterRequest2 = () => {
 .catalog-menu-mobile-item {
   width: 100%;
 }
-.catalog-menu-mobile-item:nth-child(3) {
-  height: 74px;
-}
+
 
 .catalog-mobile-price-container-up {
   margin-bottom: 20px;
@@ -527,7 +526,9 @@ const emitFilterRequest2 = () => {
   width: 100vw;
   height: 98px;
 }
-
+.menu-mobile-content-item{
+  margin-bottom: 50px;
+}
 .catalog-mobile-price-title {
   color: #374151;
   font-family: Sansation;
@@ -811,7 +812,7 @@ const emitFilterRequest2 = () => {
 
 .dimension-item,
 .interior-item {
-  margin-bottom: 12px;
+  margin-bottom: 40px;
   font-family: Sansation;
   font-size: 14px;
   font-weight: 400;

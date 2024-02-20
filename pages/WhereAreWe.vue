@@ -379,7 +379,7 @@ selectedStore.value = Object.values(contactsWhere)[0];
         flex-direction: column-reverse;
       }
       .location-info_div__l {
-        
+        max-height: 670px;
         padding: 10px 10px 10px 15px;
         border: 1px solid rgb(209, 213, 219);
         @media screen and (max-width: 920px) {
@@ -440,8 +440,8 @@ selectedStore.value = Object.values(contactsWhere)[0];
       }
     }
     .location-choose_list__r {
-      min-height: 680px;
-      max-height: 680px;
+      min-height: 670px;
+      max-height: 670px;
       border: 1px solid rgb(209, 213, 219);
       overflow: auto;
       width: 100%;
