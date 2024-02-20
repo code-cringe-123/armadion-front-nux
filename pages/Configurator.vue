@@ -20,10 +20,11 @@
   justify-content: center;
   margin-bottom: -105px;
   width: 100vw;
-  height: 100vh;
+  height: 832px;
   // overflow-x: hidden;
   // overflow-y: hidden;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 830px) {
+    height: 100vh;
     // transform: rotate(90deg);
     // margin-bottom: 0;
     margin-top: 30px;
