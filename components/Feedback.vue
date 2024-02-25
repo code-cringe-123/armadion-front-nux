@@ -119,13 +119,12 @@ const sendPostRequestAndShowPopup = async () => {
     showPopup.value = false;
   }
 };
-
 const sendPostRequest = async () => {
   if (nameValid.value && phoneValid.value) {
     try {
       const response = await axios({
         method: "post",
-        url: "https://sheet.best/api/sheets/48a0e185-2f27-4b56-960e-eddfd2a3a70b",
+        url: "https://sheet.best/api/sheets/5d11b116-bdab-418c-9148-e819bdf66884",
         data: {
           Date: formattedDate,
           Time: formattedTime,
