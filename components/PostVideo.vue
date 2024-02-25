@@ -40,7 +40,7 @@ const props = defineProps(["postvideo"]);
 
 .postVideo-img {
   width: 100%;
-  height: 284px;
+  height: 100%;
   margin-bottom: 24px;
 
   @media screen and (max-width: 525px) {
