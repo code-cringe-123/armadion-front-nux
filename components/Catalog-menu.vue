@@ -467,7 +467,12 @@ const emitFilterRequest2 = () => {
 
 .size-btn-active {
   border: none;
+  display: flex;
+  padding: 4px 8px;
   border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   background: rgba(rgb(56, 189, 248), 0.7);
   transition: background-color 0.3s;
   .size-btn-slot {
