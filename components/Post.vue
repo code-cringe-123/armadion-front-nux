@@ -1,6 +1,6 @@
 <template>
   <div class="post-wrapper">
-    <img class="post-img" :src="post.img" alt="Post image" />
+    <img class="post-img" :src="post.img" alt="Post Image" />
     <div class="post-body">
       <span class="post-title" href="#">{{ post.title }}</span>
       <span class="post-text">{{ post.text }}</span>
@@ -26,7 +26,7 @@ const props = defineProps(["post"]);
     overflow-x: hidden;
   }
 
-  @media screen and (max-width: 425px) {
+  @media screen and (max-width: 525px) {
     width: 355px;
     height: 532px;
     overflow-x: hidden;
