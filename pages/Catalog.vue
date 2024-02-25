@@ -12,7 +12,8 @@
 <script setup>
 import { ref } from "vue";
 const filterQuery = ref({});
-let uniqueValues = {};
+// let uniqueValues = {};
+let uniqueValues = {}; // для отслеживания всех фильтров
 
 async function onFilterUpdate(key, value) {
   // Добавляем значение в массив uniqueValues, если его еще нет там
