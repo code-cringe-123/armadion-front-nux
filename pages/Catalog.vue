@@ -12,26 +12,54 @@
 <script setup>
 import { ref } from "vue";
 const filterQuery = ref({});
+let uniqueValues = {};
 
-async function onFilterUpdate(key_key, value_value_value) {
-  console.log(filterQuery);
-  // Проверяем, существует ли уже ключ в filterQuery.value
-  if (filterQuery.value.hasOwnProperty(key_key)) {
-    // Если ключ существует, удаляем его
-    delete filterQuery.value[key_key];
-  } else {
-    // Если ключ не существует, добавляем его
-    filterQuery.value[key_key] = value_value_value;
+async function onFilterUpdate(key, value) {
+  // Добавляем значение в массив uniqueValues, если его еще нет там
+  if (!uniqueValues[key]) {
+    uniqueValues[key] = [];
   }
-  //  refresh();
+
+  if (key === "min_price" || key === "max_price") {
+    value = parseInt(value); // Преобразуем значение в число
+    if (value >= 9000) {
+      // Удаляем старое значение из массива, если оно существует
+      uniqueValues[key] = uniqueValues[key].filter((item) => item >= 9000);
+      // Добавляем новое значение в массив
+      if (!uniqueValues[key].includes(value)) {
+        uniqueValues[key] = [value];
+      }
+      // Обновляем filterQuery.value[key]
+      filterQuery.value[key] = uniqueValues[key].join(",");
+    } else {
+      // Удаляем значения меньше 9000 из массива и обновляем filterQuery.value[key]
+      uniqueValues[key] = uniqueValues[key].filter((item) => item >= 9000);
+      // Если массив стал пустым, удаляем ключ из filterQuery.value
+      if (uniqueValues[key].length === 0) {
+        delete filterQuery.value[key];
+      } else {
+        filterQuery.value[key] = uniqueValues[key].join(",");
+      }
+    }
+  } else {
+    if (!uniqueValues[key].includes(value)) {
+      uniqueValues[key].push(value);
+      filterQuery.value[key] = uniqueValues[key].join(",");
+    } else {
+      uniqueValues[key] = uniqueValues[key].filter((item) => item !== value);
+      filterQuery.value[key] = uniqueValues[key].join(",");
+    }
+  }
+
+  // Удаляем ключ из filterQuery.value, если его значение пусто
+  if (filterQuery.value[key].length === 0) {
+    delete filterQuery.value[key];
+  }
 }
 
 let { data, refresh } = await useFetch(`https://api-armadion.ru/doors/filter`, {
   query: filterQuery.value,
 });
-// let { data } = await useFetch(
-//   `https://api-armadion.ru/doors/filter?min_price=20650.0`
-// );
 </script>
 
 <style lang="scss">

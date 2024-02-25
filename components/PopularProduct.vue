@@ -24,7 +24,7 @@
 </template>
 
 <script setup>
-const props = defineProps(['product']);
+const props = defineProps(["product"]);
 </script>
 
 <style lang="scss">

@@ -367,7 +367,6 @@ selectedStore.value = Object.values(contactsWhere)[0];
       }
     }
     .location-info {
-
       display: grid;
       grid-template-columns: 1fr 1fr;
       max-height: 670px;
