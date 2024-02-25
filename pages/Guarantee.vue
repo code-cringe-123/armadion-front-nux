@@ -104,7 +104,6 @@
   </div>
 </template>
 
-
 <style>
 .table-products_g {
   width: 100%;

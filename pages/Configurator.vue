@@ -10,8 +10,6 @@
   </div>
 </template>
 
-
-
 <style lang="scss">
 .configurator__wrapper {
   margin-top: 90px;

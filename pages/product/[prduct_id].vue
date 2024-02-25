@@ -66,19 +66,21 @@
           <div class="product-page-body-block-wrapper">
             <div class="product-page-body-title">Гарантия</div>
             <div class="product-page-body-text">
-              <div class="product-page-subtitle">
-                Гарантийный срок на дверной блок:
-              </div>
-              <ul>
-                <!-- v-for="(item, index) in product &&
-                                    product.Guarantee"
-                                    :key="index" -->
-                <li class="product-page-li">
-                  <div class="product-page-li-dot">•</div>
-                  {{ data && data.safeguards }}
-                </li>
-              </ul>
-            </div>
+    <div class="product-page-subtitle">
+        Гарантийный срок на дверной блок:
+    </div>
+    <ul>
+        <!-- v-for="(item, index) in product &&
+                            product.Guarantee"
+                            :key="index" -->
+        <li class="product-page-li" v-for="(item, index) in data.safeguards.split(/[:;]/).slice(1)" :key="index">
+            <div class="product-page-li-dot">•</div>
+            <span v-if="item.trim().startsWith('на')">{{ item.trim() }}</span>
+        </li>
+    </ul>
+</div>
+
+
           </div>
         </div>
       </div>

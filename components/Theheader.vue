@@ -54,7 +54,12 @@
                 </div>
               </div> -->
             </div>
-            <NuxtLink @click="closeSlide" class="menu-mobile__link" to="/Catalog">Каталог</NuxtLink>
+            <NuxtLink
+              @click="closeSlide"
+              class="menu-mobile__link"
+              to="/Catalog"
+              >Каталог</NuxtLink
+            >
             <NuxtLink
               @click="closeSlide"
               class="menu-mobile__link"
