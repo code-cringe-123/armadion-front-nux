@@ -103,7 +103,7 @@
             class="catalog-mobile-price-container-buttom"
             style="
               min-height: 100%;
-              max-height: 350px;
+              max-height: 75vh;
               overflow-y: auto;
               display: flex;
               flex-direction: column;
@@ -290,6 +290,9 @@ const unique_values = {};
 
 if (filters && filters.length) {
   for (let i = 0; i < filters.length; i++) {
+    if (doors.length == 0) {
+      console.log("по такому запросу нет дверей");
+    }
     if (
       filters[i].name !== "Цена" &&
       filters[i].name !== "Дверное полотно" &&
