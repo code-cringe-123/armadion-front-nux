@@ -85,9 +85,9 @@
             <input
               ref="priceBoxMobile1"
               class="price-box-1 price-box"
-              placeholder="От 900₽"
+              placeholder="От 9000"
               v-maska
-              data-maska="От #####₽"
+              data-maska="От #####"
               @keyup="emitFilterRequestMobile1"
             />
             <input
@@ -95,7 +95,7 @@
               class="price-box-2 price-box"
               placeholder="До"
               v-maska
-              data-maska="До #####₽"
+              data-maska="До #####"
               @keyup="emitFilterRequestMobile2"
             />
           </div>
@@ -185,9 +185,9 @@
           <input
             ref="priceBox1"
             class="price-box-1 price-box"
-            placeholder="От 900₽"
+            placeholder="От 9000"
             v-maska
-            data-maska="От #####₽"
+            data-maska="От #####"
             @keyup="emitFilterRequest1"
           />
 
@@ -196,7 +196,7 @@
             class="price-box-2 price-box"
             placeholder="До"
             v-maska
-            data-maska="До #####₽"
+            data-maska="До #####"
             @keyup="emitFilterRequest2"
           />
         </div>
@@ -336,36 +336,24 @@ if (filters && filters.length) {
 
 const emitFilterRequestMobile1 = () => {
   let value = priceBoxMobile1.value.value;
-  if (!value.includes("₽")) {
-    priceBoxMobile1.value.value = value + "₽";
-  }
   const numericValue = value.slice(3, 8);
   emit("filterRequest", "min_price", numericValue);
 };
 
 const emitFilterRequestMobile2 = () => {
   let value = priceBoxMobile2.value.value;
-  if (!value.includes("₽")) {
-    priceBoxMobile2.value.value = value + "₽";
-  }
   const numericValue = value.slice(3, 8);
   emit("filterRequest", "max_price", numericValue);
 };
 
 const emitFilterRequest1 = () => {
   let value = priceBox1.value.value;
-  if (!value.includes("₽")) {
-    priceBox1.value.value = value + "₽";
-  }
   const numericValue = value.slice(3, 8);
   emit("filterRequest", "min_price", numericValue);
 };
 
 const emitFilterRequest2 = () => {
   let value = priceBox2.value.value;
-  if (!value.includes("₽")) {
-    priceBox2.value.value = value + "₽";
-  }
   const numericValue = value.slice(3, 8);
   emit("filterRequest", "max_price", numericValue);
 };
