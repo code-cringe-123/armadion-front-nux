@@ -103,7 +103,7 @@
             class="catalog-mobile-price-container-buttom"
             style="
               min-height: 100%;
-              max-height: 75vh;
+              max-height: 72vh;
               overflow-y: auto;
               display: flex;
               flex-direction: column;
