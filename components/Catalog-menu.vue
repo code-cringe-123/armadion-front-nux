@@ -288,11 +288,12 @@ const closeSlideFilters = () => {
 const inner_values = new Set();
 const unique_values = {};
 
+// if (doors.length == 0) {
+//       console.log("по такому запросу нет дверей");
+// }
+
 if (filters && filters.length) {
   for (let i = 0; i < filters.length; i++) {
-    if (doors.length == 0) {
-      console.log("по такому запросу нет дверей");
-    }
     if (
       filters[i].name !== "Цена" &&
       filters[i].name !== "Дверное полотно" &&
