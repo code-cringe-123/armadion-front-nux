@@ -21,9 +21,10 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            cd ~/armadion-front-nux &&
-            git pull &&
-            source ~/.bashrc
-            npm ci &&
-            npm run build &&
+            cd ~/armadion-front-nux 
+            git pull 
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh 
+            npm ci 
+            npm run build 
             pm2 restart index
